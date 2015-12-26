@@ -1,6 +1,6 @@
 <?php
 namespace Dfe\Currency\Framework\Pricing;
-use Dfe\Currencty\Settings\Format as Settings;
+use Dfe\Currency\Settings\Format as Settings;
 use Magento\Framework\Pricing\PriceCurrencyInterface;
 class PriceCurrencyInterfacePlugin {
 	/**

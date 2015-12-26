@@ -1,6 +1,6 @@
 <?php
 namespace Dfe\Currency\Framework\Pricing\Render;
-use Dfe\Currencty\Settings\Format as Settings;
+use Dfe\Currency\Settings\Format as Settings;
 use Magento\Framework\Pricing\Render\Amount;
 class AmountPlugin {
 	/**

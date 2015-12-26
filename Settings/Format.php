@@ -1,5 +1,5 @@
 <?php
-namespace Dfe\Currencty\Settings;
+namespace Dfe\Currency\Settings;
 use Magento\Framework\App\ScopeInterface;
 class Format extends \Df\Core\Settings {
 	/**
