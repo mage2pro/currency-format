@@ -1,0 +1,34 @@
+<?xml version='1.0'?>
+<config
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd"
+>
+	<!--
+		2015-12-26
+		Цель плагина — предоставить администратору возможность
+		задавать количество отображаемых десятичных знаков для денежных величин:
+		«Mage2.PRO» → «Currency» → «Format» → «Number of Decimals».
+		Помимо этого плагина для решения поставленной задачи также нужен плагин
+		@see \Dfe\Currency\Framework\Pricing\Render\AmountPlugin::beforeFormatCurrency()
+	-->
+	<type name='Magento\Framework\Pricing\PriceCurrencyInterface'>
+		<plugin
+			name='Dfe\Currency\Framework\Pricing\PriceCurrencyInterfacePlugin'
+			type='Dfe\Currency\Framework\Pricing\PriceCurrencyInterfacePlugin'
+		/>
+	</type>
+	<!--
+		2015-12-26
+		Цель плагина — предоставить администратору возможность
+		задавать количество отображаемых десятичных знаков для денежных величин:
+		«Mage2.PRO» → «Currency» → «Format» → «Number of Decimals».
+		Помимо этого плагина для решения поставленной задачи также нужен плагин
+		@see \Dfe\Currency\Framework\Pricing\PriceCurrencyInterfacePlugin::beforeFormat()
+	-->
+	<type name='Magento\Framework\Pricing\Render\Amount'>
+		<plugin
+			name='Dfe\Currency\Framework\Pricing\Render\AmountPlugin'
+			type='Dfe\Currency\Framework\Pricing\Render\AmountPlugin'
+		/>
+	</type>
+</config>

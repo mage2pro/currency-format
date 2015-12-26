@@ -4,10 +4,10 @@
     xsi:noNamespaceSchemaLocation='urn:magento:module:Magento_Store:etc/config.xsd'
 >
     <default>
-        <dfe_price>
-            <general>
-                <test></test>
-            </general>
-        </dfe_price>
+        <dfe_currency>
+            <format>
+                <numberOfDecimals>2</numberOfDecimals>
+            </format>
+        </dfe_currency>
     </default>
 </config>

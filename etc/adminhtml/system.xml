@@ -8,7 +8,7 @@
 			<label>Mage2.PRO</label>
 		</tab>
 		<section
-			id='dfe_price'
+			id='dfe_currency'
 			translate='label'
 			type='text'
 			showInDefault='1'
@@ -16,13 +16,13 @@
 			showInStore='1'
 		>
 			<tab>_df</tab>
-			<label>Price</label>
+			<label>Currency</label>
 			<class>separator-top</class>
 			<!--
 				2015-11-13
 				https://mage2.pro/t/355
 			-->
-			<resource>Dfe_Price::config</resource>
+			<resource>Dfe_Currency::config</resource>
 			<group
 				id='format'
 				translate='label'
@@ -34,17 +34,37 @@
 			>
 				<label>Format</label>
 				<field
-					id='font'
-					type='Df\Framework\Data\Form\Element\Font'
+					id='enable'
 					translate='label'
+					type='select'
 					sortOrder='1'
 					showInDefault='1'
 					showInWebsite='1'
 					showInStore='1'
 				>
-					<label>Font</label>
-					<comment><![CDATA[A font for the Title.]]></comment>
-					<backend_model>Df\Config\Backend\Serialized</backend_model>
+					<label>Enable?</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+					<comment><![CDATA[]]></comment>
+				</field>
+				<field
+					id='numberOfDecimals'
+					translate='label'
+					type='text'
+					sortOrder='2'
+					showInDefault='1'
+					showInWebsite='1'
+					showInStore='1'
+				>
+					<label>Number of Decimals</label>
+					<comment><![CDATA[Number of digits in an amount fractional part to show.]]></comment>
+					<!--
+						2015-12-26
+						Оба условия важны:
+						https://github.com/magento/magento2/blob/2.0.0/lib/web/mage/validation.js#L644-L649
+						https://github.com/magento/magento2/blob/2.0.0/lib/web/mage/validation.js#L613-L623
+					-->
+					<validate>validate-number validate-zero-or-greater</validate>
+					<depends><field id='enable'>1</field></depends>
 				</field>
 			</group>
 		</section>
