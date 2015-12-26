@@ -1,0 +1,52 @@
+<?xml version='1.0'?>
+<config
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd"
+>
+	<system>
+		<tab id='_df' translate='label' sortOrder='-100'>
+			<label>Mage2.PRO</label>
+		</tab>
+		<section
+			id='dfe_price'
+			translate='label'
+			type='text'
+			showInDefault='1'
+			showInWebsite='1'
+			showInStore='1'
+		>
+			<tab>_df</tab>
+			<label>Price</label>
+			<class>separator-top</class>
+			<!--
+				2015-11-13
+				https://mage2.pro/t/355
+			-->
+			<resource>Dfe_Price::config</resource>
+			<group
+				id='format'
+				translate='label'
+				type='text'
+				sortOrder='1'
+				showInDefault='1'
+				showInWebsite='1'
+				showInStore='1'
+			>
+				<label>Format</label>
+				<field
+					id='font'
+					type='Df\Framework\Data\Form\Element\Font'
+					translate='label'
+					sortOrder='1'
+					showInDefault='1'
+					showInWebsite='1'
+					showInStore='1'
+				>
+					<label>Font</label>
+					<comment><![CDATA[A font for the Title.]]></comment>
+					<backend_model>Df\Config\Backend\Serialized</backend_model>
+				</field>
+			</group>
+		</section>
+	</system>
+</config>
