@@ -9,7 +9,8 @@ class PriceCurrencyInterfacePlugin {
 	 * задавать количество отображаемых десятичных знаков для денежных величин:
 	 * «Mage2.PRO» → «Currency» → «Format» → «Number of Decimals».
 	 *
-	 * Помимо этого плагина для решения поставленной задачи также нужен плагин
+	 * Помимо этого плагина для решения поставленной задачи нам нужны также плагины:
+	 * @see \Dfe\Currency\Framework\Locale\FormatPlugin::afterGetPriceFormat()
 	 * @see \Dfe\Currency\Framework\Pricing\Render\AmountPlugin::beforeFormatCurrency()
 	 *
 	 * @see \Magento\Framework\Pricing\PriceCurrencyInterface::format()
@@ -34,7 +35,7 @@ class PriceCurrencyInterfacePlugin {
 		, $scope = null
 		, $currency = null
 	) {
-		if (is_null($precision)) {
+		if (is_null($precision) && Settings::s()->enable($scope)) {
 			$precision = Settings::s()->numberOfDecimals($scope);
 		}
 		return [$amount, $includeContainer, $precision, $scope, $currency];

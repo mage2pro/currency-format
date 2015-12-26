@@ -9,7 +9,8 @@ class AmountPlugin {
 	 * задавать количество отображаемых десятичных знаков для денежных величин:
 	 * «Mage2.PRO» → «Currency» → «Format» → «Number of Decimals».
 	 *
-	 * Помимо этого плагина для решения поставленной задачи также нужен плагин
+	 * Помимо этого плагина для решения поставленной задачи нам нужны также плагины:
+	 * @see \Dfe\Currency\Framework\Locale\FormatPlugin::afterGetPriceFormat()
 	 * @see \Dfe\Currency\Framework\Pricing\PriceCurrencyInterfacePlugin::beforeFormat()
 	 *
 	 * @see \Magento\Framework\Pricing\Render\Amount::formatCurrency()
@@ -46,7 +47,7 @@ class AmountPlugin {
 	public function beforeFormatCurrency(
 		Amount $subject, $amount, $includeContainer = true, $precision = null
 	) {
-		if (is_null($precision)) {
+		if (is_null($precision) && Settings::s()->enable()) {
 			$precision = Settings::s()->numberOfDecimals();
 		}
 		return [$amount, $includeContainer, $precision];

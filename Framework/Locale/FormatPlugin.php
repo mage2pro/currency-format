@@ -1,0 +1,32 @@
+<?php
+namespace Dfe\Currency\Framework\Locale;
+use Dfe\Currency\Settings\Format as Settings;
+use Magento\Framework\Locale\Format;
+class FormatPlugin {
+	/**
+	 * 2015-12-26
+	 * Цель плагина — предоставить администратору возможность
+	 * задавать количество отображаемых десятичных знаков для денежных величин:
+	 * «Mage2.PRO» → «Currency» → «Format» → «Number of Decimals».
+	 *
+	 * Помимо этого плагина для решения поставленной задачи нам нужны также плагины:
+	 * @see \Dfe\Currency\Framework\Pricing\PriceCurrencyInterfacePlugin::beforeFormat()
+	 * @see \Dfe\Currency\Framework\Pricing\Render\AmountPlugin::beforeFormatCurrency()
+	 *
+	 * @see \Magento\Framework\Locale\Format::getPriceFormat()
+	 * https://github.com/magento/magento2/blob/2.0.0/lib/internal/Magento/Framework/Locale/Format.php#L89-L152
+	 *
+	 * @param Format $subject
+	 * @param array(string => mixed) $result
+	 * @return array(string => mixed)
+	 */
+	public function afterGetPriceFormat(Format $subject, array $result) {
+		/** @var int $precision */
+		$precision = Settings::s()->numberOfDecimals();
+		return !Settings::s()->enable() ? $result : [
+			'precision' => $precision, 'requiredPrecision' => $precision
+		] + $result;
+	}
+}
+
+

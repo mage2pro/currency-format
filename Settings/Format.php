@@ -4,7 +4,20 @@ use Magento\Framework\App\ScopeInterface;
 class Format extends \Df\Core\Settings {
 	/**
 	 * 2015-12-26
+	 * «Mage2.PRO» → «Currency» → «Format» → «Enable?»
+	 * @param null|string|int|ScopeInterface $scope [optional]
+	 * @return bool
+	 */
+	public function enable($scope = null) {return $this->b('enable', $scope);}
+
+	/**
+	 * 2015-12-26
 	 * «Mage2.PRO» → «Currency» → «Format» → «Number of Decimals»
+	 * Zend Framework автоматически округляет цены до заданного количества десятичных знаков:
+		if (is_numeric($options['precision'])) {
+			$value = Zend_Locale_Math::round($value, $options['precision']);
+		}
+	 * https://github.com/zendframework/zf1/blob/release-1.12.16/library/Zend/Locale/Format.php#L329
 	 * @param null|string|int|ScopeInterface $scope [optional]
 	 * @return int
 	 */
