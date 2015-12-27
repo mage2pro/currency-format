@@ -36,14 +36,14 @@
 				<field
 					id='enable'
 					translate='label'
-					type='select'
+					type='Df\Framework\Data\Form\Element\Checkbox'
 					sortOrder='1'
 					showInDefault='1'
 					showInWebsite='1'
 					showInStore='1'
 				>
 					<label>Enable?</label>
-					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+					<backend_model>Df\Config\Backend\Checkbox</backend_model>
 					<comment><![CDATA[]]></comment>
 				</field>
 				<field
