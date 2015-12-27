@@ -21,10 +21,8 @@ class FormatPlugin {
 	 * @return array(string => mixed)
 	 */
 	public function afterGetPriceFormat(Format $subject, array $result) {
-		/** @var int $precision */
-		$precision = Settings::s()->numberOfDecimals();
-		return !Settings::s()->enable() ? $result : [
-			'precision' => $precision, 'requiredPrecision' => $precision
+		return Settings::s()->showDecimals() ? $result : [
+			'precision' => 0, 'requiredPrecision' => 0
 		] + $result;
 	}
 }

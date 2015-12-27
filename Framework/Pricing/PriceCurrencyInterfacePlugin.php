@@ -35,8 +35,8 @@ class PriceCurrencyInterfacePlugin {
 		, $scope = null
 		, $currency = null
 	) {
-		if (is_null($precision) && Settings::s()->enable($scope)) {
-			$precision = Settings::s()->numberOfDecimals($scope);
+		if (is_null($precision) && !Settings::s()->showDecimals($scope)) {
+			$precision = 0;
 		}
 		return [$amount, $includeContainer, $precision, $scope, $currency];
 	}

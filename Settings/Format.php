@@ -21,7 +21,9 @@ class Format extends \Df\Core\Settings {
 	 * @param null|string|int|ScopeInterface $scope [optional]
 	 * @return int
 	 */
-	public function numberOfDecimals($scope = null) {return $this->nat0(__FUNCTION__, $scope);}
+	public function showDecimals($scope = null) {
+		return !$this->enable($scope) || $this->b(__FUNCTION__, $scope);
+	}
 
 	/**
 	 * @override

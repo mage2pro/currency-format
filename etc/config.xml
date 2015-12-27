@@ -6,7 +6,7 @@
     <default>
         <dfe_currency>
             <format>
-                <numberOfDecimals>2</numberOfDecimals>
+                <showDecimals>1</showDecimals>
             </format>
         </dfe_currency>
     </default>

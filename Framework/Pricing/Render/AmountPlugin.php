@@ -47,8 +47,8 @@ class AmountPlugin {
 	public function beforeFormatCurrency(
 		Amount $subject, $amount, $includeContainer = true, $precision = null
 	) {
-		if (is_null($precision) && Settings::s()->enable()) {
-			$precision = Settings::s()->numberOfDecimals();
+		if (is_null($precision) && !Settings::s()->showDecimals()) {
+			$precision = 0;
 		}
 		return [$amount, $includeContainer, $precision];
 	}

@@ -47,15 +47,15 @@
 					<comment><![CDATA[]]></comment>
 				</field>
 				<field
-					id='numberOfDecimals'
+					id='showDecimals'
 					translate='label'
-					type='text'
+					type='Df\Framework\Data\Form\Element\Checkbox'
 					sortOrder='2'
 					showInDefault='1'
 					showInWebsite='1'
 					showInStore='1'
 				>
-					<label>Number of Decimals</label>
+					<label>Show the Decimals?</label>
 					<!--
 						2015-12-26
 						Zend Framework автоматически округляет цены
@@ -65,14 +65,8 @@
 						}
 						https://github.com/zendframework/zf1/blob/release-1.12.16/library/Zend/Locale/Format.php#L329
 					-->
-					<comment><![CDATA[Number of digits in an amount fractional part to show.]]></comment>
-					<!--
-						2015-12-26
-						Оба условия важны:
-						https://github.com/magento/magento2/blob/2.0.0/lib/web/mage/validation.js#L644-L649
-						https://github.com/magento/magento2/blob/2.0.0/lib/web/mage/validation.js#L613-L623
-					-->
-					<validate>validate-number validate-zero-or-greater</validate>
+					<comment><![CDATA[If you hide the decimals then a currency will be shown as <code>512</code> instead of <code>512.00</code>.<br/>The fractional part is rounded: <code>512.79 => 513</code>, <code>512.39 => 512</code>.]]></comment>
+					<backend_model>Df\Config\Backend\Checkbox</backend_model>
 					<depends><field id='enable'>1</field></depends>
 				</field>
 			</group>
