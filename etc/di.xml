@@ -10,13 +10,13 @@
 		«Mage2.PRO» → «Currency» → «Format» → «Number of Decimals».
 
 		Помимо этого плагина для решения поставленной задачи нам нужны также плагины:
-		@see \Dfe\Currency\Framework\Pricing\PriceCurrencyInterfacePlugin::beforeFormat()
-		@see \Dfe\Currency\Framework\Pricing\Render\AmountPlugin::beforeFormatCurrency()
+		@see \Dfe\CurrencyFormat\Framework\Pricing\PriceCurrencyInterfacePlugin::beforeFormat()
+		@see \Dfe\CurrencyFormat\Framework\Pricing\Render\AmountPlugin::beforeFormatCurrency()
 	-->
 	<type name='Magento\Framework\Locale\Format'>
 		<plugin
-			name='Dfe\Currency\Framework\Locale\FormatPlugin'
-			type='Dfe\Currency\Framework\Locale\FormatPlugin'
+			name='Dfe\CurrencyFormat\Framework\Locale\FormatPlugin'
+			type='Dfe\CurrencyFormat\Framework\Locale\FormatPlugin'
 		/>
 	</type>
 	<!--
@@ -26,13 +26,13 @@
 		«Mage2.PRO» → «Currency» → «Format» → «Number of Decimals».
 
 		Помимо этого плагина для решения поставленной задачи нам нужны также плагины:
-		@see \Dfe\Currency\Framework\Locale\FormatPlugin::afterGetPriceFormat()
-		@see \Dfe\Currency\Framework\Pricing\Render\AmountPlugin::beforeFormatCurrency()
+		@see \Dfe\CurrencyFormat\Framework\Locale\FormatPlugin::afterGetPriceFormat()
+		@see \Dfe\CurrencyFormat\Framework\Pricing\Render\AmountPlugin::beforeFormatCurrency()
 	-->
 	<type name='Magento\Framework\Pricing\PriceCurrencyInterface'>
 		<plugin
-			name='Dfe\Currency\Framework\Pricing\PriceCurrencyInterfacePlugin'
-			type='Dfe\Currency\Framework\Pricing\PriceCurrencyInterfacePlugin'
+			name='Dfe\CurrencyFormat\Framework\Pricing\PriceCurrencyInterfacePlugin'
+			type='Dfe\CurrencyFormat\Framework\Pricing\PriceCurrencyInterfacePlugin'
 		/>
 	</type>
 	<!--
@@ -42,13 +42,13 @@
 		«Mage2.PRO» → «Currency» → «Format» → «Number of Decimals».
 
 		Помимо этого плагина для решения поставленной задачи нам нужны также плагины:
-		@see \Dfe\Currency\Framework\Locale\FormatPlugin::afterGetPriceFormat()
-		@see \Dfe\Currency\Framework\Pricing\PriceCurrencyInterfacePlugin::beforeFormat()
+		@see \Dfe\CurrencyFormat\Framework\Locale\FormatPlugin::afterGetPriceFormat()
+		@see \Dfe\CurrencyFormat\Framework\Pricing\PriceCurrencyInterfacePlugin::beforeFormat()
 	-->
 	<type name='Magento\Framework\Pricing\Render\Amount'>
 		<plugin
-			name='Dfe\Currency\Framework\Pricing\Render\AmountPlugin'
-			type='Dfe\Currency\Framework\Pricing\Render\AmountPlugin'
+			name='Dfe\CurrencyFormat\Framework\Pricing\Render\AmountPlugin'
+			type='Dfe\CurrencyFormat\Framework\Pricing\Render\AmountPlugin'
 		/>
 	</type>
 </config>

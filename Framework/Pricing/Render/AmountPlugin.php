@@ -1,6 +1,6 @@
 <?php
-namespace Dfe\Currency\Framework\Pricing\Render;
-use Dfe\Currency\Settings\Format as Settings;
+namespace Dfe\CurrencyFormat\Framework\Pricing\Render;
+use Dfe\CurrencyFormat\Settings\Format as Settings;
 use Magento\Framework\Pricing\Render\Amount;
 class AmountPlugin {
 	/**
@@ -10,8 +10,8 @@ class AmountPlugin {
 	 * «Mage2.PRO» → «Currency» → «Format» → «Number of Decimals».
 	 *
 	 * Помимо этого плагина для решения поставленной задачи нам нужны также плагины:
-	 * @see \Dfe\Currency\Framework\Locale\FormatPlugin::afterGetPriceFormat()
-	 * @see \Dfe\Currency\Framework\Pricing\PriceCurrencyInterfacePlugin::beforeFormat()
+	 * @see \Dfe\CurrencyFormat\Framework\Locale\FormatPlugin::afterGetPriceFormat()
+	 * @see \Dfe\CurrencyFormat\Framework\Pricing\PriceCurrencyInterfacePlugin::beforeFormat()
 	 *
 	 * @see \Magento\Framework\Pricing\Render\Amount::formatCurrency()
 	 * https://github.com/magento/magento2/blob/2.0.0/lib/internal/Magento/Framework/Pricing/Render/Amount.php#L214-L228
@@ -30,7 +30,7 @@ class AmountPlugin {
 	 * Казалось бы, нам досточно модицировать только метод
 	 * @see \Magento\Framework\Pricing\PriceCurrencyInterface::format()
 	 * Однако в этом случае в методе
-	 * @see \Dfe\Currency\Framework\Pricing\PriceCurrencyInterfacePlugin::beforeFormat()
+	 * @see \Dfe\CurrencyFormat\Framework\Pricing\PriceCurrencyInterfacePlugin::beforeFormat()
 	 * мы утрачиваем информацию, передавал ли программист
 	 * явное значение для параметра $precision или нет:
 	 * ведь для опущенного параметра $precision

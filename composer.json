@@ -1,6 +1,6 @@
 {
-	"name": "dfe/price"
-	,"description": "«Currency Formatter» extension"
+	"name": "dfe/currency-format"
+	,"description": "«Currency Format» extension"
 	,"type": "magento2-module"
 	,"homepage": "https://mage2.pro/t/355"
 	,"license": "proprietary"
@@ -11,5 +11,5 @@
 		"role": "Developer"
 	}]
 	,"require": {"df/all": "dev-master"}
-	,"extra": {"map": [["*", "Dfe/Currency"]]}
+	,"extra": {"map": [["*", "Dfe/CurrencyFormat"]]}
 }

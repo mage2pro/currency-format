@@ -1,6 +1,6 @@
 <?php
-namespace Dfe\Currency\Framework\Pricing;
-use Dfe\Currency\Settings\Format as Settings;
+namespace Dfe\CurrencyFormat\Framework\Pricing;
+use Dfe\CurrencyFormat\Settings\Format as Settings;
 use Magento\Framework\Pricing\PriceCurrencyInterface;
 class PriceCurrencyInterfacePlugin {
 	/**
@@ -10,8 +10,8 @@ class PriceCurrencyInterfacePlugin {
 	 * «Mage2.PRO» → «Currency» → «Format» → «Number of Decimals».
 	 *
 	 * Помимо этого плагина для решения поставленной задачи нам нужны также плагины:
-	 * @see \Dfe\Currency\Framework\Locale\FormatPlugin::afterGetPriceFormat()
-	 * @see \Dfe\Currency\Framework\Pricing\Render\AmountPlugin::beforeFormatCurrency()
+	 * @see \Dfe\CurrencyFormat\Framework\Locale\FormatPlugin::afterGetPriceFormat()
+	 * @see \Dfe\CurrencyFormat\Framework\Pricing\Render\AmountPlugin::beforeFormatCurrency()
 	 *
 	 * @see \Magento\Framework\Pricing\PriceCurrencyInterface::format()
 	 * https://github.com/magento/magento2/blob/2.0.0/lib/internal/Magento/Framework/Pricing/PriceCurrencyInterface.php#L42-L58

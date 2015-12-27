@@ -1,5 +1,5 @@
 <?php
-namespace Dfe\Currency;
+namespace Dfe\CurrencyFormat;
 use Df\Framework\Data\Form\Element\Fieldset;
 /**
  * 2015-12-27
