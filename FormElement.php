@@ -17,5 +17,9 @@ class FormElement extends Fieldset {
 	public function onFormInitialized() {
 		parent::onFormInitialized();
 		$this->addClass('df-currency-format');
+		$this->checkbox('showDecimals', 'Show the Decimals?')->setNote('тест');
+		df_form_element_init($this, 'main', [], [
+			'Dfe_CurrencyFormat::formElement/main.css'
+		], 'before');
 	}
 }
