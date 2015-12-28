@@ -61,20 +61,6 @@
 					<backend_model>Df\Config\Backend\Serialized</backend_model>
 					<depends><field id='enable'>1</field></depends>
 				</field>
-				<field
-					id='currencies2'
-					translate='label'
-					type='Dfe\CurrencyFormat\FormElement'
-					sortOrder='3'
-					showInDefault='1'
-					showInWebsite='1'
-					showInStore='1'
-				>
-					<label>Currencies</label>
-					<comment><![CDATA[]]></comment>
-					<backend_model>Df\Config\Backend\Serialized</backend_model>
-					<depends><field id='enable'>1</field></depends>
-				</field>
 			</group>
 		</section>
 	</system>
