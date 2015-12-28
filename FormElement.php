@@ -1,5 +1,6 @@
 <?php
 namespace Dfe\CurrencyFormat;
+use Df\Config\Source\BeforeAfter;
 use Df\Framework\Data\Form\Element\Fieldset;
 use Magento\Config\Model\Config\Source\Locale\Currency as Currencies;
 /**
@@ -21,10 +22,10 @@ class FormElement extends Fieldset {
 		$currencies = df_currencies_options();
 		/** @var int $currenciesCount */
 		$currenciesCount = count($currencies);
-		if (false && 1 < $currenciesCount) {
+		if (1 < $currenciesCount) {
 			$this->select('currency', null, $currencies);
 		}
-		else if (true || 1 === $currenciesCount) {
+		else if (1 === $currenciesCount) {
 			/** @var array(string => string) $currency */
 			$currency = df_first($currencies);
 			$this->hidden('currency', $currency['value'], $currency['label']);
@@ -32,6 +33,7 @@ class FormElement extends Fieldset {
 		$this->checkbox('showDecimals', 'Show the Decimals?')->setNote(
 			'If you hide the decimals then a currency will be shown as <code>512</code> instead of <code>512.00</code>.<br/>The fractional part is rounded: <code>512.79 => 513</code>, <code>512.39 => 512</code>.'
 		);
+		$this->select('symbolPosition', 'Currency Sumbol Position', BeforeAfter::s());
 		df_form_element_init($this, 'main', [], [
 			'Dfe_CurrencyFormat::formElement/main.css'
 		], 'before');

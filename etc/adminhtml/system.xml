@@ -47,38 +47,15 @@
 					<comment><![CDATA[]]></comment>
 				</field>
 				<field
-					id='showDecimals'
+					id='currencies'
 					translate='label'
-					type='Df\Framework\Data\Form\Element\Checkbox'
+					type='Dfe\CurrencyFormat\FormElement'
 					sortOrder='2'
 					showInDefault='1'
 					showInWebsite='1'
 					showInStore='1'
 				>
-					<label>Show the Decimals?</label>
-					<!--
-						2015-12-26
-						Zend Framework автоматически округляет цены
-						до заданного количества десятичных знаков:
-						if (is_numeric($options['precision'])) {
-							$value = Zend_Locale_Math::round($value, $options['precision']);
-						}
-						https://github.com/zendframework/zf1/blob/release-1.12.16/library/Zend/Locale/Format.php#L329
-					-->
-					<comment><![CDATA[If you hide the decimals then a currency will be shown as <code>512</code> instead of <code>512.00</code>.<br/>The fractional part is rounded: <code>512.79 => 513</code>, <code>512.39 => 512</code>.]]></comment>
-					<backend_model>Df\Config\Backend\Checkbox</backend_model>
-					<depends><field id='enable'>1</field></depends>
-				</field>
-				<field
-					id='format'
-					translate='label'
-					type='Dfe\CurrencyFormat\FormElement'
-					sortOrder='3'
-					showInDefault='1'
-					showInWebsite='1'
-					showInStore='1'
-				>
-					<label>Format</label>
+					<label>Currencies</label>
 					<comment><![CDATA[]]></comment>
 					<backend_model>Df\Config\Backend\Serialized</backend_model>
 					<depends><field id='enable'>1</field></depends>
