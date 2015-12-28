@@ -1,7 +1,7 @@
 <?xml version='1.0'?>
 <config
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd"
+	xsi:noNamespaceSchemaLocation="urn:magento:module:Df_Config:etc/system_file.xsd"
 >
 	<system>
 		<tab id='_df' translate='label' sortOrder='-100'>
@@ -49,8 +49,23 @@
 				<field
 					id='currencies'
 					translate='label'
-					type='Dfe\CurrencyFormat\FormElement'
+					type='Df\Framework\Data\Form\Element\ArrayT'
+					dfItemType='Dfe\CurrencyFormat\FormElement'
 					sortOrder='2'
+					showInDefault='1'
+					showInWebsite='1'
+					showInStore='1'
+				>
+					<label>Currencies</label>
+					<comment><![CDATA[]]></comment>
+					<backend_model>Df\Config\Backend\Serialized</backend_model>
+					<depends><field id='enable'>1</field></depends>
+				</field>
+				<field
+					id='currencies2'
+					translate='label'
+					type='Dfe\CurrencyFormat\FormElement'
+					sortOrder='3'
 					showInDefault='1'
 					showInWebsite='1'
 					showInStore='1'
