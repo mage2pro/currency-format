@@ -79,7 +79,7 @@
 					showInStore='1'
 				>
 					<label>Format</label>
-					<comment><![CDATA[If you hide the decimals then a currency will be shown as <code>512</code> instead of <code>512.00</code>.<br/>The fractional part is rounded: <code>512.79 => 513</code>, <code>512.39 => 512</code>.]]></comment>
+					<comment><![CDATA[]]></comment>
 					<backend_model>Df\Config\Backend\Serialized</backend_model>
 					<depends><field id='enable'>1</field></depends>
 				</field>
