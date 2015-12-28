@@ -34,6 +34,13 @@ class FormElement extends Fieldset {
 			'If you hide the decimals then a currency will be shown as <code>512</code> instead of <code>512.00</code>.<br/>The fractional part is rounded: <code>512.79 => 513</code>, <code>512.39 => 512</code>.'
 		);
 		$this->select('symbolPosition', 'Currency Sumbol Position', BeforeAfter::s());
+		$this->checkbox('delimitSymbolFromAmount', 'Delimit Currency Symbol from Amount?')
+			->setNote(
+				'If enabled, a currency symbol will be delimited from an amount with the <b><a href="https://en.wikipedia.org/wiki/Thin_space">thin space</a></b>.'
+		);
+		$this->text('decimalSeparator', 'Decimal Separator')
+			->setNote('<a href="https://en.wikipedia.org/wiki/Decimal_mark">What is it?</a>.')
+		;
 		df_form_element_init($this, 'main', [], [
 			'Dfe_CurrencyFormat::formElement/main.css'
 		], 'before');
