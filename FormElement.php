@@ -44,8 +44,6 @@ class FormElement extends Fieldset {
 		$this->select('thousandsSeparator', 'Thousands Separator',
 			['none', 'thin space', ',', '.']
 		)->setNote('<code>5120</code> or <code>5&thinsp;120</code> or <code>5,120</code> or <code>5.120</code>?');
-		df_form_element_init($this, 'main', [], [
-			'Dfe_CurrencyFormat::formElement/main.css'
-		], 'before');
+		df_form_element_init($this, __CLASS__);
 	}
 }
