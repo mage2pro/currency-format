@@ -6,7 +6,6 @@ define(['jquery', 'domReady!'], function($) {return (
 	 */
 	function(config) {
 		var prepare = function($item) {
-			debugger;
 			/** @type {jQuery} HTMLInputElement[] */
 			var $showDecimals = $('input.df-name-showDecimals', $item);
 			var updateDecimalSeparator = function(checkbox) {
@@ -23,13 +22,9 @@ define(['jquery', 'domReady!'], function($) {return (
 		};
 		/** @type {jQuery} HTMLFieldSetElement */
 		var $element = $(document.getElementById(config.id));
-		if ($element.hasClass('df-name-template')) {
-			debugger;
-			$(window).bind('df.config.array.add', function(event, $item) {prepare($item);});
-		}
-		else {
-			debugger;
-			prepare($element);
-		}
+		$element.hasClass('df-name-template')
+			? $(window).bind('df.config.array.add', function(event, $item) {prepare($item);})
+			: prepare($element)
+		;
 	}
 );});
