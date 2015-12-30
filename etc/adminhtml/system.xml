@@ -47,7 +47,7 @@
 					<comment><![CDATA[]]></comment>
 				</field>
 				<field
-					id='currencies'
+					id='items'
 					translate='label'
 					type='Df\Framework\Data\Form\Element\ArrayT'
 					dfItemType='Dfe\CurrencyFormat\FormElement'
@@ -56,7 +56,7 @@
 					showInWebsite='1'
 					showInStore='1'
 				>
-					<label>Currencies</label>
+					<label></label>
 					<comment><![CDATA[]]></comment>
 					<backend_model>Df\Config\Backend\Serialized</backend_model>
 					<depends><field id='enable'>1</field></depends>

@@ -1,14 +1,22 @@
 <?php
-namespace Dfe\CurrencyFormat\Settings;
+namespace Dfe\CurrencyFormat;
 use Magento\Framework\App\ScopeInterface;
-class Format extends \Df\Core\Settings {
+class Settings extends \Df\Core\Settings {
+	/**
+	 * 2015-12-30
+	 * «Mage2.PRO» → «Currency» → «Format» → «Currencis»
+	 * @param null|string|int|ScopeInterface $scope [optional]
+	 * @return \Df\Config\A
+	 */
+	public function items($scope = null) {return $this->_a(__FUNCTION__, O::class, $scope);}
+
 	/**
 	 * 2015-12-26
 	 * «Mage2.PRO» → «Currency» → «Format» → «Enable?»
 	 * @param null|string|int|ScopeInterface $scope [optional]
 	 * @return bool
 	 */
-	public function enable($scope = null) {return $this->b('enable', $scope);}
+	public function enable($scope = null) {return $this->b(__FUNCTION__, $scope);}
 
 	/**
 	 * 2015-12-26
