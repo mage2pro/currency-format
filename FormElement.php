@@ -22,12 +22,12 @@ class FormElement extends Fieldset {
 		/** @var int $currenciesCount */
 		$currenciesCount = count($currencies);
 		if (1 < $currenciesCount) {
-			$this->select('currency', null, $currencies);
+			$this->select(O::P__CODE, null, $currencies);
 		}
 		else if (1 === $currenciesCount) {
 			/** @var array(string => string) $currency */
 			$currency = df_first($currencies);
-			$this->hidden('currency', $currency['value'], $currency['label']);
+			$this->hidden(O::P__CODE, $currency['value'], $currency['label']);
 		}
 		$this->checkbox('showDecimals', 'Show the Decimals?', true)->setNote(
 			'If you hide the decimals then a currency will be shown as <code>512</code> instead of <code>512.00</code>.<br/>The fractional part is rounded: <code>512.79 => 513</code>, <code>512.39 => 512</code>.'
