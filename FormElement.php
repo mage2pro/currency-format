@@ -22,28 +22,18 @@ class FormElement extends Fieldset {
 		/** @var int $currenciesCount */
 		$currenciesCount = count($currencies);
 		if (1 < $currenciesCount) {
-			$this->select(O::P__CODE, null, $currencies);
+			$this->select(O::code, null, $currencies);
 		}
 		else if (1 === $currenciesCount) {
 			/** @var array(string => string) $currency */
 			$currency = df_first($currencies);
-			$this->hidden(O::P__CODE, $currency['value'], $currency['label']);
+			$this->hidden(O::code, $currency['value'], $currency['label']);
 		}
-		$this->checkbox('showDecimals', 'Show the Decimals?', true)->setNote(
-			'If you hide the decimals then a currency will be shown as <code>512</code> instead of <code>512.00</code>.<br/>The fractional part is rounded: <code>512.79 => 513</code>, <code>512.39 => 512</code>.'
-		);
-		$this->select('decimalSeparator', 'Decimal Separator', ['.', ','])->setNote(
-			'<code>512.79</code> or <code>512,79</code>?'
-		);
-		$this->select('symbolPosition', 'Currency Sumbol Position', ['before', 'after'])->setNote(
-			'<code>$512.79</code> or <code>512,79 €</code>?'
-		);
-		$this->checkbox('delimitSymbolFromAmount', 'Delimit Currency Symbol from Amount?')
-			->setNote('If enabled, a currency symbol will be delimited from an amount with the <b><a href="https://en.wikipedia.org/wiki/Thin_space">thin space</a></b>.'
-		);
-		$this->select('thousandsSeparator', 'Thousands Separator',
-			['none', 'thin space', ',', '.']
-		)->setNote('<code>5120</code> or <code>5&thinsp;120</code> or <code>5,120</code> or <code>5.120</code>?');
+		$this->checkbox(O::showDecimals, 'Show the Decimals?', true, 'If you hide the decimals then a currency will be shown as <code>512</code> instead of <code>512.00</code>.<br/>The fractional part is rounded: <code>512.79 => 513</code>, <code>512.39 => 512</code>.');
+		$this->select(O::decimalSeparator, 'Decimal Separator', ['.', ','], '<code>512.79</code> or <code>512,79</code>?');
+		$this->select(O::symbolPosition, 'Currency Sumbol Position', ['before', 'after'], '<code>$512.79</code> or <code>512,79 €</code>?');
+		$this->checkbox(O::delimitSymbolFromAmount, 'Delimit Currency Symbol from Amount?', 'If enabled, a currency symbol will be delimited from an amount with the <b><a href="https://en.wikipedia.org/wiki/Thin_space">thin space</a></b>.');
+		$this->select(O::thousandsSeparator, 'Thousands Separator', ['none', 'thin space', ',', '.'], '<code>5120</code> or <code>5&thinsp;120</code> or <code>5,120</code> or <code>5.120</code>?');
 		df_form_element_init($this, __CLASS__);
 	}
 }
