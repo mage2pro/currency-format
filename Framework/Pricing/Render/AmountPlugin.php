@@ -2,7 +2,21 @@
 namespace Dfe\CurrencyFormat\Framework\Pricing\Render;
 use Dfe\CurrencyFormat\Settings;
 use Magento\Framework\Pricing\Render\Amount;
-class AmountPlugin {
+// 2015-12-13
+// Хитрая идея, которая уже давно пришла мне в голову: наследуясь от модифицируемого класса,
+// мы получаем возможность вызывать методы с областью доступа protected у переменной $subject.
+class AmountPlugin extends Amount {
+	/**
+	 * 2016-01-01
+	 * Потрясающая техника, которую я изобрёл только что.
+	 * Ещё вчера я писал:
+	 * «К сожалению, мы не можем унаследоваться от @see Magento\Framework\Pricing\Render\Amount
+	 * и получить доступ к scope так: $scope = $subject->_storeManager->getStore();
+	 * потому что у Magento не получится тогда автоматически сконструировать наш объект:
+	 * «Missing required argument $amount of Magento\Framework\Pricing\Amount\Base».»
+	 */
+	public function __construct() {}
+
 	/**
 	 * 2015-12-26
 	 * Цель плагина — предоставить администратору возможность
@@ -55,14 +69,10 @@ class AmountPlugin {
 		 * https://github.com/magento/magento2/blob/2.0.0/app/code/Magento/Catalog/view/base/templates/product/price/amount/default.phtml#L30
 		 * <meta itemprop="priceCurrency" content="<?php echo $block->getDisplayCurrencyCode()?>" />
 		 */
-		/**
-		 * К сожалению, мы не можем унаследоваться от @see Magento\Framework\Pricing\Render\Amount
-		 * и получить доступ к scope так: $scope = $subject->_storeManager->getStore();
-		 * потому что у Magento не получится тогда автоматически сконструировать наш объект:
-		 * «Missing required argument $amount of Magento\Framework\Pricing\Amount\Base».
-		 */
 		/** @var \Dfe\CurrencyFormat\O $settings */
-		$settings = Settings::s()->get($subject->getDisplayCurrencyCode());
+		$settings = Settings::s()->get(
+			$subject->getDisplayCurrencyCode(), $subject->_storeManager->getStore()
+		);
 		/**
 		 * 2015-12-31
 		 * Здесь мы настраиваем только $precision

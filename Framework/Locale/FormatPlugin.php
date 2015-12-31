@@ -2,7 +2,16 @@
 namespace Dfe\CurrencyFormat\Framework\Locale;
 use Dfe\CurrencyFormat\Settings;
 use Magento\Framework\Locale\Format;
+// 2015-12-13
+// Хитрая идея, которая уже давно пришла мне в голову: наследуясь от модифицируемого класса,
+// мы получаем возможность вызывать методы с областью доступа protected у переменной $subject.
 class FormatPlugin extends Format {
+	/**
+	 * 2016-01-01
+	 * Потрясающая техника, которую я изобрёл только что.
+	 */
+	public function __construct() {}
+
 	/**
 	 * 2015-12-26
 	 * Цель плагина — предоставить администратору возможность

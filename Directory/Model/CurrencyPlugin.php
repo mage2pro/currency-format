@@ -1,6 +1,5 @@
 <?php
 namespace Dfe\CurrencyFormat\Directory\Model;
-use Dfe\CurrencyFormat\O;
 use Dfe\CurrencyFormat\Settings;
 use Magento\Directory\Model\Currency;
 class CurrencyPlugin {
