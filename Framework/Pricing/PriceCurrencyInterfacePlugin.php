@@ -1,6 +1,6 @@
 <?php
 namespace Dfe\CurrencyFormat\Framework\Pricing;
-use Dfe\CurrencyFormat\Settings\Format as Settings;
+use Dfe\CurrencyFormat\Settings as Settings;
 use Magento\Framework\Pricing\PriceCurrencyInterface;
 class PriceCurrencyInterfacePlugin {
 	/**
@@ -35,7 +35,15 @@ class PriceCurrencyInterfacePlugin {
 		, $scope = null
 		, $currency = null
 	) {
-		if (is_null($precision) && !Settings::s()->showDecimals($scope)) {
+		/**
+		 * 2015-12-31
+		 * https://github.com/magento/magento2/blob/2.0.0/app/code/Magento/Directory/Model/PriceCurrency.php#L80
+		 */
+		/** @var \Magento\Directory\Model\Currency $currencyModel */
+		$currencyModel = $subject->getCurrency($scope, $currency);
+		/** @var \Dfe\CurrencyFormat\O $settings */
+		$settings = Settings::s()->get($currencyModel->getCode(), $scope);
+		if (is_null($precision) && $settings && !$settings->showDecimals()) {
 			$precision = 0;
 		}
 		return [$amount, $includeContainer, $precision, $scope, $currency];

@@ -1,8 +1,8 @@
 <?php
 namespace Dfe\CurrencyFormat\Framework\Pricing\Render;
-use Dfe\CurrencyFormat\Settings\Format as Settings;
+use Dfe\CurrencyFormat\Settings as Settings;
 use Magento\Framework\Pricing\Render\Amount;
-class AmountPlugin {
+class AmountPlugin extends Amount {
 	/**
 	 * 2015-12-26
 	 * Цель плагина — предоставить администратору возможность
@@ -47,7 +47,18 @@ class AmountPlugin {
 	public function beforeFormatCurrency(
 		Amount $subject, $amount, $includeContainer = true, $precision = null
 	) {
-		if (is_null($precision) && !Settings::s()->showDecimals()) {
+		/**
+		 * 2015-12-31
+		 * Сюда мы попадаем из шаблона https://github.com/magento/magento2/blob/2.0.0/app/code/Magento/Catalog/view/base/templates/product/price/amount/default.phtml
+		 * и оттуда мы узнаём валюту:
+		 * https://github.com/magento/magento2/blob/2.0.0/app/code/Magento/Catalog/view/base/templates/product/price/amount/default.phtml#L30
+		 * <meta itemprop="priceCurrency" content="<?php echo $block->getDisplayCurrencyCode()?>" />
+		 */
+		/** @var \Magento\Store\Model\Store $scope */
+		$scope = $subject->_storeManager->getStore();
+		/** @var \Dfe\CurrencyFormat\O $settings */
+		$settings = Settings::s()->get($subject->getDisplayCurrencyCode(), $scope);
+		if (is_null($precision) && $settings && !$settings->showDecimals()) {
 			$precision = 0;
 		}
 		return [$amount, $includeContainer, $precision];
