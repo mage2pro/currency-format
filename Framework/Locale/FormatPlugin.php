@@ -1,15 +1,16 @@
 <?php
 namespace Dfe\CurrencyFormat\Framework\Locale;
-use Dfe\CurrencyFormat\Settings as Settings;
+use Dfe\CurrencyFormat\Settings;
 use Magento\Framework\Locale\Format;
 class FormatPlugin extends Format {
 	/**
 	 * 2015-12-26
 	 * Цель плагина — предоставить администратору возможность
-	 * задавать количество отображаемых десятичных знаков для денежных величин:
-	 * «Mage2.PRO» → «Currency» → «Format» → «Number of Decimals».
+	 * форматировать отображение денежных денежных величин:
+	 * «Mage2.PRO» → «Currency» → «Format».
 	 *
 	 * Помимо этого плагина для решения поставленной задачи нам нужны также плагины:
+	 * @see \Dfe\CurrencyFormat\Directory\Model\CurrencyPlugin::beforeFormatTxt()
 	 * @see \Dfe\CurrencyFormat\Framework\Pricing\PriceCurrencyInterfacePlugin::beforeFormat()
 	 * @see \Dfe\CurrencyFormat\Framework\Pricing\Render\AmountPlugin::beforeFormatCurrency()
 	 *
@@ -36,11 +37,22 @@ class FormatPlugin extends Format {
 		if (!$currencyCode) {
 			$currencyCode = $scope->getCurrentCurrency()->getCode();
 		}
-		/** @var \Dfe\CurrencyFormat\O $settings */
-		$settings = Settings::s()->get($currencyCode, $scope);
-		return !$settings || $settings->showDecimals() ? $result : [
-			'precision' => 0, 'requiredPrecision' => 0
-		] + $result;
+		/** @var \Dfe\CurrencyFormat\O $s */
+		$s = Settings::s()->get($currencyCode, $scope);
+		if ($s) {
+			// 2015-12-31
+			// https://github.com/magento/magento2/blob/2.0.0/lib/internal/Magento/Framework/Locale/Format.php#L143-L144
+			if (!$s->showDecimals()) {
+				$result = ['precision' => 0, 'requiredPrecision' => 0] + $result;
+			}
+			// 2015-12-31
+			// https://github.com/magento/magento2/blob/2.0.0/lib/internal/Magento/Framework/Locale/Format.php#L145-L146
+			$result = [
+				  'decimalSymbol' => $s->decimalSeparator()
+				  , 'groupSymbol' => $s->thousandsSeparator()
+			] + $result;
+		}
+		return $result;
 	}
 }
 

@@ -33,7 +33,13 @@ class FormElement extends Fieldset {
 		$this->select(O::decimalSeparator, 'Decimal Separator', ['.', ','], '<code>512.79</code> or <code>512,79</code>?');
 		$this->select(O::symbolPosition, 'Currency Sumbol Position', ['before', 'after'], '<code>$512.79</code> or <code>512,79 €</code>?');
 		$this->checkbox(O::delimitSymbolFromAmount, 'Delimit Currency Symbol from Amount?', 'If enabled, a currency symbol will be delimited from an amount with the <b><a href="https://en.wikipedia.org/wiki/Thin_space">thin space</a></b>.');
-		$this->select(O::thousandsSeparator, 'Thousands Separator', ['none', 'thin space', ',', '.'], '<code>5120</code> or <code>5&thinsp;120</code> or <code>5,120</code> or <code>5.120</code>?');
+		$this->select(O::thousandsSeparator, 'Thousands Separator'
+			,[self::TS__NONE, self::TS__THIN_SPACE, ',', '.']
+			, '<code>5120</code> or <code>5&thinsp;120</code> or <code>5,120</code> or <code>5.120</code>?'
+		);
 		df_form_element_init($this, __CLASS__);
 	}
+
+	const TS__NONE = 'none';
+	const TS__THIN_SPACE = 'thin space';
 }

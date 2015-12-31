@@ -1,16 +1,17 @@
 <?php
 namespace Dfe\CurrencyFormat\Framework\Pricing;
-use Dfe\CurrencyFormat\Settings as Settings;
+use Dfe\CurrencyFormat\Settings;
 use Magento\Framework\Pricing\PriceCurrencyInterface;
 class PriceCurrencyInterfacePlugin {
 	/**
 	 * 2015-12-26
 	 * Цель плагина — предоставить администратору возможность
-	 * задавать количество отображаемых десятичных знаков для денежных величин:
-	 * «Mage2.PRO» → «Currency» → «Format» → «Number of Decimals».
+	 * форматировать отображение денежных денежных величин:
+	 * «Mage2.PRO» → «Currency» → «Format».
 	 *
 	 * Помимо этого плагина для решения поставленной задачи нам нужны также плагины:
-	 * @see \Dfe\CurrencyFormat\Framework\Locale\FormatPlugin::afterGetPriceFormat()
+	 * @see \Dfe\CurrencyFormat\Directory\Model\CurrencyPlugin::beforeFormatTxt()
+	 * @see \Dfe\CurrencyFormat\Framework\Locale\FormatPlugin::aroundGetPriceFormat()
 	 * @see \Dfe\CurrencyFormat\Framework\Pricing\Render\AmountPlugin::beforeFormatCurrency()
 	 *
 	 * @see \Magento\Framework\Pricing\PriceCurrencyInterface::format()
@@ -43,6 +44,12 @@ class PriceCurrencyInterfacePlugin {
 		$currencyModel = $subject->getCurrency($scope, $currency);
 		/** @var \Dfe\CurrencyFormat\O $settings */
 		$settings = Settings::s()->get($currencyModel->getCode(), $scope);
+		/**
+		 * 2015-12-31
+		 * Здесь мы настраиваем только $precision
+		 * Другие параметры отображения валюты мы настраиваем в другом плагине:
+		 * @see \Dfe\CurrencyFormat\Directory\Model\CurrencyPlugin::beforeFormatTxt()
+		 */
 		if (is_null($precision) && $settings && !$settings->showDecimals()) {
 			$precision = 0;
 		}

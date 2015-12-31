@@ -1,16 +1,17 @@
 <?php
 namespace Dfe\CurrencyFormat\Framework\Pricing\Render;
-use Dfe\CurrencyFormat\Settings as Settings;
+use Dfe\CurrencyFormat\Settings;
 use Magento\Framework\Pricing\Render\Amount;
-class AmountPlugin extends Amount {
+class AmountPlugin {
 	/**
 	 * 2015-12-26
 	 * Цель плагина — предоставить администратору возможность
-	 * задавать количество отображаемых десятичных знаков для денежных величин:
-	 * «Mage2.PRO» → «Currency» → «Format» → «Number of Decimals».
+	 * форматировать отображение денежных денежных величин:
+	 * «Mage2.PRO» → «Currency» → «Format».
 	 *
 	 * Помимо этого плагина для решения поставленной задачи нам нужны также плагины:
-	 * @see \Dfe\CurrencyFormat\Framework\Locale\FormatPlugin::afterGetPriceFormat()
+	 * @see \Dfe\CurrencyFormat\Directory\Model\CurrencyPlugin::beforeFormatTxt()
+	 * @see \Dfe\CurrencyFormat\Framework\Locale\FormatPlugin::aroundGetPriceFormat()
 	 * @see \Dfe\CurrencyFormat\Framework\Pricing\PriceCurrencyInterfacePlugin::beforeFormat()
 	 *
 	 * @see \Magento\Framework\Pricing\Render\Amount::formatCurrency()
@@ -19,7 +20,7 @@ class AmountPlugin extends Amount {
 	 * Обратите внимание:
 	 *
 	 * 1) Мы подключаем плагин именно к классу @see \Magento\Framework\Pricing\Render\Amount,
-	 * а не к интерфейму @see \Magento\Framework\Pricing\Render\AmountRenderInterface,
+	 * а не к интерфейcу @see \Magento\Framework\Pricing\Render\AmountRenderInterface,
 	 * потому что в интерфейсе метод formatCurrency отсутствует:
 	 * https://github.com/magento/magento2/blob/2.0.0/lib/internal/Magento/Framework/Pricing/Render/AmountRenderInterface.php
 	 *
@@ -54,10 +55,20 @@ class AmountPlugin extends Amount {
 		 * https://github.com/magento/magento2/blob/2.0.0/app/code/Magento/Catalog/view/base/templates/product/price/amount/default.phtml#L30
 		 * <meta itemprop="priceCurrency" content="<?php echo $block->getDisplayCurrencyCode()?>" />
 		 */
-		/** @var \Magento\Store\Model\Store $scope */
-		$scope = $subject->_storeManager->getStore();
+		/**
+		 * К сожалению, мы не можем унаследоваться от @see Magento\Framework\Pricing\Render\Amount
+		 * и получить доступ к scope так: $scope = $subject->_storeManager->getStore();
+		 * потому что у Magento не получится тогда автоматически сконструировать наш объект:
+		 * «Missing required argument $amount of Magento\Framework\Pricing\Amount\Base».
+		 */
 		/** @var \Dfe\CurrencyFormat\O $settings */
-		$settings = Settings::s()->get($subject->getDisplayCurrencyCode(), $scope);
+		$settings = Settings::s()->get($subject->getDisplayCurrencyCode());
+		/**
+		 * 2015-12-31
+		 * Здесь мы настраиваем только $precision
+		 * Другие параметры отображения валюты мы настраиваем в другом плагине:
+		 * @see \Dfe\CurrencyFormat\Directory\Model\CurrencyPlugin::beforeFormatTxt()
+		 */
 		if (is_null($precision) && $settings && !$settings->showDecimals()) {
 			$precision = 0;
 		}

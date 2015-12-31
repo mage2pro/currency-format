@@ -4,7 +4,8 @@ use Magento\Framework\App\ScopeInterface;
 class Settings extends \Df\Core\Settings {
 	/**
 	 * 2015-12-30
-	 * «Mage2.PRO» → «Currency» → «Format» → «Currencis»
+	 * Форматирование отображения денежных денежных величин:
+	 * «Mage2.PRO» → «Currency» → «Format».
 	 * @param string|null $currencyCode [optional]
 	 * @param null|string|int|ScopeInterface $scope [optional]
 	 * @return \Df\Config\A|O|null
@@ -16,7 +17,7 @@ class Settings extends \Df\Core\Settings {
 		}
 		else {
 			/** @var \Df\Config\A $items */
-			$items = $this->_a(__FUNCTION__, O::class, $scope);
+			$items = $this->_a('items', O::class, $scope);
 			$result = is_null($currencyCode) ? $items : $items->get($currencyCode);
 		}
 		return $result;
