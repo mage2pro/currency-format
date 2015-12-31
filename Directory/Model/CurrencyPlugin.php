@@ -27,18 +27,19 @@ class CurrencyPlugin {
 	public function aroundFormatTxt(Currency $subject, \Closure $proceed, $price, $options = []) {
 		/** @var string $result */
 		$result = $proceed($price, $options + $this->defaults($subject));
-		/** @var array(string => string) $symbols */
-		$symbols = \Zend_Locale_Data::getList(df_a($options, 'locale', df_locale()), 'symbols');
-		$result = strtr($result, [
-			df_a($symbols, 'decimal') => 'decimal'
-			, df_a($symbols, 'group') => 'group'
-		]);
+		// 2015-12-31
+		// Подменяем стандартные decimals and thousands separators на свои.
 		/** @var \Dfe\CurrencyFormat\O $s */
 		$s = Settings::s()->get($subject->getCode());
-		$result = strtr($result, [
-			'decimal' => $s->decimalSeparator()
-			, 'group' => $s->thousandsSeparator()
-		]);
+		if ($s) {
+			/** @var array(string => string) $symbols */
+			$symbols = \Zend_Locale_Data::getList(df_a($options, 'locale', df_locale()), 'symbols');
+			/** @var array(string => string) $map */
+			$map = ['decimal' => $s->decimalSeparator(), 'group' => $s->thousandsSeparator()];
+			/** @var string[] $keys */
+			$keys = array_keys($map);
+			$result = strtr(strtr($result, array_combine(df_select_a($symbols, $keys) + $map, $keys)), $map);
+		}
 		return $result;
 	}
 
@@ -56,10 +57,6 @@ class CurrencyPlugin {
 			if (!$s->showDecimals()) {
 				$result['precision'] = 0;
 			}
-			/** @var string $ds */
-			$ds = $s->decimalSeparator();
-			/** @var string $ts */
-			$ts = $s->thousandsSeparator();
 			/** @var string $delimiter */
 			$delimiter = !$s->delimitSymbolFromAmount() ? '' : DF_THIN_SPACE;
 			/**
