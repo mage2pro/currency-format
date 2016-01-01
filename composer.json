@@ -1,6 +1,6 @@
 {
 	"name": "dfe/currency-format"
-	,"description": "«Currency Format» extension"
+	,"description": "«Price Format» extension"
 	,"type": "magento2-module"
 	,"homepage": "https://mage2.pro/t/355"
 	,"license": "proprietary"
