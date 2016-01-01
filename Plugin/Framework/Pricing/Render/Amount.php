@@ -53,14 +53,14 @@ class Amount extends _Amount {
 	 * подставляет значение по умолчанию,
 	 * и мы не знаем: опустил ли программист параметр или нет.
 	 *
-	 * @param Amount $subject
+	 * @param _Amount $subject
 	 * @param float $amount
 	 * @param bool $includeContainer [optional]
 	 * @param int|null $precision [optional]
 	 * @return array()
 	 */
 	public function beforeFormatCurrency(
-		Amount $subject, $amount, $includeContainer = true, $precision = null
+		_Amount $subject, $amount, $includeContainer = true, $precision = null
 	) {
 		/**
 		 * 2015-12-31
