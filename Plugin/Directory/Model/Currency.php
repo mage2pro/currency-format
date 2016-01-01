@@ -1,8 +1,8 @@
 <?php
-namespace Dfe\CurrencyFormat\Directory\Model;
+namespace Dfe\CurrencyFormat\Plugin\Directory\Model;
 use Dfe\CurrencyFormat\Settings;
-use Magento\Directory\Model\Currency;
-class CurrencyPlugin {
+use Magento\Directory\Model\Currency as _Currency;
+class Currency {
 	/**
 	 * 2015-12-31
 	 * Цель плагина — предоставить администратору возможность
@@ -10,20 +10,20 @@ class CurrencyPlugin {
 	 * «Mage2.PRO» → «Currency» → «Format».
 	 *
 	 * Помимо этого плагина для решения поставленной задачи нам нужны также плагины:
-	 * @see \Dfe\CurrencyFormat\Framework\Locale\FormatPlugin::aroundGetPriceFormat()
-	 * @see \Dfe\CurrencyFormat\Framework\Pricing\PriceCurrencyInterfacePlugin::beforeFormat()
-	 * @see \Dfe\CurrencyFormat\Framework\Pricing\Render\AmountPlugin::beforeFormatCurrency()
+	 * @see \Dfe\CurrencyFormat\Plugin\Framework\Locale\Format::aroundGetPriceFormat()
+	 * @see \Dfe\CurrencyFormat\Plugin\Framework\Pricing\PriceCurrencyInterface::beforeFormat()
+	 * @see \Dfe\CurrencyFormat\Plugin\Framework\Pricing\Render\Amount::beforeFormatCurrency()
 	 *
 	 * @see \Magento\Directory\Model\Currency::formatTxt()
 	 * https://github.com/magento/magento2/blob/2.0.0/app/code/Magento/Directory/Model/Currency.php#L301-L314
 	 *
-	 * @param Currency $subject
+	 * @param _Currency $subject
 	 * @param \Closure $proceed
 	 * @param float $price
 	 * @param array(string => string|int) $options [optional]
 	 * @return string
 	 */
-	public function aroundFormatTxt(Currency $subject, \Closure $proceed, $price, $options = []) {
+	public function aroundFormatTxt(_Currency $subject, \Closure $proceed, $price, $options = []) {
 		/** @var string $result */
 		$result = $proceed($price, $options + $this->defaults($subject));
 		// 2015-12-31
@@ -44,10 +44,10 @@ class CurrencyPlugin {
 
 	/**
 	 * 2015-12-31
-	 * @param Currency $currency
+	 * @param _Currency $currency
 	 * @return array(string => string|int)
 	 */
-	private function defaults(Currency $currency) {
+	private function defaults(_Currency $currency) {
 		/** @var array(string => string|int) $result */
 		$result = [];
 		/** @var \Dfe\CurrencyFormat\O $s */

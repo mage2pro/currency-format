@@ -1,11 +1,11 @@
 <?php
-namespace Dfe\CurrencyFormat\Framework\Pricing\Render;
+namespace Dfe\CurrencyFormat\Plugin\Framework\Pricing\Render;
 use Dfe\CurrencyFormat\Settings;
-use Magento\Framework\Pricing\Render\Amount;
+use Magento\Framework\Pricing\Render\Amount as _Amount;
 // 2015-12-13
 // Хитрая идея, которая уже давно пришла мне в голову: наследуясь от модифицируемого класса,
 // мы получаем возможность вызывать методы с областью доступа protected у переменной $subject.
-class AmountPlugin extends Amount {
+class Amount extends _Amount {
 	/**
 	 * 2016-01-01
 	 * Потрясающая техника, которую я изобрёл только что.
@@ -24,9 +24,9 @@ class AmountPlugin extends Amount {
 	 * «Mage2.PRO» → «Currency» → «Format».
 	 *
 	 * Помимо этого плагина для решения поставленной задачи нам нужны также плагины:
-	 * @see \Dfe\CurrencyFormat\Directory\Model\CurrencyPlugin::beforeFormatTxt()
-	 * @see \Dfe\CurrencyFormat\Framework\Locale\FormatPlugin::aroundGetPriceFormat()
-	 * @see \Dfe\CurrencyFormat\Framework\Pricing\PriceCurrencyInterfacePlugin::beforeFormat()
+	 * @see \Dfe\CurrencyFormat\Plugin\Directory\Model\Currency::beforeFormatTxt()
+	 * @see \Dfe\CurrencyFormat\Plugin\Framework\Locale\Format::aroundGetPriceFormat()
+	 * @see \Dfe\CurrencyFormat\Plugin\Framework\Pricing\PriceCurrencyInterface::beforeFormat()
 	 *
 	 * @see \Magento\Framework\Pricing\Render\Amount::formatCurrency()
 	 * https://github.com/magento/magento2/blob/2.0.0/lib/internal/Magento/Framework/Pricing/Render/Amount.php#L214-L228
@@ -45,7 +45,7 @@ class AmountPlugin extends Amount {
 	 * Казалось бы, нам досточно модицировать только метод
 	 * @see \Magento\Framework\Pricing\PriceCurrencyInterface::format()
 	 * Однако в этом случае в методе
-	 * @see \Dfe\CurrencyFormat\Framework\Pricing\PriceCurrencyInterfacePlugin::beforeFormat()
+	 * @see \Dfe\CurrencyFormat\Plugin\Framework\Pricing\PriceCurrencyInterface::beforeFormat()
 	 * мы утрачиваем информацию, передавал ли программист
 	 * явное значение для параметра $precision или нет:
 	 * ведь для опущенного параметра $precision
@@ -77,7 +77,7 @@ class AmountPlugin extends Amount {
 		 * 2015-12-31
 		 * Здесь мы настраиваем только $precision
 		 * Другие параметры отображения валюты мы настраиваем в другом плагине:
-		 * @see \Dfe\CurrencyFormat\Directory\Model\CurrencyPlugin::beforeFormatTxt()
+		 * @see \Dfe\CurrencyFormat\Plugin\Directory\Model\Currency::beforeFormatTxt()
 		 */
 		if (is_null($precision) && $settings && !$settings->showDecimals()) {
 			$precision = 0;

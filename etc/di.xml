@@ -10,14 +10,14 @@
 		«Mage2.PRO» → «Currency» → «Format».
 
 		Помимо этого плагина для решения поставленной задачи нам нужны также плагины:
-		@see \Dfe\CurrencyFormat\Framework\Locale\FormatPlugin::aroundGetPriceFormat()
-		@see \Dfe\CurrencyFormat\Framework\Pricing\PriceCurrencyInterfacePlugin::beforeFormat()
-		@see \Dfe\CurrencyFormat\Framework\Pricing\Render\AmountPlugin::beforeFormatCurrency()
+		@see \Dfe\CurrencyFormat\Plugin\Framework\Locale\Format::aroundGetPriceFormat()
+		@see \Dfe\CurrencyFormat\Plugin\Framework\Pricing\PriceCurrencyInterface::beforeFormat()
+		@see \Dfe\CurrencyFormat\Plugin\Framework\Pricing\Render\Amount::beforeFormatCurrency()
 	-->
 	<type name='Magento\Directory\Model\Currency'>
 		<plugin
-			name='Dfe\CurrencyFormat\Directory\Model\CurrencyPlugin'
-			type='Dfe\CurrencyFormat\Directory\Model\CurrencyPlugin'
+			name='Dfe\CurrencyFormat\Plugin\Directory\Model\Currency'
+			type='Dfe\CurrencyFormat\Plugin\Directory\Model\Currency'
 		/>
 	</type>
 	<!--
@@ -27,14 +27,14 @@
 		«Mage2.PRO» → «Currency» → «Format».
 
 		Помимо этого плагина для решения поставленной задачи нам нужны также плагины:
-		@see \Dfe\CurrencyFormat\Directory\Model\CurrencyPlugin::beforeFormatTxt()
-		@see \Dfe\CurrencyFormat\Framework\Pricing\PriceCurrencyInterfacePlugin::beforeFormat()
-		@see \Dfe\CurrencyFormat\Framework\Pricing\Render\AmountPlugin::beforeFormatCurrency()
+		@see \Dfe\CurrencyFormat\Plugin\Directory\Model\Currency::beforeFormatTxt()
+		@see \Dfe\CurrencyFormat\Plugin\Framework\Pricing\PriceCurrencyInterface::beforeFormat()
+		@see \Dfe\CurrencyFormat\Plugin\Framework\Pricing\Render\Amount::beforeFormatCurrency()
 	-->
 	<type name='Magento\Framework\Locale\Format'>
 		<plugin
-			name='Dfe\CurrencyFormat\Framework\Locale\FormatPlugin'
-			type='Dfe\CurrencyFormat\Framework\Locale\FormatPlugin'
+			name='Dfe\CurrencyFormat\Plugin\Framework\Locale\Format'
+			type='Dfe\CurrencyFormat\Plugin\Framework\Locale\Format'
 		/>
 	</type>
 	<!--
@@ -44,14 +44,14 @@
 		«Mage2.PRO» → «Currency» → «Format».
 
 		Помимо этого плагина для решения поставленной задачи нам нужны также плагины:
-		@see \Dfe\CurrencyFormat\Directory\Model\CurrencyPlugin::beforeFormatTxt()
-		@see \Dfe\CurrencyFormat\Framework\Locale\FormatPlugin::aroundGetPriceFormat()
-		@see \Dfe\CurrencyFormat\Framework\Pricing\Render\AmountPlugin::beforeFormatCurrency()
+		@see \Dfe\CurrencyFormat\Plugin\Directory\Model\Currency::beforeFormatTxt()
+		@see \Dfe\CurrencyFormat\Plugin\Framework\Locale\Format::aroundGetPriceFormat()
+		@see \Dfe\CurrencyFormat\Plugin\Framework\Pricing\Render\Amount::beforeFormatCurrency()
 	-->
 	<type name='Magento\Framework\Pricing\PriceCurrencyInterface'>
 		<plugin
-			name='Dfe\CurrencyFormat\Framework\Pricing\PriceCurrencyInterfacePlugin'
-			type='Dfe\CurrencyFormat\Framework\Pricing\PriceCurrencyInterfacePlugin'
+			name='Dfe\CurrencyFormat\Plugin\Framework\Pricing\PriceCurrencyInterface'
+			type='Dfe\CurrencyFormat\Plugin\Framework\Pricing\PriceCurrencyInterface'
 		/>
 	</type>
 	<!--
@@ -61,14 +61,14 @@
 		«Mage2.PRO» → «Currency» → «Format».
 
 		Помимо этого плагина для решения поставленной задачи нам нужны также плагины:
-		@see \Dfe\CurrencyFormat\Directory\Model\CurrencyPlugin::beforeFormatTxt()
-		@see \Dfe\CurrencyFormat\Framework\Locale\FormatPlugin::aroundGetPriceFormat()
-		@see \Dfe\CurrencyFormat\Framework\Pricing\PriceCurrencyInterfacePlugin::beforeFormat()
+		@see \Dfe\CurrencyFormat\Plugin\Directory\Model\Currency::beforeFormatTxt()
+		@see \Dfe\CurrencyFormat\Plugin\Framework\Locale\Format::aroundGetPriceFormat()
+		@see \Dfe\CurrencyFormat\Plugin\Framework\Pricing\PriceCurrencyInterface::beforeFormat()
 	-->
 	<type name='Magento\Framework\Pricing\Render\Amount'>
 		<plugin
-			name='Dfe\CurrencyFormat\Framework\Pricing\Render\AmountPlugin'
-			type='Dfe\CurrencyFormat\Framework\Pricing\Render\AmountPlugin'
+			name='Dfe\CurrencyFormat\Plugin\Framework\Pricing\Render\Amount'
+			type='Dfe\CurrencyFormat\Plugin\Framework\Pricing\Render\Amount'
 		/>
 	</type>
 </config>

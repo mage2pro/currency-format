@@ -1,8 +1,8 @@
 <?php
-namespace Dfe\CurrencyFormat\Framework\Pricing;
+namespace Dfe\CurrencyFormat\Plugin\Framework\Pricing;
 use Dfe\CurrencyFormat\Settings;
-use Magento\Framework\Pricing\PriceCurrencyInterface;
-class PriceCurrencyInterfacePlugin {
+use Magento\Framework\Pricing\PriceCurrencyInterface as _PriceCurrencyInterface;
+class PriceCurrencyInterface {
 	/**
 	 * 2015-12-26
 	 * Цель плагина — предоставить администратору возможность
@@ -10,9 +10,9 @@ class PriceCurrencyInterfacePlugin {
 	 * «Mage2.PRO» → «Currency» → «Format».
 	 *
 	 * Помимо этого плагина для решения поставленной задачи нам нужны также плагины:
-	 * @see \Dfe\CurrencyFormat\Directory\Model\CurrencyPlugin::beforeFormatTxt()
-	 * @see \Dfe\CurrencyFormat\Framework\Locale\FormatPlugin::aroundGetPriceFormat()
-	 * @see \Dfe\CurrencyFormat\Framework\Pricing\Render\AmountPlugin::beforeFormatCurrency()
+	 * @see \Dfe\CurrencyFormat\Plugin\Directory\Model\Currency::beforeFormatTxt()
+	 * @see \Dfe\CurrencyFormat\Plugin\Framework\Locale\Format::aroundGetPriceFormat()
+	 * @see \Dfe\CurrencyFormat\Plugin\Framework\Pricing\Render\Amount::beforeFormatCurrency()
 	 *
 	 * @see \Magento\Framework\Pricing\PriceCurrencyInterface::format()
 	 * https://github.com/magento/magento2/blob/2.0.0/lib/internal/Magento/Framework/Pricing/PriceCurrencyInterface.php#L42-L58
@@ -20,7 +20,7 @@ class PriceCurrencyInterfacePlugin {
 	 * @see \Magento\Directory\Model\PriceCurrency::format()
 	 * https://github.com/magento/magento2/blob/2.0.0/app/code/Magento/Directory/Model/PriceCurrency.php#L70-L82
 	 *
-	 * @param PriceCurrencyInterface $subject
+	 * @param _PriceCurrencyInterface $subject
 	 * @param float $amount
 	 * @param bool $includeContainer [optional]
 	 * @param int|null $precision [optional]
@@ -29,7 +29,7 @@ class PriceCurrencyInterfacePlugin {
 	 * @return array()
 	 */
 	public function beforeFormat(
-		PriceCurrencyInterface $subject
+		_PriceCurrencyInterface $subject
 		, $amount
 		, $includeContainer = true
 		, $precision = null
@@ -48,7 +48,7 @@ class PriceCurrencyInterfacePlugin {
 		 * 2015-12-31
 		 * Здесь мы настраиваем только $precision
 		 * Другие параметры отображения валюты мы настраиваем в другом плагине:
-		 * @see \Dfe\CurrencyFormat\Directory\Model\CurrencyPlugin::beforeFormatTxt()
+		 * @see \Dfe\CurrencyFormat\Plugin\Directory\Model\Currency::beforeFormatTxt()
 		 */
 		if (is_null($precision) && $settings && !$settings->showDecimals()) {
 			$precision = 0;
