@@ -1,17 +1,17 @@
 <?php
 namespace Dfe\CurrencyFormat\Plugin\Framework\Pricing\Render;
 use Dfe\CurrencyFormat\Settings;
-use Magento\Framework\Pricing\Render\Amount as _Amount;
+use Magento\Framework\Pricing\Render\Amount as Sb;
 // 2015-12-13
 // Хитрая идея, которая уже давно пришла мне в голову: наследуясь от модифицируемого класса,
-// мы получаем возможность вызывать методы с областью доступа protected у переменной $subject.
-class Amount extends _Amount {
+// мы получаем возможность вызывать методы с областью доступа protected у переменной $sb.
+class Amount extends Sb {
 	/**
 	 * 2016-01-01
 	 * Потрясающая техника, которую я изобрёл только что.
 	 * Ещё вчера я писал:
 	 * «К сожалению, мы не можем унаследоваться от @see Magento\Framework\Pricing\Render\Amount
-	 * и получить доступ к scope так: $scope = $subject->_storeManager->getStore();
+	 * и получить доступ к scope так: $scope = $sb->_storeManager->getStore();
 	 * потому что у Magento не получится тогда автоматически сконструировать наш объект:
 	 * «Missing required argument $amount of Magento\Framework\Pricing\Amount\Base».»
 	 */
@@ -53,14 +53,14 @@ class Amount extends _Amount {
 	 * подставляет значение по умолчанию,
 	 * и мы не знаем: опустил ли программист параметр или нет.
 	 *
-	 * @param _Amount $subject
+	 * @param Sb $sb
 	 * @param float $amount
 	 * @param bool $includeContainer [optional]
 	 * @param int|null $precision [optional]
 	 * @return array()
 	 */
 	public function beforeFormatCurrency(
-		_Amount $subject, $amount, $includeContainer = true, $precision = null
+		Sb $sb, $amount, $includeContainer = true, $precision = null
 	) {
 		/**
 		 * 2015-12-31
@@ -69,17 +69,15 @@ class Amount extends _Amount {
 		 * https://github.com/magento/magento2/blob/2.0.0/app/code/Magento/Catalog/view/base/templates/product/price/amount/default.phtml#L30
 		 * <meta itemprop="priceCurrency" content="<?php echo $block->getDisplayCurrencyCode()?>" />
 		 */
-		/** @var \Dfe\CurrencyFormat\O $settings */
-		$settings = Settings::s()->get(
-			$subject->getDisplayCurrencyCode(), $subject->_storeManager->getStore()
-		);
+		/** @var \Dfe\CurrencyFormat\O $s */
+		$s = Settings::s()->get($sb->getDisplayCurrencyCode(), $sb->_storeManager->getStore());
 		/**
 		 * 2015-12-31
 		 * Здесь мы настраиваем только $precision
 		 * Другие параметры отображения валюты мы настраиваем в другом плагине:
 		 * @see \Dfe\CurrencyFormat\Plugin\Directory\Model\Currency::beforeFormatTxt()
 		 */
-		if (is_null($precision) && $settings && !$settings->showDecimals()) {
+		if (is_null($precision) && $s && !$s->showDecimals()) {
 			$precision = 0;
 		}
 		return [$amount, $includeContainer, $precision];

@@ -12,7 +12,7 @@ class FormElement extends Fieldset {
 	 * 2015-12-27
 	 * @override
 	 * @see \Df\Framework\Data\Form\Element\Fieldset::onFormInitialized()
-	 * @used-by \Df\Framework\Data\Form\Element\AbstractElementPlugin::afterSetForm()
+	 * @used-by \Df\Framework\Plugin\Data\Form\Element\AbstractElement::afterSetForm()
 	 * @return void
 	 */
 	public function onFormInitialized() {
@@ -37,7 +37,7 @@ class FormElement extends Fieldset {
 			,[self::TS__NONE, self::TS__THIN_SPACE, ',', '.']
 			, '<code>5120</code> or <code>5&thinsp;120</code> or <code>5,120</code> or <code>5.120</code>?'
 		);
-		df_form_element_init($this, __CLASS__);
+		df_fe_init($this, __CLASS__);
 	}
 
 	const TS__NONE = 'none';

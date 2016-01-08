@@ -1,11 +1,11 @@
 <?php
 namespace Dfe\CurrencyFormat\Plugin\Framework\Locale;
 use Dfe\CurrencyFormat\Settings;
-use Magento\Framework\Locale\Format as _Format;
+use Magento\Framework\Locale\Format as Sb;
 // 2015-12-13
 // Хитрая идея, которая уже давно пришла мне в голову: наследуясь от модифицируемого класса,
-// мы получаем возможность вызывать методы с областью доступа protected у переменной $subject.
-class Format extends _Format {
+// мы получаем возможность вызывать методы с областью доступа protected у переменной $sb.
+class Format extends Sb {
 	/**
 	 * 2016-01-01
 	 * Потрясающая техника, которую я изобрёл только что.
@@ -26,14 +26,14 @@ class Format extends _Format {
 	 * @see \Magento\Framework\Locale\Format::getPriceFormat()
 	 * https://github.com/magento/magento2/blob/2.0.0/lib/internal/Magento/Framework/Locale/Format.php#L89-L152
 	 *
-	 * @param _Format $subject
+	 * @param Sb $sb
 	 * @param \Closure $proceed
 	 * @param string $localeCode
 	 * @param string $currencyCode
 	 * @return array(string => mixed)
 	 */
 	public function aroundGetPriceFormat(
-		_Format $subject, \Closure $proceed, $localeCode = null, $currencyCode = null
+		Sb $sb, \Closure $proceed, $localeCode = null, $currencyCode = null
 	) {
 		/** @var array(string => mixed) $result */
 		$result = $proceed();
@@ -42,7 +42,7 @@ class Format extends _Format {
 		 * https://github.com/magento/magento2/blob/2.0.0/lib/internal/Magento/Framework/Locale/Format.php#L101-L105
 		 */
 		/** @var \Magento\Store\Model\Store $scope */
-		$scope = $subject->_scopeResolver->getScope();
+		$scope = $sb->_scopeResolver->getScope();
 		if (!$currencyCode) {
 			$currencyCode = $scope->getCurrentCurrency()->getCode();
 		}

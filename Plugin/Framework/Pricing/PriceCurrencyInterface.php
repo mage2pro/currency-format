@@ -1,7 +1,7 @@
 <?php
 namespace Dfe\CurrencyFormat\Plugin\Framework\Pricing;
 use Dfe\CurrencyFormat\Settings;
-use Magento\Framework\Pricing\PriceCurrencyInterface as _PriceCurrencyInterface;
+use Magento\Framework\Pricing\PriceCurrencyInterface as Sb;
 class PriceCurrencyInterface {
 	/**
 	 * 2015-12-26
@@ -20,7 +20,7 @@ class PriceCurrencyInterface {
 	 * @see \Magento\Directory\Model\PriceCurrency::format()
 	 * https://github.com/magento/magento2/blob/2.0.0/app/code/Magento/Directory/Model/PriceCurrency.php#L70-L82
 	 *
-	 * @param _PriceCurrencyInterface $subject
+	 * @param Sb $sb
 	 * @param float $amount
 	 * @param bool $includeContainer [optional]
 	 * @param int|null $precision [optional]
@@ -29,19 +29,15 @@ class PriceCurrencyInterface {
 	 * @return array()
 	 */
 	public function beforeFormat(
-		_PriceCurrencyInterface $subject
-		, $amount
-		, $includeContainer = true
-		, $precision = null
-		, $scope = null
-		, $currency = null
+		Sb $sb, $amount, $includeContainer = true
+		, $precision = null, $scope = null, $currency = null
 	) {
 		/**
 		 * 2015-12-31
 		 * https://github.com/magento/magento2/blob/2.0.0/app/code/Magento/Directory/Model/PriceCurrency.php#L80
 		 */
 		/** @var \Magento\Directory\Model\Currency $currencyModel */
-		$currencyModel = $subject->getCurrency($scope, $currency);
+		$currencyModel = $sb->getCurrency($scope, $currency);
 		/** @var \Dfe\CurrencyFormat\O $settings */
 		$settings = Settings::s()->get($currencyModel->getCode(), $scope);
 		/**

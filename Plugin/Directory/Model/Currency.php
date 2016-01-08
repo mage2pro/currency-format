@@ -1,7 +1,7 @@
 <?php
 namespace Dfe\CurrencyFormat\Plugin\Directory\Model;
 use Dfe\CurrencyFormat\Settings;
-use Magento\Directory\Model\Currency as _Currency;
+use Magento\Directory\Model\Currency as Sb;
 class Currency {
 	/**
 	 * 2015-12-31
@@ -17,19 +17,19 @@ class Currency {
 	 * @see \Magento\Directory\Model\Currency::formatTxt()
 	 * https://github.com/magento/magento2/blob/2.0.0/app/code/Magento/Directory/Model/Currency.php#L301-L314
 	 *
-	 * @param _Currency $subject
+	 * @param Sb $sb
 	 * @param \Closure $proceed
 	 * @param float $price
 	 * @param array(string => string|int) $options [optional]
 	 * @return string
 	 */
-	public function aroundFormatTxt(_Currency $subject, \Closure $proceed, $price, $options = []) {
+	public function aroundFormatTxt(Sb $sb, \Closure $proceed, $price, $options = []) {
 		/** @var string $result */
-		$result = $proceed($price, $options + $this->defaults($subject));
+		$result = $proceed($price, $options + $this->defaults($sb));
 		// 2015-12-31
 		// Подменяем стандартные decimals and thousands separators на свои.
 		/** @var \Dfe\CurrencyFormat\O $s */
-		$s = Settings::s()->get($subject->getCode());
+		$s = Settings::s()->get($sb->getCode());
 		if ($s) {
 			/** @var array(string => string) $symbols */
 			$symbols = \Zend_Locale_Data::getList(df_a($options, 'locale', df_locale()), 'symbols');
@@ -44,10 +44,10 @@ class Currency {
 
 	/**
 	 * 2015-12-31
-	 * @param _Currency $currency
+	 * @param Sb $currency
 	 * @return array(string => string|int)
 	 */
-	private function defaults(_Currency $currency) {
+	private function defaults(Sb $currency) {
 		/** @var array(string => string|int) $result */
 		$result = [];
 		/** @var \Dfe\CurrencyFormat\O $s */
