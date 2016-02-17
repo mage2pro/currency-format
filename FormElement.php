@@ -21,6 +21,7 @@ class FormElement extends Fieldset {
 		$currencies = df_currencies_options();
 		/** @var int $currenciesCount */
 		$currenciesCount = count($currencies);
+		df_assert($currenciesCount);
 		if (1 < $currenciesCount) {
 			$this->select(O::code, null, $currencies);
 		}
