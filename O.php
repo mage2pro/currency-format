@@ -39,7 +39,7 @@ class O extends \Df\Config\O {
 	public function thousandsSeparator() {
 		/** @var string $result */
 		$result = $this->ct(__FUNCTION__, FormElement::TS__NONE);
-		return df_a([
+		return dfa([
 			FormElement::TS__NONE => '', FormElement::TS__THIN_SPACE => DF_THIN_SPACE
 		], $result, $result);
 	}

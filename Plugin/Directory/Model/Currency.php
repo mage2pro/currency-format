@@ -32,12 +32,12 @@ class Currency {
 		$s = Settings::s()->get($sb->getCode());
 		if ($s) {
 			/** @var array(string => string) $symbols */
-			$symbols = \Zend_Locale_Data::getList(df_a($options, 'locale', df_locale()), 'symbols');
+			$symbols = \Zend_Locale_Data::getList(dfa($options, 'locale', df_locale()), 'symbols');
 			/** @var array(string => string) $map */
 			$map = ['decimal' => $s->decimalSeparator(), 'group' => $s->thousandsSeparator()];
 			/** @var string[] $keys */
 			$keys = array_keys($map);
-			$result = strtr(strtr($result, array_combine(df_select_a($symbols, $keys) + $map, $keys)), $map);
+			$result = strtr(strtr($result, array_combine(dfa_select($symbols, $keys) + $map, $keys)), $map);
 		}
 		return $result;
 	}
