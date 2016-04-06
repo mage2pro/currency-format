@@ -11,5 +11,5 @@
 		"role": "Developer"
 	}]
 	,"require": {"mage2pro/core": "*"}
-	,"extra": {"map": [["*", "Dfe/CurrencyFormat"]]}
+	,"autoload": {"files": ["registration.php"], "psr-4": {"Dfe\\CurrencyFormat\\": ""}}
 }
