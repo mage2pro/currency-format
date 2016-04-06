@@ -10,6 +10,6 @@
 		"homepage": "https://mage2.pro/users/dmitry_fedyuk",
 		"role": "Developer"
 	}]
-	,"require": {"mage2pro/core": "dev-master"}
+	,"require": {"mage2pro/core": "*"}
 	,"extra": {"map": [["*", "Dfe/CurrencyFormat"]]}
 }
