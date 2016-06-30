@@ -1,6 +1,6 @@
 <?php
 namespace Dfe\CurrencyFormat;
-use Df\Framework\Data\Form\Element\Fieldset;
+use Df\Framework\Form\Element\Fieldset;
 use Magento\Config\Model\Config\Source\Locale\Currency as Currencies;
 /**
  * 2015-12-27
@@ -11,7 +11,7 @@ class FormElement extends Fieldset {
 	/**
 	 * 2015-12-27
 	 * @override
-	 * @see \Df\Framework\Data\Form\Element\Fieldset::onFormInitialized()
+	 * @see \Df\Framework\Form\Element\Fieldset::onFormInitialized()
 	 * @used-by \Df\Framework\Plugin\Data\Form\Element\AbstractElement::afterSetForm()
 	 * @return void
 	 */

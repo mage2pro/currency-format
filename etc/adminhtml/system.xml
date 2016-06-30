@@ -33,7 +33,7 @@
 				<field
 					id='enable'
 					translate='label'
-					type='Df\Framework\Data\Form\Element\Checkbox'
+					type='Df\Framework\Form\Element\Checkbox'
 					sortOrder='1'
 					showInDefault='1'
 					showInWebsite='1'
@@ -46,7 +46,7 @@
 				<field
 					id='items'
 					translate='label'
-					type='Df\Framework\Data\Form\Element\ArrayT'
+					type='Df\Framework\Form\Element\ArrayT'
 					dfItemType='Dfe\CurrencyFormat\FormElement'
 					sortOrder='2'
 					showInDefault='1'
