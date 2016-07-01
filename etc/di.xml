@@ -71,4 +71,9 @@
 			type='Dfe\CurrencyFormat\Plugin\Framework\Pricing\Render\Amount'
 		/>
 	</type>
+	<virtualType name='Dfe\CurrencyFormat\Ext' type='Df\Config\Ext'>
+		<arguments>
+			<argument name='name' xsi:type='string'>mage2pro/currency-format</argument>
+		</arguments>
+	</virtualType>
 </config>
