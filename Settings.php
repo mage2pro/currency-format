@@ -1,6 +1,7 @@
 <?php
 namespace Dfe\CurrencyFormat;
 use Magento\Framework\App\ScopeInterface as S;
+/** @method static Settings s() */
 class Settings extends \Df\Core\Settings {
 	/**
 	 * 2015-12-30
@@ -37,7 +38,4 @@ class Settings extends \Df\Core\Settings {
 	 * @return string
 	 */
 	protected function prefix() {return 'dfe_currency/format/';}
-
-	/** @return self */
-	public static function s() {static $r; return $r ? $r : $r = df_o(__CLASS__);}
 }
