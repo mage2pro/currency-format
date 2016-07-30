@@ -17,6 +17,8 @@ class FormElement extends Fieldset {
 	 */
 	public function onFormInitialized() {
 		parent::onFormInitialized();
+		// 2016-07-30
+		// Этот стиль будет применён к элементу <fieldset>.
 		$this->addClass('df-currency-format');
 		$currencies = df_currencies_options();
 		/** @var int $currenciesCount */
