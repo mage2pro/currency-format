@@ -57,7 +57,7 @@
 				>
 					<label></label>
 					<comment><![CDATA[]]></comment>
-					<backend_model>Df\Config\Backend\Serialized</backend_model>
+					<backend_model>Df\Config\Backend\ArrayT</backend_model>
 					<depends><field id='enable'>1</field></depends>
 				</field>
 			</group>
