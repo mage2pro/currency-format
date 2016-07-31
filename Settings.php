@@ -1,5 +1,6 @@
 <?php
 namespace Dfe\CurrencyFormat;
+use Df\Config\A;
 use Magento\Framework\App\ScopeInterface as S;
 /** @method static Settings s() */
 class Settings extends \Df\Core\Settings {
@@ -9,15 +10,15 @@ class Settings extends \Df\Core\Settings {
 	 * «Mage2.PRO» → «Currency» → «Format».
 	 * @param string|null $currencyCode [optional]
 	 * @param null|string|int|S $scope [optional]
-	 * @return \Df\Config\A|O|null
+	 * @return A|O|null
 	 */
 	public function get($currencyCode = null, $scope = null) {
-		/** @var \Df\Config\A|O|null $result */
+		/** @var A|O|null $result */
 		if (!$this->enable($scope)) {
 			$result = null;
 		}
 		else {
-			/** @var \Df\Config\A $items */
+			/** @var A $items */
 			$items = $this->_a('items', O::class, $scope);
 			$result = is_null($currencyCode) ? $items : $items->get($currencyCode);
 		}

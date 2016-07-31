@@ -49,14 +49,13 @@
 					id='items'
 					translate='label'
 					type='Df\Framework\Form\Element\ArrayT'
-					dfItemType='Dfe\CurrencyFormat\FormElement'
+					dfItemFormElement='Dfe\CurrencyFormat\FormElement'
+					dfItemEntity='Dfe\CurrencyFormat\O'
 					sortOrder='2'
 					showInDefault='1'
 					showInWebsite='1'
 					showInStore='1'
 				>
-					<label></label>
-					<comment><![CDATA[]]></comment>
 					<backend_model>Df\Config\Backend\ArrayT</backend_model>
 					<depends><field id='enable'>1</field></depends>
 				</field>
