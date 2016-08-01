@@ -71,6 +71,16 @@
 			type='Dfe\CurrencyFormat\Plugin\Framework\Pricing\Render\Amount'
 		/>
 	</type>
+	<!--
+		2016-08-01
+		https://mage2.pro/t/1916
+	-->
+	<type name='Magento\Sales\Model\Order'>
+		<plugin
+			name='Dfe\CurrencyFormat\Plugin\Sales\Model\Order'
+			type='Dfe\CurrencyFormat\Plugin\Sales\Model\Order'
+		/>
+	</type>
 	<virtualType name='Dfe\CurrencyFormat\Ext' type='Df\Config\Ext'>
 		<arguments>
 			<argument name='name' xsi:type='string'>mage2pro/currency-format</argument>
