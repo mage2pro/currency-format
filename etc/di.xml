@@ -20,6 +20,13 @@
 			type='Dfe\CurrencyFormat\Plugin\Directory\Model\Currency'
 		/>
 	</type>
+	<!-- 2016-08-01 -->
+	<type name='Magento\Framework\Currency'>
+		<plugin
+			name='Dfe\CurrencyFormat\Plugin\Framework\Currency'
+			type='Dfe\CurrencyFormat\Plugin\Framework\Currency'
+		/>
+	</type>
 	<!--
 		2015-12-26
 		Цель плагина — предоставить администратору возможность

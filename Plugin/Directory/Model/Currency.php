@@ -24,63 +24,19 @@ class Currency {
 	 * @return string
 	 */
 	public function aroundFormatTxt(Sb $sb, \Closure $proceed, $price, $options = []) {
-		/** @var string $result */
-		$result = $proceed($price, $options + $this->defaults($sb));
-		// 2015-12-31
-		// Подменяем стандартные decimals and thousands separators на свои.
 		/** @var \Dfe\CurrencyFormat\O $s */
 		$s = Settings::s()->get($sb->getCode());
-		if ($s) {
-			/** @var array(string => string) $symbols */
-			$symbols = \Zend_Locale_Data::getList(dfa($options, 'locale', df_locale()), 'symbols');
-			/** @var array(string => string) $map */
-			$map = ['decimal' => $s->decimalSeparator(), 'group' => $s->thousandsSeparator()];
-			/** @var string[] $keys */
-			$keys = array_keys($map);
-			$result = strtr(strtr($result, array_combine(dfa_select($symbols, $keys) + $map, $keys)), $map);
-		}
-		return $result;
-	}
-
-	/**
-	 * 2015-12-31
-	 * @param Sb $currency
-	 * @return array(string => string|int)
-	 */
-	private function defaults(Sb $currency) {
-		/** @var array(string => string|int) $result */
-		$result = [];
-		/** @var \Dfe\CurrencyFormat\O $s */
-		$s = Settings::s()->get($currency->getCode());
-		if ($s) {
-			if (!$s->showDecimals()) {
-				$result['precision'] = 0;
-			}
-			/** @var string $delimiter */
-			$delimiter = !$s->delimitSymbolFromAmount() ? '' : DF_THIN_SPACE;
-			/**
-			 * 2015-12-31
-			 * http://framework.zend.com/manual/1.12/en/zend.locale.parsing.html
-			 */
-			/** @var string[] $formatA */
-			$formatA = ["#,##0.00", $delimiter, '¤'];
-			if ('before' === $s->symbolPosition()) {
-				$formatA = array_reverse($formatA);
-				/**
-				 * 2015-12-31
-				 * Когда символ валюты надо отобразить слева от суммы,
-				 * то по какой-то неведомой причине
-				 * недостаточно указать позицию символа валюты в шаблоне (символом ¤),
-				 * но также нужно явно указать @uses \Zend_Currency::LEFT значением параметра
-				 * «position»,иначе символ валюты вообще не будет отображён.
-				 * https://github.com/zendframework/zf1/blob/release-1.12.16/library/Zend/Currency.php#L196-L209
-				 */
-				$result['position'] = \Zend_Currency::LEFT;
-			}
-			// 2015-12-31
-			// https://github.com/zendframework/zf1/blob/release-1.12.16/library/Zend/Currency.php#L182
-			$result['format'] = implode($formatA);
-		}
-		return $result;
+		/**
+		 * 2016-08-01
+		 * Раньше здесь в конце вызывался метод @see \Dfe\CurrencyFormat\O::postProcess()
+		 * однако отныне вызывать его не надо,
+		 * потому что метод @see \Magento\Directory\Model\Currency::formatTxt()
+		 * приводит к вызову другого нашего плагина
+		 * @see \Dfe\CurrencyFormat\Plugin\Framework\Currency::afterToCurrency()
+		 * а тот, в свою очередь, уже вызывает @see \Dfe\CurrencyFormat\O::postProcess()
+		 * Повторный же вызов @see \Dfe\CurrencyFormat\O::postProcess() не только неэффективен,
+		 * но и вреден: после повторного вызова разделители вообще утрачиваются.
+		 */
+		return $proceed($price, $options + (!$s ? [] : $s->options()));
 	}
 }
