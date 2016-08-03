@@ -31,6 +31,34 @@ class Currency {
 	}
 
 	/**
+	 * 2016-08-03
+	 * https://mage2.pro/t/1929
+	 * @see \Magento\Directory\Model\Currency::formatPrecision()
+	 * https://github.com/magento/magento2/blob/2.0.0/app/code/Magento/Directory/Model/Currency.php#L267-L294
+	 * @param Sb $sb
+	 * @param \Closure $proceed
+	 * @param float $price
+	 * @param int $precision
+	 * @param array(string => string|int) $options [optional]
+	 * @param bool $includeContainer [optional]
+	 * @param bool $addBrackets [optional]
+	 * @return string
+	 */
+	public function aroundFormatPrecision(
+		Sb $sb, \Closure $proceed, $price, $precision, $options = []
+		, $includeContainer = true, $addBrackets = false
+	) {
+		if (Settings::ignorePrecision()) {
+			/** @var O $s */
+			$s = Settings::s()->get($sb->getCode());
+			if ($s && !$s->showDecimals()) {
+				$precision = 0;
+			}
+		}
+		return $proceed($price, $precision, $options, $includeContainer, $addBrackets);
+	}
+
+	/**
 	 * 2015-12-31
 	 * Цель плагина — предоставить администратору возможность
 	 * форматировать отображение денежных денежных величин:

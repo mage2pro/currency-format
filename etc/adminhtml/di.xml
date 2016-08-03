@@ -1,0 +1,13 @@
+<?xml version='1.0'?>
+<config
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd"
+>
+	<!-- 2016-08-03 -->
+	<type name='Magento\Sales\Block\Adminhtml\Items\AbstractItems'>
+		<plugin
+			name='Dfe\CurrencyFormat\Plugin\Sales\Block\Adminhtml\Items\AbstractItems'
+			type='Dfe\CurrencyFormat\Plugin\Sales\Block\Adminhtml\Items\AbstractItems'
+		/>
+	</type>
+</config>

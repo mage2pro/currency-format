@@ -39,4 +39,29 @@ class Settings extends \Df\Core\Settings {
 	 * @return string
 	 */
 	protected function prefix() {return 'dfe_currency/format/';}
+
+	/**
+	 * 2016-08-03
+	 * @used-by \Dfe\CurrencyFormat\Plugin\Sales\Block\Adminhtml\Items\AbstractItems::aroundDisplayPrices()
+	 * @used-by \Dfe\CurrencyFormat\Plugin\Directory\Model\Currency::aroundFormatPrecision()
+	 * @param bool|null $value
+	 * @return bool|null
+	 */
+	public static function ignorePrecision($value = null) {
+		/** @var bool|null $result */
+		if (is_null($value)) {
+			$result = self::$_ignorePrecision;
+		}
+		else {
+			self::$_ignorePrecision = $value;
+			$result = null;
+		}
+		return $result;
+	}
+
+	/**
+	 * 2016-08-03
+	 * @var bool
+	 */
+	private static $_ignorePrecision = false;
 }
