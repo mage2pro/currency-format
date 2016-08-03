@@ -50,7 +50,7 @@
 					translate='label'
 					type='Df\Framework\Form\Element\ArrayT'
 					dfItemFormElement='Dfe\CurrencyFormat\FormElement'
-					dfItemEntity='Dfe\CurrencyFormat\O'
+					dfEntity='Dfe\CurrencyFormat\O'
 					sortOrder='2'
 					showInDefault='1'
 					showInWebsite='1'

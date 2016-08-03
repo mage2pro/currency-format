@@ -1,6 +1,6 @@
 <?php
 namespace Dfe\CurrencyFormat;
-class O extends \Df\Config\O {
+class O extends \Df\Config\ArrayItem {
 	/** @return string */
 	public function code() {return $this->ct(__FUNCTION__);}
 	/** @return string */
@@ -11,7 +11,7 @@ class O extends \Df\Config\O {
 	/**
 	 * 2015-12-31
 	 * @override
-	 * @see \Df\Config\O::getId()
+	 * @see \Df\Config\ArrayItem::getId()
 	 * @used-by \Df\Config\A::get()
 	 * https://github.com/mage2pro/core/tree/dcc75ea95b8644548d8b2a5c5ffa71c891f97e60/Config/A.php#L26
 	 * @return string
