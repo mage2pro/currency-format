@@ -1,8 +1,35 @@
 <?php
 namespace Dfe\CurrencyFormat\Plugin\Directory\Model;
+use Dfe\CurrencyFormat\O;
 use Dfe\CurrencyFormat\Settings;
 use Magento\Directory\Model\Currency as Sb;
 class Currency {
+	/**
+	 * 2016-08-03
+	 * https://mage2.pro/t/1929
+	 * @see \Magento\Directory\Model\Currency::format()
+	 * https://github.com/magento/magento2/blob/2.0.0/app/code/Magento/Directory/Model/Currency.php#L253-L265
+	 * @param Sb $sb
+	 * @param \Closure $proceed
+	 * @param float $price
+	 * @param array(string => string|int) $options [optional]
+	 * @param bool $includeContainer [optional]
+	 * @param bool $addBrackets [optional]
+	 * @return string
+	 */
+	public function aroundFormat(
+		Sb $sb, \Closure $proceed, $price, $options = []
+		, $includeContainer = true, $addBrackets = false
+	) {
+		/** @var O $s */
+		$s = Settings::s()->get($sb->getCode());
+		return
+			!$s || $s->showDecimals()
+			? $proceed($price, $options, $includeContainer, $addBrackets)
+			: $sb->formatPrecision($price, 0, $options, $includeContainer, $addBrackets)
+		;
+	}
+
 	/**
 	 * 2015-12-31
 	 * Цель плагина — предоставить администратору возможность
@@ -24,7 +51,7 @@ class Currency {
 	 * @return string
 	 */
 	public function aroundFormatTxt(Sb $sb, \Closure $proceed, $price, $options = []) {
-		/** @var \Dfe\CurrencyFormat\O $s */
+		/** @var O $s */
 		$s = Settings::s()->get($sb->getCode());
 		/**
 		 * 2016-08-01
@@ -36,6 +63,10 @@ class Currency {
 		 * а тот, в свою очередь, уже вызывает @see \Dfe\CurrencyFormat\O::postProcess()
 		 * Повторный же вызов @see \Dfe\CurrencyFormat\O::postProcess() не только неэффективен,
 		 * но и вреден: после повторного вызова разделители вообще утрачиваются.
+		 *
+		 * 2016-08-03
+		 * Мы намеренно ставим $options впереди наших опций,
+		 * чтобы можно было нестандартно отформатировать цену явным указанием $options.
 		 */
 		return $proceed($price, $options + (!$s ? [] : $s->options()));
 	}
