@@ -13,28 +13,14 @@ class Settings extends \Df\Core\Settings {
 	 * @return A|O|null
 	 */
 	public function get($currencyCode = null, $scope = null) {
-		/** @var A|O|null $result */
-		if (!$this->enable($scope)) {
-			$result = null;
-		}
-		else {
-			/** @var A $items */
-			$items = $this->_a('items', O::class, $scope);
-			$result = is_null($currencyCode) ? $items : $items->get($currencyCode);
-		}
-		return $result;
+		/** @var A $result */
+		$result = $this->_a('items', O::class, $scope);
+		return is_null($currencyCode) ? $result : $result->get($currencyCode);
 	}
 
 	/**
-	 * 2015-12-26
-	 * «Mage2.PRO» → «Currency» → «Format» → «Enable?»
-	 * @param null|string|int|S $scope [optional]
-	 * @return bool
-	 */
-	public function enable($scope = null) {return $this->b(__FUNCTION__, $scope);}
-
-	/**
 	 * @override
+	 * @see \Df\Core\Settings::prefix()
 	 * @used-by \Df\Core\Settings::v()
 	 * @return string
 	 */

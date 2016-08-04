@@ -1,6 +1,6 @@
 {
 	"name": "mage2pro/currency-format"
-	,"version": "1.0.9"
+	,"version": "1.0.10"
 	,"description": "The «Price Format» extension."
 	,"type": "magento2-module"
 	,"homepage": "https://mage2.pro/c/extensions/price-format"
@@ -11,6 +11,6 @@
 		"homepage": "https://mage2.pro/users/dmitry_fedyuk",
 		"role": "Developer"
 	}]
-	,"require": {"mage2pro/core": "^1.5.11"}
+	,"require": {"mage2pro/core": "^1.5.13"}
 	,"autoload": {"files": ["registration.php"], "psr-4": {"Dfe\\CurrencyFormat\\": ""}}
 }
