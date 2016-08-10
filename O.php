@@ -2,9 +2,9 @@
 namespace Dfe\CurrencyFormat;
 class O extends \Df\Config\ArrayItem {
 	/** @return string */
-	public function code() {return $this->ct(__FUNCTION__);}
+	public function code() {return $this->v(__FUNCTION__);}
 	/** @return string */
-	public function decimalSeparator() {return $this->ct(__FUNCTION__, '.');}
+	public function decimalSeparator() {return $this->v(__FUNCTION__, '.');}
 	/** @return bool */
 	public function delimitSymbolFromAmount() {return $this->b(__FUNCTION__, false);}
 
@@ -97,7 +97,7 @@ class O extends \Df\Config\ArrayItem {
 	 */
 	public function showDecimals() {return $this->b(__FUNCTION__, true);}
 	/** @return string */
-	public function symbolPosition() {return $this->ct(__FUNCTION__, 'before');}
+	public function symbolPosition() {return $this->v(__FUNCTION__, 'before');}
 
 	/**
 	 * 2015-12-31
@@ -105,7 +105,7 @@ class O extends \Df\Config\ArrayItem {
 	 */
 	public function thousandsSeparator() {
 		/** @var string $result */
-		$result = $this->ct(__FUNCTION__, FormElement::TS__NONE);
+		$result = $this->v(__FUNCTION__, FormElement::TS__NONE);
 		return dfa([
 			FormElement::TS__NONE => '', FormElement::TS__THIN_SPACE => DF_THIN_SPACE
 		], $result, $result);

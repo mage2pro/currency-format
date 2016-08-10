@@ -14,7 +14,7 @@ class Settings extends \Df\Core\Settings {
 	 */
 	public function get($currencyCode = null, $scope = null) {
 		/** @var A $result */
-		$result = $this->_a('items', O::class, $scope);
+		$result = $this->_a(O::class, 'items', $scope);
 		return is_null($currencyCode) ? $result : $result->get($currencyCode);
 	}
 
