@@ -1,12 +1,13 @@
 <?php
 namespace Dfe\CurrencyFormat;
+use Dfe\CurrencyFormat\FormElement as FE;
 class O extends \Df\Config\ArrayItem {
 	/** @return string */
-	public function code() {return $this->v(__FUNCTION__);}
+	public function code() {return $this->v();}
 	/** @return string */
-	public function decimalSeparator() {return $this->v(__FUNCTION__, '.');}
+	public function decimalSeparator() {return $this->v('.');}
 	/** @return bool */
-	public function delimitSymbolFromAmount() {return $this->b(__FUNCTION__, false);}
+	public function delimitSymbolFromAmount() {return $this->b();}
 
 	/**
 	 * 2015-12-31
@@ -95,9 +96,9 @@ class O extends \Df\Config\ArrayItem {
 	 * https://github.com/zendframework/zf1/blob/release-1.12.16/library/Zend/Locale/Format.php#L329
 	 * @return bool
 	 */
-	public function showDecimals() {return $this->b(__FUNCTION__, true);}
+	public function showDecimals() {return $this->b(true);}
 	/** @return string */
-	public function symbolPosition() {return $this->v(__FUNCTION__, 'before');}
+	public function symbolPosition() {return $this->v('before');}
 
 	/**
 	 * 2015-12-31
@@ -105,10 +106,8 @@ class O extends \Df\Config\ArrayItem {
 	 */
 	public function thousandsSeparator() {
 		/** @var string $result */
-		$result = $this->v(__FUNCTION__, FormElement::TS__NONE);
-		return dfa([
-			FormElement::TS__NONE => '', FormElement::TS__THIN_SPACE => DF_THIN_SPACE
-		], $result, $result);
+		$result = $this->v(FE::TS__NONE);
+		return dfa([FE::TS__NONE => '', FE::TS__THIN_SPACE => DF_THIN_SPACE], $result, $result);
 	}
 
 	const code = 'code';
