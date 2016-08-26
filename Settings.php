@@ -3,7 +3,7 @@ namespace Dfe\CurrencyFormat;
 use Df\Config\A;
 use Magento\Framework\App\ScopeInterface as S;
 /** @method static Settings s() */
-class Settings extends \Df\Core\Settings {
+final class Settings extends \Df\Core\Settings {
 	/**
 	 * 2015-12-30
 	 * Форматирование отображения денежных денежных величин:
