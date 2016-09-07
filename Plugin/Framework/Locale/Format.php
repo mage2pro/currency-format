@@ -36,7 +36,7 @@ class Format extends Sb {
 		Sb $sb, \Closure $proceed, $localeCode = null, $currencyCode = null
 	) {
 		/** @var array(string => mixed) $result */
-		$result = $proceed();
+		$result = $proceed($localeCode, $currencyCode);
 		/**
 		 * 2015-12-31
 		 * https://github.com/magento/magento2/blob/2.0.0/lib/internal/Magento/Framework/Locale/Format.php#L101-L105
