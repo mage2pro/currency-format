@@ -10,7 +10,7 @@ class Amount extends Sb {
 	 * 2016-01-01
 	 * Потрясающая техника, которую я изобрёл только что.
 	 * Ещё вчера я писал:
-	 * «К сожалению, мы не можем унаследоваться от @see Magento\Framework\Pricing\Render\Amount
+	 * «К сожалению, мы не можем унаследоваться от @see \Magento\Framework\Pricing\Render\Amount
 	 * и получить доступ к scope так: $scope = $sb->_storeManager->getStore();
 	 * потому что у Magento не получится тогда автоматически сконструировать наш объект:
 	 * «Missing required argument $amount of Magento\Framework\Pricing\Amount\Base».»
