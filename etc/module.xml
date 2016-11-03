@@ -7,12 +7,13 @@
 		<!--
 			2016-08-01
 			Метод @see \Magento\CurrencySymbol\Observer\CurrencyDisplayOptions::execute()
-			пететирает работу предыдущих обсерверов: https://mage2.pro/t/1920
+			перетирает работу предыдущих обсерверов: https://mage2.pro/t/1920
 			Поэтому важно, чтобы наш обсервер выполнялся после указанного:
 			https://mage2.pro/t/200/4
 		-->
         <sequence>
             <module name='Magento_CurrencySymbol'/>
+            <module name='Df_Core'/>
         </sequence>
     </module>
 </config>
