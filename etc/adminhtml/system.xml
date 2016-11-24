@@ -15,10 +15,10 @@
 			<tab>_df</tab>
 			<label>Currency</label>
 			<class>separator-top</class>
-			<!--
-				2015-11-13
-				https://mage2.pro/t/355
-			-->
+<!--
+2015-11-13
+https://mage2.pro/t/355
+-->
 			<resource>Dfe_Currency::config</resource>
 			<group
 				id='format'
