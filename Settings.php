@@ -3,7 +3,7 @@ namespace Dfe\CurrencyFormat;
 use Df\Config\A;
 use Magento\Framework\App\ScopeInterface as S;
 /** @method static Settings s() */
-final class Settings extends \Df\Core\Settings {
+final class Settings extends \Df\Config\Settings {
 	/**
 	 * 2015-12-30
 	 * Форматирование отображения денежных денежных величин:
@@ -20,11 +20,11 @@ final class Settings extends \Df\Core\Settings {
 
 	/**
 	 * @override
-	 * @see \Df\Core\Settings::prefix()
-	 * @used-by \Df\Core\Settings::v()
+	 * @see \Df\Config\Settings::prefix()
+	 * @used-by \Df\Config\Settings::v()
 	 * @return string
 	 */
-	protected function prefix() {return 'dfe_currency/format/';}
+	protected function prefix() {return 'dfe_currency/format';}
 
 	/**
 	 * 2016-08-03
