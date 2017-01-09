@@ -57,7 +57,7 @@ class Amount extends Sb {
 	 * @param float $amount
 	 * @param bool $includeContainer [optional]
 	 * @param int|null $precision [optional]
-	 * @return array()
+	 * @return array
 	 */
 	public function beforeFormatCurrency(
 		Sb $sb, $amount, $includeContainer = true, $precision = null
