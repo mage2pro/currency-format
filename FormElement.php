@@ -22,8 +22,7 @@ class FormElement extends Fieldset {
 		$this->addClass('df-currency-format');
 		$currencies = df_currencies_options();
 		/** @var int $currenciesCount */
-		$currenciesCount = count($currencies);
-		df_assert($currenciesCount);
+		$currenciesCount = df_assert_gt0(count($currencies));
 		if (1 < $currenciesCount) {
 			$this->select(O::code, null, $currencies);
 		}
