@@ -1,7 +1,7 @@
 <?php
 namespace Dfe\CurrencyFormat;
 use Dfe\CurrencyFormat\FormElement as FE;
-class O extends \Df\Config\ArrayItem {
+final class O extends \Df\Config\ArrayItem {
 	/** @return string */
 	public function code() {return $this->v();}
 	/** @return string */
@@ -12,12 +12,11 @@ class O extends \Df\Config\ArrayItem {
 	/**
 	 * 2015-12-31
 	 * @override
-	 * @see \Df\Config\ArrayItem::getId()
+	 * @see \Df\Config\ArrayItem::id()
 	 * @used-by \Df\Config\A::get()
-	 * https://github.com/mage2pro/core/tree/dcc75ea95b8644548d8b2a5c5ffa71c891f97e60/Config/A.php#L26
 	 * @return string
 	 */
-	public function getId() {return $this->code();}
+	public function id() {return $this->code();}
 
 	/**
 	 * 2016-08-01
@@ -97,6 +96,7 @@ class O extends \Df\Config\ArrayItem {
 	 * @return bool
 	 */
 	public function showDecimals() {return $this->b(true);}
+
 	/** @return string */
 	public function symbolPosition() {return $this->v('before');}
 
