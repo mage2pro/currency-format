@@ -28,7 +28,7 @@ class PriceCurrencyInterface {
 	 * @param \Magento\Framework\Model\AbstractModel|string|null $currency [optional]
 	 * @return array
 	 */
-	public function beforeFormat(
+	function beforeFormat(
 		Sb $sb, $amount, $includeContainer = true
 		, $precision = null, $scope = null, $currency = null
 	) {

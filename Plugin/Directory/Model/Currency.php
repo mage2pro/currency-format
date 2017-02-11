@@ -17,7 +17,7 @@ class Currency {
 	 * @param bool $addBrackets [optional]
 	 * @return string
 	 */
-	public function aroundFormat(
+	function aroundFormat(
 		Sb $sb, \Closure $proceed, $price, $options = []
 		, $includeContainer = true, $addBrackets = false
 	) {
@@ -44,7 +44,7 @@ class Currency {
 	 * @param bool $addBrackets [optional]
 	 * @return string
 	 */
-	public function aroundFormatPrecision(
+	function aroundFormatPrecision(
 		Sb $sb, \Closure $proceed, $price, $precision, $options = []
 		, $includeContainer = true, $addBrackets = false
 	) {
@@ -78,7 +78,7 @@ class Currency {
 	 * @param array(string => string|int) $options [optional]
 	 * @return string
 	 */
-	public function aroundFormatTxt(Sb $sb, \Closure $proceed, $price, $options = []) {
+	function aroundFormatTxt(Sb $sb, \Closure $proceed, $price, $options = []) {
 		/** @var O $s */
 		$s = Settings::s()->get($sb->getCode());
 		/**

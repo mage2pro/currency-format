@@ -10,7 +10,7 @@ class Format extends Sb {
 	 * 2016-01-01
 	 * Потрясающая техника, которую я изобрёл только что.
 	 */
-	public function __construct() {}
+	function __construct() {}
 
 	/**
 	 * 2015-12-26
@@ -32,7 +32,7 @@ class Format extends Sb {
 	 * @param string $currencyCode
 	 * @return array(string => mixed)
 	 */
-	public function aroundGetPriceFormat(
+	function aroundGetPriceFormat(
 		Sb $sb, \Closure $proceed, $localeCode = null, $currencyCode = null
 	) {
 		/** @var array(string => mixed) $result */

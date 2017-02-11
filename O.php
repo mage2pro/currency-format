@@ -3,11 +3,11 @@ namespace Dfe\CurrencyFormat;
 use Dfe\CurrencyFormat\FormElement as FE;
 final class O extends \Df\Config\ArrayItem {
 	/** @return string */
-	public function code() {return $this->v();}
+	function code() {return $this->v();}
 	/** @return string */
-	public function decimalSeparator() {return $this->v('.');}
+	function decimalSeparator() {return $this->v('.');}
 	/** @return bool */
-	public function delimitSymbolFromAmount() {return $this->b();}
+	function delimitSymbolFromAmount() {return $this->b();}
 
 	/**
 	 * 2015-12-31
@@ -16,7 +16,7 @@ final class O extends \Df\Config\ArrayItem {
 	 * @used-by \Df\Config\A::get()
 	 * @return string
 	 */
-	public function id() {return $this->code();}
+	function id() {return $this->code();}
 
 	/**
 	 * 2016-08-01
@@ -24,7 +24,7 @@ final class O extends \Df\Config\ArrayItem {
 	 * @used-by \Dfe\CurrencyFormat\Observer\DisplayOptionsForming::execute()
 	 * @return array(string => string|int|null)
 	 */
-	public function options() {
+	function options() {
 		if (!isset($this->{__METHOD__})) {
 			/** @var array(mixed => mixed) $result */
 			$result = [];
@@ -75,7 +75,7 @@ final class O extends \Df\Config\ArrayItem {
 	 * @param string|null $locale [optional]
 	 * @return string
 	 */
-	public function postProcess($priceS, $locale = null) {
+	function postProcess($priceS, $locale = null) {
 		/** @var array(string => string) $symbols */
 		$symbols = \Zend_Locale_Data::getList($locale ?: df_locale(), 'symbols');
 		/** @var array(string => string) $map */
@@ -95,16 +95,16 @@ final class O extends \Df\Config\ArrayItem {
 	 * https://github.com/zendframework/zf1/blob/release-1.12.16/library/Zend/Locale/Format.php#L329
 	 * @return bool
 	 */
-	public function showDecimals() {return $this->b(true);}
+	function showDecimals() {return $this->b(true);}
 
 	/** @return string */
-	public function symbolPosition() {return $this->v('before');}
+	function symbolPosition() {return $this->v('before');}
 
 	/**
 	 * 2015-12-31
 	 * @return string
 	 */
-	public function thousandsSeparator() {
+	function thousandsSeparator() {
 		/** @var string $result */
 		$result = $this->v(FE::TS__NONE);
 		return dfa([FE::TS__NONE => '', FE::TS__THIN_SPACE => DF_THIN_SPACE], $result, $result);

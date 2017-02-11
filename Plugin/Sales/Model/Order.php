@@ -14,7 +14,7 @@ class Order {
 	 * @param bool $addBrackets [optional]
 	 * @return string
 	 */
-	public function aroundFormatPrice(Sb $sb, \Closure $proceed, $price, $addBrackets = false) {
+	function aroundFormatPrice(Sb $sb, \Closure $proceed, $price, $addBrackets = false) {
 		/** @var \Dfe\CurrencyFormat\O $s */
 		$s = Settings::s()->get($sb->getOrderCurrencyCode());
 		return

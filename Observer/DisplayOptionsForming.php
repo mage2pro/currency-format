@@ -20,7 +20,7 @@ class DisplayOptionsForming implements ObserverInterface {
 	 * @param O $o
 	 * @return void
 	 */
-	public function execute(O $o) {
+	function execute(O $o) {
 		/** @var DataObject $options */
 		$options = $o['currency_options'];
 		/** @var \Dfe\CurrencyFormat\O $s */

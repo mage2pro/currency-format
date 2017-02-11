@@ -15,7 +15,7 @@ class Amount extends Sb {
 	 * потому что у Magento не получится тогда автоматически сконструировать наш объект:
 	 * «Missing required argument $amount of Magento\Framework\Pricing\Amount\Base».»
 	 */
-	public function __construct() {}
+	function __construct() {}
 
 	/**
 	 * 2015-12-26
@@ -59,7 +59,7 @@ class Amount extends Sb {
 	 * @param int|null $precision [optional]
 	 * @return array
 	 */
-	public function beforeFormatCurrency(
+	function beforeFormatCurrency(
 		Sb $sb, $amount, $includeContainer = true, $precision = null
 	) {
 		/**

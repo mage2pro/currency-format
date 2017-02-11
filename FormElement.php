@@ -15,7 +15,7 @@ class FormElement extends Fieldset {
 	 * @used-by \Df\Framework\Plugin\Data\Form\Element\AbstractElement::afterSetForm()
 	 * @return void
 	 */
-	public function onFormInitialized() {
+	function onFormInitialized() {
 		parent::onFormInitialized();
 		// 2016-07-30
 		// Этот стиль будет применён к элементу <fieldset>.

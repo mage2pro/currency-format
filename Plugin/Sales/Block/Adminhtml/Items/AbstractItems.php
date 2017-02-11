@@ -16,7 +16,7 @@ class AbstractItems {
 	 * @param string $separator [optional]
 	 * @return string
 	 */
-	public function aroundDisplayPrices(
+	function aroundDisplayPrices(
 		Sb $sb, \Closure $proceed, $basePrice, $price, $strong = false, $separator = '<br />'
 	) {
 		/** @var string $result */
