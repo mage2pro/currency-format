@@ -33,7 +33,7 @@ final class Settings extends \Df\Config\Settings {
 	 * @param bool|null $value
 	 * @return bool|null
 	 */
-	public static function ignorePrecision($value = null) {
+	static function ignorePrecision($value = null) {
 		/** @var bool|null $result */
 		if (is_null($value)) {
 			$result = self::$_ignorePrecision;
