@@ -11,6 +11,6 @@
 		"homepage": "https://mage2.pro/users/dmitry_fedyuk",
 		"role": "Developer"
 	}]
-	,"require": {"mage2pro/core": "^2.0.5"}
+	,"require": {"mage2pro/core": ">=2.0.5"}
 	,"autoload": {"files": ["registration.php"], "psr-4": {"Dfe\\CurrencyFormat\\": ""}}
 }
