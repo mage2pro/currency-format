@@ -11,7 +11,7 @@ use Magento\Framework\Event\ObserverInterface;
  * https://mage2.pro/t/1920
  * @see \Magento\Framework\Locale\Currency::getCurrency()
  */
-class DisplayOptionsForming implements ObserverInterface {
+final class DisplayOptionsForming implements ObserverInterface {
 	/**
 	 * 2016-08-01
 	 * @override
