@@ -10,23 +10,20 @@ class Currency {
 	 * @see \Magento\Directory\Model\Currency::format()
 	 * https://github.com/magento/magento2/blob/2.0.0/app/code/Magento/Directory/Model/Currency.php#L253-L265
 	 * @param Sb $sb
-	 * @param \Closure $proceed
+	 * @param \Closure $f
 	 * @param float $price
-	 * @param array(string => string|int) $options [optional]
-	 * @param bool $includeContainer [optional]
-	 * @param bool $addBrackets [optional]
+	 * @param array(string => string|int) $opt [optional]
+	 * @param bool $container [optional]
+	 * @param bool $brackets [optional]
 	 * @return string
 	 */
-	function aroundFormat(
-		Sb $sb, \Closure $proceed, $price, $options = []
-		, $includeContainer = true, $addBrackets = false
-	) {
+	function aroundFormat(Sb $sb, \Closure $f, $price, $opt = [], $container = true, $brackets = false) {
 		/** @var O $s */
 		$s = Settings::s()->get($sb->getCode());
 		return
 			!$s || $s->showDecimals()
-			? $proceed($price, $options, $includeContainer, $addBrackets)
-			: $sb->formatPrecision($price, 0, $options, $includeContainer, $addBrackets)
+			? $f($price, $opt, $container, $brackets)
+			: $sb->formatPrecision($price, 0, $opt, $container, $brackets)
 		;
 	}
 
@@ -36,17 +33,16 @@ class Currency {
 	 * @see \Magento\Directory\Model\Currency::formatPrecision()
 	 * https://github.com/magento/magento2/blob/2.0.0/app/code/Magento/Directory/Model/Currency.php#L267-L294
 	 * @param Sb $sb
-	 * @param \Closure $proceed
+	 * @param \Closure $f
 	 * @param float $price
 	 * @param int $precision
 	 * @param array(string => string|int) $options [optional]
-	 * @param bool $includeContainer [optional]
-	 * @param bool $addBrackets [optional]
+	 * @param bool $container [optional]
+	 * @param bool $brackets [optional]
 	 * @return string
 	 */
 	function aroundFormatPrecision(
-		Sb $sb, \Closure $proceed, $price, $precision, $options = []
-		, $includeContainer = true, $addBrackets = false
+		Sb $sb, \Closure $f, $price, $precision, $options = [], $container = true, $brackets = false
 	) {
 		if (Settings::ignorePrecision()) {
 			/** @var O $s */
@@ -55,7 +51,7 @@ class Currency {
 				$precision = 0;
 			}
 		}
-		return $proceed($price, $precision, $options, $includeContainer, $addBrackets);
+		return $f($price, $precision, $options, $container, $brackets);
 	}
 
 	/**
@@ -73,12 +69,12 @@ class Currency {
 	 * https://github.com/magento/magento2/blob/2.0.0/app/code/Magento/Directory/Model/Currency.php#L301-L314
 	 *
 	 * @param Sb $sb
-	 * @param \Closure $proceed
+	 * @param \Closure $f
 	 * @param float $price
 	 * @param array(string => string|int) $options [optional]
 	 * @return string
 	 */
-	function aroundFormatTxt(Sb $sb, \Closure $proceed, $price, $options = []) {
+	function aroundFormatTxt(Sb $sb, \Closure $f, $price, $options = []) {
 		/** @var O $s */
 		$s = Settings::s()->get($sb->getCode());
 		/**
@@ -96,6 +92,6 @@ class Currency {
 		 * Мы намеренно ставим $options впереди наших опций,
 		 * чтобы можно было нестандартно отформатировать цену явным указанием $options.
 		 */
-		return $proceed($price, $options + (!$s ? [] : $s->options()));
+		return $f($price, $options + (!$s ? [] : $s->options()));
 	}
 }

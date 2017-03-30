@@ -27,20 +27,16 @@ class Format extends Sb {
 	 * https://github.com/magento/magento2/blob/2.0.0/lib/internal/Magento/Framework/Locale/Format.php#L89-L152
 	 *
 	 * @param Sb $sb
-	 * @param \Closure $proceed
+	 * @param \Closure $f
 	 * @param string $localeCode
 	 * @param string $currencyCode
 	 * @return array(string => mixed)
 	 */
-	function aroundGetPriceFormat(
-		Sb $sb, \Closure $proceed, $localeCode = null, $currencyCode = null
-	) {
+	function aroundGetPriceFormat(Sb $sb, \Closure $f, $localeCode = null, $currencyCode = null) {
 		/** @var array(string => mixed) $result */
-		$result = $proceed($localeCode, $currencyCode);
-		/**
-		 * 2015-12-31
-		 * https://github.com/magento/magento2/blob/2.0.0/lib/internal/Magento/Framework/Locale/Format.php#L101-L105
-		 */
+		$result = $f($localeCode, $currencyCode);
+		// 2015-12-31
+		// https://github.com/magento/magento2/blob/2.0.0/lib/internal/Magento/Framework/Locale/Format.php#L101-L105
 		/** @var \Magento\Store\Model\Store $scope */
 		$scope = $sb->_scopeResolver->getScope();
 		if (!$currencyCode) {
@@ -57,8 +53,7 @@ class Format extends Sb {
 			// 2015-12-31
 			// https://github.com/magento/magento2/blob/2.0.0/lib/internal/Magento/Framework/Locale/Format.php#L145-L146
 			$result = [
-				  'decimalSymbol' => $s->decimalSeparator()
-				  , 'groupSymbol' => $s->thousandsSeparator()
+				'decimalSymbol' => $s->decimalSeparator(), 'groupSymbol' => $s->thousandsSeparator()
 			] + $result;
 		}
 		return $result;
