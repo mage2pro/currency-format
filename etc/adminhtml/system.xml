@@ -43,7 +43,7 @@ https://mage2.pro/t/355
 				>
 					<label>Enable?</label>
 					<backend_model>Df\Config\Backend\Checkbox</backend_model>
-					<comment><![CDATA[]]></comment>
+					<comment><![CDATA[Enable the «<a href='https://mage2.pro/c/extensions/price-format' target='_blank'>Price Format</a>» extension?]]></comment>
 				</field>
 				<field
 					id='items'
