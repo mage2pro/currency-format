@@ -1,4 +1,4 @@
-The «[**Price Format**](https://mage2.pro/c/extensions/price-format)**» extension for Magento 2  allows you to setup a custom display format for the prices and other currency values (discounts, taxes, sales amounts, etc.) both for the frontend and the backend areas.  
+The «[**Price Format**](https://mage2.pro/c/extensions/price-format)» extension for Magento 2  allows you to setup a custom display format for the prices and other currency values (discounts, taxes, sales amounts, etc.) both for the frontend and the backend areas.  
 
 The price display settings are individual per currency and per store.  
 The extension supports unlimited number of currencies.
