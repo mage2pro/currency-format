@@ -13,4 +13,12 @@
 	}]
 	,"require": {"mage2pro/core": ">=2.4.19"}
 	,"autoload": {"files": ["registration.php"], "psr-4": {"Dfe\\CurrencyFormat\\": ""}}
+	,"keywords": [
+		"Currency"
+		,"Currency format"
+		,"eCommerce"
+		,"Magento"
+		,"Magento 2"
+		,"Magento extension"
+	]
 }
