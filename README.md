@@ -3,7 +3,7 @@ The «[**Price Format**](https://mage2.pro/c/extensions/price-format)» extensio
 The price display settings are individual per currency and per store.  
 The extension supports unlimited number of currencies.
 
-[**Demo video**](https://www.youtube.com/watch?v=0Edmk8uKn0Q).
+**Demo video**: https://www.youtube.com/watch?v=0Edmk8uKn0Q
 
 ## Screenshots
 ### Example 1 
