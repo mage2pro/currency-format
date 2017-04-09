@@ -21,7 +21,7 @@ class PriceCurrencyInterface {
 	 * https://github.com/magento/magento2/blob/2.0.0/app/code/Magento/Directory/Model/PriceCurrency.php#L70-L82
 	 *
 	 * @param Sb $sb
-	 * @param float $amount
+	 * @param float $a
 	 * @param bool $includeContainer [optional]
 	 * @param int|null $precision [optional]
 	 * @param null|string|bool|int|\Magento\Framework\App\ScopeInterface $scope [optional]
@@ -29,8 +29,7 @@ class PriceCurrencyInterface {
 	 * @return array
 	 */
 	function beforeFormat(
-		Sb $sb, $amount, $includeContainer = true
-		, $precision = null, $scope = null, $currency = null
+		Sb $sb, $a, $includeContainer = true, $precision = null, $scope = null, $currency = null
 	) {
 		/**
 		 * 2015-12-31
@@ -56,6 +55,6 @@ class PriceCurrencyInterface {
 		if ($settings && !$settings->showDecimals()) {
 			$precision = 0;
 		}
-		return [$amount, $includeContainer, $precision, $scope, $currency];
+		return [$a, $includeContainer, $precision, $scope, $currency];
 	}
 }
