@@ -30,8 +30,8 @@ https://mage2.pro/t/355
 				showInStore='1'
 			>
 				<label>Format</label>
-				<dfExtension>Dfe\CurrencyFormat\Ext</dfExtension>
-				<frontend_model>Df\Config\Block\System\Config\Form\Fieldset\Ext</frontend_model>
+				<dfExtension>Dfe_CurrencyFormat</dfExtension>
+				<frontend_model>Df\Config\Fieldset</frontend_model>
 				<field
 					id='enable'
 					translate='label'
