@@ -95,3 +95,6 @@ I provide the [**customization service**](https://mage2.pro/t/2020) for my payme
 ## Need a custom payment extension?
 I provide a [custom payment gateway integration service](https://mage2.pro/t/917).
 
+## Want to get the full rights on my extension?
+It is possible: the price depends on a extension and starts from $6.990.  
+You will get free lifetime support, updates, and installation service for all your clients.
