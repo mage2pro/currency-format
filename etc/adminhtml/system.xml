@@ -7,7 +7,6 @@
 		<section
 			id='dfe_currency'
 			translate='label'
-			type='text'
 			showInDefault='1'
 			showInWebsite='1'
 			showInStore='1'
@@ -23,7 +22,6 @@ https://mage2.pro/t/355
 			<group
 				id='format'
 				translate='label'
-				type='text'
 				sortOrder='1'
 				showInDefault='1'
 				showInWebsite='1'
