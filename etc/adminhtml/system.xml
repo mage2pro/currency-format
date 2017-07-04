@@ -6,10 +6,8 @@
 	<system>
 		<section
 			id='dfe_currency'
+			showInDefault='1' showInStore='1' showInWebsite='1'
 			translate='label'
-			showInDefault='1'
-			showInWebsite='1'
-			showInStore='1'
 		>
 			<tab>_df</tab>
 			<label>Currency</label>
@@ -21,38 +19,32 @@ https://mage2.pro/t/355
 			<resource>Dfe_Currency::config</resource>
 			<group
 				id='format'
-				translate='label'
+				showInDefault='1' showInStore='1' showInWebsite='1'
 				sortOrder='1'
-				showInDefault='1'
-				showInWebsite='1'
-				showInStore='1'
+				translate='label'
 			>
 				<label>Format</label>
 				<dfExtension>Dfe_CurrencyFormat</dfExtension>
 				<frontend_model>Df\Config\Fieldset</frontend_model>
 				<field
 					id='enable'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='1'
 					translate='label'
 					type='Df\Framework\Form\Element\Checkbox'
-					sortOrder='1'
-					showInDefault='1'
-					showInWebsite='1'
-					showInStore='1'
 				>
 					<label>Enable?</label>
 					<backend_model>Df\Config\Backend\Checkbox</backend_model>
 					<comment><![CDATA[Enable the «<a href='https://mage2.pro/c/extensions/price-format' target='_blank'>Price Format</a>» extension?]]></comment>
 				</field>
 				<field
+					dfEntity='Dfe\CurrencyFormat\O'
+					dfItemFormElement='Dfe\CurrencyFormat\FormElement'
 					id='items'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='2'
 					translate='label'
 					type='Df\Framework\Form\Element\ArrayT'
-					dfItemFormElement='Dfe\CurrencyFormat\FormElement'
-					dfEntity='Dfe\CurrencyFormat\O'
-					sortOrder='2'
-					showInDefault='1'
-					showInWebsite='1'
-					showInStore='1'
 				>
 					<backend_model>Df\Config\Backend\ArrayT</backend_model>
 					<depends><field id='enable'>1</field></depends>
