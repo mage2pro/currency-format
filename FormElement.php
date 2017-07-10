@@ -25,7 +25,7 @@ class FormElement extends Fieldset {
 		if (1 < $currenciesCount) {
 			$this->select(O::code, null, $currencies);
 		}
-		else if (1 === $currenciesCount) {
+		elseif (1 === $currenciesCount) {
 			/** @var array(string => string) $currency */
 			$currency = df_first($currencies);
 			$this->hidden(O::code, $currency['value'], $currency['label']);
