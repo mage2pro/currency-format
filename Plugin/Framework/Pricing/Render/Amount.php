@@ -65,7 +65,7 @@ class Amount extends Sb {
 		 * Сюда мы попадаем из шаблона https://github.com/magento/magento2/blob/2.0.0/app/code/Magento/Catalog/view/base/templates/product/price/amount/default.phtml
 		 * и оттуда мы узнаём валюту:
 		 * https://github.com/magento/magento2/blob/2.0.0/app/code/Magento/Catalog/view/base/templates/product/price/amount/default.phtml#L30
-		 * <meta itemprop="priceCurrency" content="<?php echo $block->getDisplayCurrencyCode()?>" />
+		 * <meta itemprop="priceCurrency" content="<?= $block->getDisplayCurrencyCode()?>" />
 		 */
 		/** @var \Dfe\CurrencyFormat\O $s */
 		$s = Settings::s()->get($sb->getDisplayCurrencyCode(), $sb->_storeManager->getStore());
