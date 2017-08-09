@@ -4,6 +4,7 @@ use Df\Framework\Form\Element\Fieldset;
 use Magento\Config\Model\Config\Source\Locale\Currency as Currencies;
 /**
  * 2015-12-27
+ * @final Unable to use the PHP «final» keyword here because of the M2 code generation.
  * This class is not a singleton:
  * @see \Magento\Framework\Data\Form\AbstractForm::addField():
  * 		$element = $this->_factoryElement->create($type, ['data' => $config]);
@@ -16,13 +17,12 @@ class FormElement extends Fieldset {
 	 * @see \Df\Framework\Form\Element\Fieldset::onFormInitialized()
 	 * @used-by \Df\Framework\Plugin\Data\Form\Element\AbstractElement::afterSetForm()
 	 */
-	function onFormInitialized() {
+	final function onFormInitialized() {
 		parent::onFormInitialized();
 		// 2016-07-30 This CSS class will be applied to the <fieldset> DOM node.
 		$this->addClass('df-currency-format');
 		$currencies = df_currencies_options();
-		/** @var int $currenciesCount */
-		$currenciesCount = df_assert_gt0(count($currencies));
+		$currenciesCount = df_assert_gt0(count($currencies)); /** @var int $currenciesCount */
 		if (1 < $currenciesCount) {
 			$this->select(O::code, null, $currencies);
 		}
