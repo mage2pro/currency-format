@@ -69,6 +69,7 @@ I provide the [**customization service**](https://mage2.pro/t/2020) for my payme
 - «[**Moip**](https://mage2.pro/c/extensions/moip)» payment extension (Brazil).
 - «[**mPAY24**](https://mage2.pro/c/extensions/mpay24)» payment extension (Austria, Germany).
 - «[**Omise**](https://mage2.pro/c/extensions/omise)» payment extension (Thailand, Japan).
+- «[**PayFort**](https://mage2.pro/c/extensions/payfort)» payment extension (the United Arab Emirates, Egypt, Saudi Arabia, Jordan, Lebanon, Qatar).
 - «[**Paymill**](https://mage2.pro/c/extensions/paymill)» payment extension (the European Union).
 - «[**PayPal**](https://mage2.pro/c/extensions/paypal)»: an alternative module you can get fast support and customizations for.
 - «[**Paystation**](https://mage2.pro/c/extensions/paystation)» payment extension (New Zealand).
