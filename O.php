@@ -72,16 +72,15 @@ final class O extends \Df\Config\ArrayItem {
 	 * иначе разделители (десятичный и тысячный) утрачиваются.
 	 *
 	 * @param string $priceS
-	 * @param string|null $locale [optional]
+	 * @param string|null $l [optional]
 	 * @return string
 	 */
-	function postProcess($priceS, $locale = null) {
+	function postProcess($priceS, $l = null) {
 		/** @var array(string => string) $symbols */
-		$symbols = \Zend_Locale_Data::getList($locale ?: df_locale(), 'symbols');
+		$symbols = \Zend_Locale_Data::getList(df_locale($l), 'symbols');
 		/** @var array(string => string) $map */
 		$map = ['decimal' => $this->decimalSeparator(), 'group' => $this->thousandsSeparator()];
-		/** @var string[] $keys */
-		$keys = array_keys($map);
+		$keys = array_keys($map); /** @var string[] $keys */
 		return strtr(strtr($priceS, array_combine(dfa_select($symbols, $keys) + $map, $keys)), $map);
 	}
 
