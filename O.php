@@ -88,9 +88,9 @@ final class O extends \Df\Config\ArrayItem {
 	 * 2015-12-26
 	 * «Mage2.PRO» → «Currency» → «Format» → «Number of Decimals»
 	 * Zend Framework автоматически округляет цены до заданного количества десятичных знаков:
-		if (is_numeric($options['precision'])) {
-			$value = Zend_Locale_Math::round($value, $options['precision']);
-		}
+	 *	if (is_numeric($options['precision'])) {
+	 *		$value = Zend_Locale_Math::round($value, $options['precision']);
+	 *	}
 	 * https://github.com/zendframework/zf1/blob/release-1.12.16/library/Zend/Locale/Format.php#L329
 	 * @return bool
 	 */
