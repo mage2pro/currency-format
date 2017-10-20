@@ -3,7 +3,7 @@
 	,"version": "1.0.22"
 	,"description": "The «Price Format» extension for Magento 2."
 	,"type": "magento2-module"
-	,"homepage": "https://mage2.pro/c/extensions/price-format"
+	,"homepage": "https://mage2.pro/c/price-format"
 	,"license": "proprietary"
 	,"authors": [{
 		"name": "Dmitry Fedyuk",
