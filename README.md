@@ -57,7 +57,7 @@ I provide the [**customization service**](https://mage2.pro/t/2020) for my payme
 ## Need a payment extension for Magento 2?
 
 - «[**2Checkout**](https://mage2.pro/c/extensions/2checkout)» payment extension.
-- «[**歐付寶 allPay**](https://mage2.pro/c/extensions/allpay)» payment extension (Taiwan).
+- «[**歐付寶 O'Pay (allPay)**](https://mage2.pro/c/extensions/allpay)» payment extension (Taiwan).
 - «[**Checkout.com**](https://mage2.pro/c/extensions/checkout-com)» payment extension.
 - «[**Dragonpay**](https://mage2.pro/c/extensions/dragonpay)» payment extension (Philippines).
 - «[**Ginger Payments**](https://mage2.pro/c/extensions/ginger-payments)» extension (the Netherlands, Belgium).
