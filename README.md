@@ -79,7 +79,7 @@ I provide the [**customization service**](https://mage2.pro/t/2020) for my payme
 - «[**SecurePay**](https://mage2.pro/c/extensions/securepay)» payment extension (Australia).
 - «[**Spryng**](https://mage2.pro/c/extensions/spryng)» payment extension (the European Union).
 - «[**Square**](https://mage2.pro/c/extensions/square)» payment extension (USA, Canada).
-- «[**Stripe**](https://mage2.pro/c/extensions/stripe)» payment extension.
+- «[**Stripe**](https://mage2.pro/c/stripe)» payment extension.
 - «[**Tinkoff Bank**](https://mage2.pro/c/extensions/tinkoff)» (Тинькофф Банк) payment extension (Russia).
 - «[**Yandex.Kassa**](https://mage2.pro/c/extensions/yandex-kassa)» (as known as Yandex.Checkout, Яндекс.Касса) payment extension (Russia, Armenia, Azerbaijan, Belarus, Georgia, Kazakhstan, Kyrgyzstan, Latvia, Moldova, Tajikistan).
 
