@@ -1,7 +1,6 @@
 <?php
 namespace Dfe\CurrencyFormat;
 use Df\Framework\Form\Element\Fieldset;
-use Magento\Config\Model\Config\Source\Locale\Currency as Currencies;
 /**
  * 2015-12-27
  * @final Unable to use the PHP «final» keyword here because of the M2 code generation.
@@ -10,7 +9,7 @@ use Magento\Config\Model\Config\Source\Locale\Currency as Currencies;
  * 		$element = $this->_factoryElement->create($type, ['data' => $config]);
  * https://github.com/magento/magento2/blob/2.2.0-RC1.8/lib/internal/Magento/Framework/Data/Form/AbstractForm.php#L137-L159
  */
-class FormElement extends Fieldset {
+class FE extends Fieldset {
 	/**
 	 * 2015-12-27
 	 * @override

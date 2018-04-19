@@ -39,7 +39,7 @@ https://mage2.pro/t/355
 				</field>
 				<field
 					dfEntity='Dfe\CurrencyFormat\O'
-					dfItemFormElement='Dfe\CurrencyFormat\FormElement'
+					dfItemFormElement='Dfe\CurrencyFormat\FE'
 					id='items'
 					showInDefault='1' showInStore='1' showInWebsite='1'
 					sortOrder='2'
