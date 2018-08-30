@@ -18,8 +18,7 @@ class Currency {
 	 * @return string
 	 */
 	function aroundFormat(Sb $sb, \Closure $f, $price, $opt = [], $container = true, $brackets = false) {
-		/** @var O $s */
-		$s = Settings::s()->get($sb->getCode());
+		$s = Settings::s()->get($sb->getCode());  /** @var O $s */
 		return
 			!$s || $s->showDecimals()
 			? $f($price, $opt, $container, $brackets)
@@ -45,8 +44,7 @@ class Currency {
 		Sb $sb, \Closure $f, $price, $precision, $options = [], $container = true, $brackets = false
 	) {
 		if (Settings::ignorePrecision()) {
-			/** @var O $s */
-			$s = Settings::s()->get($sb->getCode());
+			$s = Settings::s()->get($sb->getCode()); /** @var O $s */
 			if ($s && !$s->showDecimals()) {
 				$precision = 0;
 			}
@@ -75,8 +73,7 @@ class Currency {
 	 * @return string
 	 */
 	function aroundFormatTxt(Sb $sb, \Closure $f, $price, $options = []) {
-		/** @var O $s */
-		$s = Settings::s()->get($sb->getCode());
+		$s = Settings::s()->get($sb->getCode());  /** @var O $s */
 		/**
 		 * 2016-08-01
 		 * Раньше здесь в конце вызывался метод @see \Dfe\CurrencyFormat\O::postProcess()
