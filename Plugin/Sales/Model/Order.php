@@ -1,5 +1,6 @@
 <?php
 namespace Dfe\CurrencyFormat\Plugin\Sales\Model;
+use Dfe\CurrencyFormat\O as CFO;
 use Dfe\CurrencyFormat\Settings;
 use Magento\Sales\Model\Order as Sb;
 class Order {
@@ -14,13 +15,9 @@ class Order {
 	 * @param bool $addBrackets [optional]
 	 * @return string
 	 */
-	function aroundFormatPrice(Sb $sb, \Closure $f, $price, $addBrackets = false) {
-		/** @var \Dfe\CurrencyFormat\O $s */
-		$s = Settings::s()->get($sb->getOrderCurrencyCode());
-		return
-			!$s || $s->showDecimals()
+	function aroundFormatPrice(Sb $sb, \Closure $f, $price, $addBrackets = false) {return
+		/** @var CFO $s */!($s = Settings::s()->get($sb->getOrderCurrencyCode())) || $s->showDecimals()
 			? $f($price, $addBrackets)
 			: $sb->formatPricePrecision($price, 0, $addBrackets)
-		;
-	}
+	;}
 }

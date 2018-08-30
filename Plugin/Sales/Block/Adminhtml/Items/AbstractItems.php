@@ -17,14 +17,10 @@ class AbstractItems {
 	 * @return string
 	 */
 	function aroundDisplayPrices(Sb $sb, \Closure $f, $basePrice, $price, $strong = false, $sep = '<br />') {
-		/** @var string $result */
+		/** @var string $r */
 		Settings::ignorePrecision(true);
-		try {
-			$result = $f($basePrice, $price, $strong, $sep);
-		}
-		finally {
-			Settings::ignorePrecision(false);
-		}
-		return $result;
+		try {$r = $f($basePrice, $price, $strong, $sep);}
+		finally {Settings::ignorePrecision(false);}
+		return $r;
 	}
 }
