@@ -20,13 +20,9 @@ final class DisplayOptionsForming implements ObserverInterface {
 	 * @param O $o
 	 */
 	function execute(O $o) {
-		/** @var DataObject $options */
-		$options = $o['currency_options'];
-		/** @var \Dfe\CurrencyFormat\O $s */
-		$s = Settings::s()->get($o['base_code']);
-		if ($s) {
-			$options->setData($s->options() + $options->getData());
+		$op = $o['currency_options']; /** @var DataObject $op */
+		if ($s = Settings::s()->get($o['base_code'])) { /** @var \Dfe\CurrencyFormat\O $s */
+			$op->setData($s->options() + $op->getData());
 		}
 	}
 }
-
