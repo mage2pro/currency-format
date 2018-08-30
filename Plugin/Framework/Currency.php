@@ -1,5 +1,6 @@
 <?php
 namespace Dfe\CurrencyFormat\Plugin\Framework;
+use Dfe\CurrencyFormat\O as CFO;
 use Dfe\CurrencyFormat\Settings;
 use Magento\Framework\Currency as Sb;
 class Currency extends Sb {
@@ -10,14 +11,11 @@ class Currency extends Sb {
 	 * 2016-08-01
 	 * @see \Magento\Framework\Currency::toCurrency()
 	 * @param Sb $sb
-	 * @param string $result
+	 * @param string $r
 	 * @return string
 	 */
-	function afterToCurrency(Sb $sb, $result) {
-		/** @var \Dfe\CurrencyFormat\O $s */
-		$s = Settings::s()->get($sb->_options['currency']);
-		return !$s ? $result : $s->postProcess($result, $sb->_options['locale']);
+	function afterToCurrency(Sb $sb, $r) {
+		$s = Settings::s()->get($sb->_options['currency']); /** @var CFO $s */
+		return !$s ? $r : $s->postProcess($r, $sb->_options['locale']);
 	}
 }
-
-
