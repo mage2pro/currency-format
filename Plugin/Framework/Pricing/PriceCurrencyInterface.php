@@ -38,7 +38,7 @@ class PriceCurrencyInterface {
 		 * https://github.com/magento/magento2/blob/2.0.0/app/code/Magento/Directory/Model/PriceCurrency.php#L80
 		 */
 		$currencyModel = $sb->getCurrency($scope, $currency); /** @var Currency $currencyModel */
-		$settings = Settings::s()->get($currencyModel->getCode(), $scope); /** @var CFO $settings */
+		$s = Settings::s()->get($currencyModel->getCode(), $scope); /** @var CFO $s */
 		/**
 		 * 2015-12-31
 		 * Здесь мы настраиваем только $precision
@@ -50,7 +50,7 @@ class PriceCurrencyInterface {
 		 * почему-то явно заданы 2 знака, а не null.
 		 * https://github.com/magento/magento2/blob/2ea8cdd7/app/code/Magento/Checkout/Helper/Data.php#L108-L116
 		 */
-		if ($settings && !$settings->showDecimals()) {
+		if ($s && !$s->showDecimals()) {
 			$precision = 0;
 		}
 		return [$a, $includeContainer, $precision, $scope, $currency];
