@@ -10,4 +10,11 @@
 			type='Dfe\CurrencyFormat\Plugin\Sales\Block\Adminhtml\Items\AbstractItems'
 		/>
 	</type>
+	<!-- 2018-08-30 -->
+	<type name='Magento\Catalog\Controller\Adminhtml\Product\Initialization\Helper\AttributeFilter'>
+		<plugin
+			name='Dfe\CurrencyFormat\Plugin\Catalog\Controller\Adminhtml\Product\Initialization\Helper\AttributeFilter'
+			type='Dfe\CurrencyFormat\Plugin\Catalog\Controller\Adminhtml\Product\Initialization\Helper\AttributeFilter'
+		/>
+	</type>
 </config>
