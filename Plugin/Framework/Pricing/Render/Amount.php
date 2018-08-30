@@ -1,5 +1,6 @@
 <?php
 namespace Dfe\CurrencyFormat\Plugin\Framework\Pricing\Render;
+use Dfe\CurrencyFormat\O as CFO;
 use Dfe\CurrencyFormat\Settings;
 use Magento\Framework\Pricing\Render\Amount as Sb;
 // 2015-12-13
@@ -67,7 +68,7 @@ class Amount extends Sb {
 		 * https://github.com/magento/magento2/blob/2.0.0/app/code/Magento/Catalog/view/base/templates/product/price/amount/default.phtml#L30
 		 * <meta itemprop="priceCurrency" content="<?= $block->getDisplayCurrencyCode()?>" />
 		 */
-		/** @var \Dfe\CurrencyFormat\O $s */
+		/** @var CFO $s */
 		$s = Settings::s()->get($sb->getDisplayCurrencyCode(), $sb->_storeManager->getStore());
 		/**
 		 * 2015-12-31

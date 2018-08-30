@@ -1,6 +1,8 @@
 <?php
 namespace Dfe\CurrencyFormat\Plugin\Framework\Pricing;
+use Dfe\CurrencyFormat\O as CFO;
 use Dfe\CurrencyFormat\Settings;
+use Magento\Directory\Model\Currency;
 use Magento\Framework\Pricing\PriceCurrencyInterface as Sb;
 class PriceCurrencyInterface {
 	/**
@@ -35,17 +37,13 @@ class PriceCurrencyInterface {
 		 * 2015-12-31
 		 * https://github.com/magento/magento2/blob/2.0.0/app/code/Magento/Directory/Model/PriceCurrency.php#L80
 		 */
-		/** @var \Magento\Directory\Model\Currency $currencyModel */
-		$currencyModel = $sb->getCurrency($scope, $currency);
-		/** @var \Dfe\CurrencyFormat\O $settings */
-		$settings = Settings::s()->get($currencyModel->getCode(), $scope);
+		$currencyModel = $sb->getCurrency($scope, $currency); /** @var Currency $currencyModel */
+		$settings = Settings::s()->get($currencyModel->getCode(), $scope); /** @var CFO $settings */
 		/**
 		 * 2015-12-31
 		 * Здесь мы настраиваем только $precision
 		 * Другие параметры отображения валюты мы настраиваем в другом плагине:
 		 * @see \Dfe\CurrencyFormat\Plugin\Directory\Model\Currency::beforeFormatTxt()
-		 */
-		/**
 		 * 2016-02-17
 		 * Раньше тут стояло ещё is_null($precision)
 		 * Убрал, потому что в @see \Magento\Checkout\Helper\Data::formatPrice()
