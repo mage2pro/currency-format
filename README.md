@@ -39,7 +39,7 @@ bin/magento maintenance:disable
 ```
 If you have problems with these commands, please check the [detailed instruction](https://mage2.pro/t/263).
 
-## How to update?
+## How to update
 ```
 bin/magento maintenance:enable
 composer update mage2pro/currency-format
