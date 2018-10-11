@@ -20,8 +20,15 @@ final class DisplayOptionsForming implements ObserverInterface {
 	 * @param O $o
 	 */
 	function execute(O $o) {
-		$op = $o['currency_options']; /** @var DataObject $op */
-		if ($s = Settings::s()->get($o['base_code'])) { /** @var \Dfe\CurrencyFormat\O $s */
+		/**
+		 * 2018-10-11
+		 * "A conflict with Webkul Marketplace:
+		 * «Invalid method: Df\Config\A::options» on the backend customer screen":
+		 * https://github.com/mage2pro/currency-format/issues/4
+		 * Webkul Marketplace works incorrectly: `$o['base_code']` is null.
+		 */
+		if (($c = $o['base_code']) && ($s = Settings::s()->get($c))) { /** @var \Dfe\CurrencyFormat\O $s */
+			$op = $o['currency_options']; /** @var DataObject $op */
 			$op->setData($s->options() + $op->getData());
 		}
 	}
