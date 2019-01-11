@@ -13,9 +13,8 @@ final class Settings extends \Df\Config\Settings {
 	 * @return A|O|null
 	 */
 	function get($currencyCode = null, $scope = null) {
-		/** @var A $result */
-		$result = $this->_a(O::class, 'items', $scope);
-		return is_null($currencyCode) ? $result : $result->get($currencyCode);
+		$r = $this->_a(O::class, 'items', $scope); /** @var A $r */
+		return is_null($currencyCode) ? $r : $r->get($currencyCode);
 	}
 
 	/**
