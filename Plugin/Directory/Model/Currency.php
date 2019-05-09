@@ -89,6 +89,10 @@ class Currency {
 		 * Мы намеренно ставим $options впереди наших опций,
 		 * чтобы можно было нестандартно отформатировать цену явным указанием $options.
 		 */
-		return $f($price, $options + (!$s ? [] : $s->options()));
+
+        if ($s && $s instanceof O) {
+            $options = $options + $s->options();
+        }
+		return $f($price, $options);
 	}
 }
