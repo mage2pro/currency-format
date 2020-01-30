@@ -76,17 +76,11 @@ I provide the [**customization service**](https://mage2.pro/t/2020) for my payme
 - «[**Dragonpay**](https://mage2.pro/c/extensions/dragonpay)» payment extension (Philippines).
 - «[**Ginger Payments**](https://mage2.pro/c/extensions/ginger-payments)» extension (the Netherlands, Belgium).
 - «[**iPay88**](https://mage2.pro/c/extensions/ipay88)» payment extension (Malaysia, Indonesia, Philippines, Thailand, Singapore, China).
-- «[**iyzico**](https://mage2.pro/c/extensions/iyzico)» payment extension (Turkey).
 - «[**Kassa Compleet**](https://mage2.pro/c/extensions/kassa-compleet)» payment extension by ING Bank (the Netherlands).
-- «[**Klarna**](https://mage2.pro/c/extensions/klarna)» payment extension (Austria, Denmark, Finland, Germany, Norway, Sweden).
-- «[**MercadoPago**](https://mage2.pro/c/extensions/mercadopago)» payment extension (Argentina, Brasil, Chile, Mexico, Venezuela, Colombia, Uruguay, Peru).
 - «[**Moip**](https://mage2.pro/c/extensions/moip)» payment extension (Brazil).
-- «[**mPAY24**](https://mage2.pro/c/extensions/mpay24)» payment extension (Austria, Germany).
 - «[**Omise**](https://mage2.pro/c/extensions/omise)» payment extension (Thailand, Japan).
-- «[**PayFort**](https://mage2.pro/c/extensions/payfort)» payment extension (the United Arab Emirates, Egypt, Saudi Arabia, Jordan, Lebanon, Qatar).
 - «[**Paymill**](https://mage2.pro/c/extensions/paymill)» payment extension (the European Union).
 - «[**PayPal**](https://mage2.pro/c/extensions/paypal)»: an alternative module you can get fast support and customizations for.
-- «[**Paystation**](https://mage2.pro/c/extensions/paystation)» payment extension (New Zealand).
 - «[**PostFinance**](https://mage2.pro/c/extensions/postfinance)» payment extension (Switzerland).
 - «[**QIWI Wallet**](https://mage2.pro/c/extensions/qiwi)» (QIWI Кошелёк) payment extension (Russia).
 - «[**Robokassa**](https://mage2.pro/c/extensions/robokassa)» payment extension (Russia).
@@ -94,7 +88,6 @@ I provide the [**customization service**](https://mage2.pro/t/2020) for my payme
 - «[**Spryng**](https://mage2.pro/c/extensions/spryng)» payment extension (the European Union).
 - «[**Square**](https://mage2.pro/c/extensions/square)» payment extension (USA, Canada).
 - «[**Stripe**](https://mage2.pro/c/stripe)» payment extension.
-- «[**Tinkoff Bank**](https://mage2.pro/c/extensions/tinkoff)» (Тинькофф Банк) payment extension (Russia).
 - «[**Yandex.Kassa**](https://mage2.pro/c/extensions/yandex-kassa)» (as known as Yandex.Checkout, Яндекс.Касса) payment extension (Russia, Armenia, Azerbaijan, Belarus, Georgia, Kazakhstan, Kyrgyzstan, Latvia, Moldova, Tajikistan).
 
 ## See also my integrations between Magento 2 and a third-party business software (ERP, CRM, accounting, inventory, marketplaces, etc.):

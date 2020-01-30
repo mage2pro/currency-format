@@ -61,27 +61,21 @@ final class O extends \Df\Config\ArrayItem {
 	}
 
 	/**
+	 * 2015-12-31 It replaces standard decimals and thousands separators woth custom ones.
 	 * 2016-08-01
-	 * 2015-12-31
-	 * Подменяем стандартные decimals and thousands separators на свои
+	 * It should not be called twice on the same string: decimals and thousands separators are vanished in this case.
 	 * @used-by \Dfe\CurrencyFormat\Plugin\Directory\Model\Currency::aroundFormatTxt()
 	 * @used-by \Dfe\CurrencyFormat\Plugin\Framework\Currency::afterToCurrency()
-	 *
-	 * 2016-08-01
-	 * Этот метод нельзя вызывать повторно для одной и той же строки,
-	 * иначе разделители (десятичный и тысячный) утрачиваются.
-	 *
 	 * @param string $priceS
 	 * @param string|null $l [optional]
 	 * @return string
 	 */
 	function postProcess($priceS, $l = null) {
-		/** @var array(string => string) $symbols */
-		$symbols = \Zend_Locale_Data::getList(df_locale($l), 'symbols');
-		/** @var array(string => string) $map */
-		$map = ['decimal' => $this->decimalSeparator(), 'group' => $this->thousandsSeparator()];
-		$keys = array_keys($map); /** @var string[] $keys */
-		return strtr(strtr($priceS, array_combine(dfa_select($symbols, $keys) + $map, $keys)), $map);
+		$symbols = \Zend_Locale_Data::getList(df_locale($l), 'symbols'); /** @var array(string => string) $symbols */
+		/** @var array(string => string) $m */
+		$m = ['decimal' => $this->decimalSeparator(), 'group' => $this->thousandsSeparator()];
+		$k = array_keys($m); /** @var string[] $k */
+		return strtr(strtr($priceS, array_combine(dfa($symbols, $k) + $m, $k)), $m);
 	}
 
 	/**
