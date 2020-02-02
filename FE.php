@@ -18,16 +18,14 @@ class FE extends Fieldset {
 	 */
 	final function onFormInitialized() {
 		parent::onFormInitialized();
-		// 2016-07-30 This CSS class will be applied to the <fieldset> DOM node.
-		$this->addClass('df-currency-format');
+		$this->addClass('df-currency-format'); // 2016-07-30 This CSS class will be applied to the <fieldset> DOM node.
 		$currencies = df_currencies_options();
 		$currenciesCount = df_assert_gt0(count($currencies)); /** @var int $currenciesCount */
 		if (1 < $currenciesCount) {
 			$this->select(O::code, null, $currencies);
 		}
 		elseif (1 === $currenciesCount) {
-			/** @var array(string => string) $currency */
-			$currency = df_first($currencies);
+			$currency = df_first($currencies); /** @var array(string => string) $currency */
 			$this->hidden(O::code, $currency['value'], $currency['label']);
 		}
 		$this->checkbox(O::showDecimals, 'Show the Decimals?', true, 'If you hide the decimals then a currency will be shown as <code>512</code> instead of <code>512.00</code>.<br/>The fractional part is rounded: <code>512.79 => 513</code>, <code>512.39 => 512</code>.');
