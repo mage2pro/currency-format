@@ -4,8 +4,10 @@ use Dfe\CurrencyFormat\FE;
 final class O extends \Df\Config\ArrayItem {
 	/** @return string */
 	function code() {return $this->v();}
+
 	/** @return string */
 	function decimalSeparator() {return $this->v('.');}
+
 	/** @return bool */
 	function delimitSymbolFromAmount() {return $this->b();}
 
@@ -24,41 +26,30 @@ final class O extends \Df\Config\ArrayItem {
 	 * @used-by \Dfe\CurrencyFormat\Observer\DisplayOptionsForming::execute()
 	 * @return array(string => string|int|null)
 	 */
-	function options() {
-		if (!isset($this->{__METHOD__})) {
-			/** @var array(mixed => mixed) $result */
-			$result = [];
-			if (!$this->showDecimals()) {
-				$result['precision'] = 0;
-			}
-			/** @var string $delimiter */
-			$delimiter = !$this->delimitSymbolFromAmount() ? '' : DF_THIN_SPACE;
+	function options() {return dfc($this, function() {/** @var array(mixed => mixed) $r */
+		$r = [];
+		if (!$this->showDecimals()) {
+			$r['precision'] = 0;
+		}
+		$delimiter = !$this->delimitSymbolFromAmount() ? '' : DF_THIN_SPACE; /** @var string $delimiter */
+		// 2015-12-31 http://framework.zend.com/manual/1.12/en/zend.locale.parsing.html
+		$formatA = ["#,##0.00", $delimiter, '¤']; /** @var string[] $formatA */
+		if ('before' === $this->symbolPosition()) {
+			$formatA = array_reverse($formatA);
 			/**
 			 * 2015-12-31
-			 * http://framework.zend.com/manual/1.12/en/zend.locale.parsing.html
+			 * Когда символ валюты надо отобразить слева от суммы,
+			 * то по какой-то неведомой причине
+			 * недостаточно указать позицию символа валюты в шаблоне (символом ¤),
+			 * но также нужно явно указать @uses \Zend_Currency::LEFT значением параметра
+			 * «position»,иначе символ валюты вообще не будет отображён.
+			 * https://github.com/zendframework/zf1/blob/release-1.12.16/library/Zend/Currency.php#L196-L209
 			 */
-			/** @var string[] $formatA */
-			$formatA = ["#,##0.00", $delimiter, '¤'];
-			if ('before' === $this->symbolPosition()) {
-				$formatA = array_reverse($formatA);
-				/**
-				 * 2015-12-31
-				 * Когда символ валюты надо отобразить слева от суммы,
-				 * то по какой-то неведомой причине
-				 * недостаточно указать позицию символа валюты в шаблоне (символом ¤),
-				 * но также нужно явно указать @uses \Zend_Currency::LEFT значением параметра
-				 * «position»,иначе символ валюты вообще не будет отображён.
-				 * https://github.com/zendframework/zf1/blob/release-1.12.16/library/Zend/Currency.php#L196-L209
-				 */
-				$result['position'] = \Zend_Currency::LEFT;
-			}
-			// 2015-12-31
-			// https://github.com/zendframework/zf1/blob/release-1.12.16/library/Zend/Currency.php#L182
-			$result['format'] = implode($formatA);
-			$this->{__METHOD__} = $result;
+			$r['position'] = \Zend_Currency::LEFT;
 		}
-		return $this->{__METHOD__};
-	}
+		// 2015-12-31 https://github.com/zendframework/zf1/blob/release-1.12.16/library/Zend/Currency.php#L182
+		return $r + ['format' => implode($formatA)];
+	});}
 
 	/**
 	 * 2015-12-31 It replaces standard decimals and thousands separators woth custom ones.
@@ -98,9 +89,8 @@ final class O extends \Df\Config\ArrayItem {
 	 * @return string
 	 */
 	function thousandsSeparator() {
-		/** @var string $result */
-		$result = $this->v(FE::TS__NONE);
-		return dfa([FE::TS__NONE => '', FE::TS__THIN_SPACE => DF_THIN_SPACE], $result, $result);
+		$r = $this->v(FE::TS__NONE); /** @var string $r */
+		return dfa([FE::TS__NONE => '', FE::TS__THIN_SPACE => DF_THIN_SPACE], $r, $r);
 	}
 
 	const code = 'code';
