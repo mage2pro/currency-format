@@ -1,7 +1,7 @@
 <?php
 namespace Dfe\CurrencyFormat\Observer;
 use Dfe\CurrencyFormat\Settings;
-use Magento\Framework\DataObject;
+use Magento\Framework\DataObject as _DO;
 use Magento\Framework\Event\Observer as O;
 use Magento\Framework\Event\ObserverInterface;
 /**
@@ -28,7 +28,7 @@ final class DisplayOptionsForming implements ObserverInterface {
 		 * Webkul Marketplace works incorrectly: `$o['base_code']` is null.
 		 */
 		if (($c = $o['base_code']) && ($s = Settings::s()->get($c))) { /** @var \Dfe\CurrencyFormat\O $s */
-			$op = $o['currency_options']; /** @var DataObject $op */
+			$op = $o['currency_options']; /** @var _DO $op */
 			$op->setData($s->options() + $op->getData());
 		}
 	}
