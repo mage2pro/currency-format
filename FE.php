@@ -18,7 +18,7 @@ class FE extends Fieldset {
 	 */
 	final function onFormInitialized() {
 		parent::onFormInitialized();
-		$this->addClass('df-currency-format'); // 2016-07-30 This CSS class will be applied to the <fieldset> DOM node.
+		$this->addClass('df-currency-format'); # 2016-07-30 This CSS class will be applied to the <fieldset> DOM node.
 		$currencies = df_currencies_options();
 		$currenciesCount = df_assert_gt0(count($currencies)); /** @var int $currenciesCount */
 		if (1 < $currenciesCount) {

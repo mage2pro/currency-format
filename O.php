@@ -32,7 +32,7 @@ final class O extends \Df\Config\ArrayItem {
 			$r['precision'] = 0;
 		}
 		$delimiter = !$this->delimitSymbolFromAmount() ? '' : DF_THIN_SPACE; /** @var string $delimiter */
-		// 2015-12-31 http://framework.zend.com/manual/1.12/en/zend.locale.parsing.html
+		# 2015-12-31 http://framework.zend.com/manual/1.12/en/zend.locale.parsing.html
 		$formatA = ["#,##0.00", $delimiter, '¤']; /** @var string[] $formatA */
 		if ('before' === $this->symbolPosition()) {
 			$formatA = array_reverse($formatA);
@@ -47,7 +47,7 @@ final class O extends \Df\Config\ArrayItem {
 			 */
 			$r['position'] = \Zend_Currency::LEFT;
 		}
-		// 2015-12-31 https://github.com/zendframework/zf1/blob/release-1.12.16/library/Zend/Currency.php#L182
+		# 2015-12-31 https://github.com/zendframework/zf1/blob/release-1.12.16/library/Zend/Currency.php#L182
 		return $r + ['format' => implode($formatA)];
 	});}
 

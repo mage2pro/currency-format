@@ -3,7 +3,7 @@ namespace Dfe\CurrencyFormat\Plugin\Catalog\Controller\Adminhtml\Product\Initial
 use Magento\Catalog\Controller\Adminhtml\Product\Initialization\Helper\AttributeFilter as Sb;
 use Magento\Catalog\Model\Product as P;
 use Magento\Catalog\Model\ResourceModel\Eav\Attribute as A;
-// 2018-08-30
+# 2018-08-30
 final class AttributeFilter {
 	/**
 	 * 2018-08-30
@@ -23,13 +23,13 @@ final class AttributeFilter {
 			+ df_locale_f()->getPriceFormat(df_locale(), $p->getStore()->getBaseCurrencyCode())
 		; /** @var array (string => mixed) $params */
 		foreach ($p->getAttributes() as $k => $a) { /** @var A $a */
-			// 2018-08-31
-			// "«Special Price» and «Сost» are set to `0` on a product save":
-			// https://github.com/mage2pro/currency-format/issues/3
+			# 2018-08-31
+			# "«Special Price» and «Сost» are set to `0` on a product save":
+			# https://github.com/mage2pro/currency-format/issues/3
             if ('price' === $a->getFrontendInput() && '' !== ($v = dfa($data, $k))) {  /** @var string $v */
-            	// 2018-08-30
-				// «Number normalization: getNumber($input, Array $options)»
-				// https://framework.zend.com/manual/1.12/en/zend.locale.parsing.html#zend.locale.number.normalize
+            	# 2018-08-30
+				# «Number normalization: getNumber($input, Array $options)»
+				# https://framework.zend.com/manual/1.12/en/zend.locale.parsing.html#zend.locale.number.normalize
 				$data[$k] = self::parse($v, $params);
 			}
         }

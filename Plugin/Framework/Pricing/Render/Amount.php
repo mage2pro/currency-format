@@ -3,9 +3,9 @@ namespace Dfe\CurrencyFormat\Plugin\Framework\Pricing\Render;
 use Dfe\CurrencyFormat\O as CFO;
 use Dfe\CurrencyFormat\Settings;
 use Magento\Framework\Pricing\Render\Amount as Sb;
-// 2015-12-13
-// Хитрая идея, которая уже давно пришла мне в голову: наследуясь от модифицируемого класса,
-// мы получаем возможность вызывать методы с областью доступа protected у переменной $sb.
+# 2015-12-13
+# Хитрая идея, которая уже давно пришла мне в голову: наследуясь от модифицируемого класса,
+# мы получаем возможность вызывать методы с областью доступа protected у переменной $sb.
 class Amount extends Sb {
 	/**
 	 * 2016-01-01
