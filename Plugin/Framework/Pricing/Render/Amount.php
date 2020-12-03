@@ -10,7 +10,7 @@ class Amount extends Sb {
 	/**
 	 * 2016-01-01
 	 * The empty constructor allows us to skip the parent's one.
-	 * Magento (at least on 2016-01-01) is unable to properly inject arguments into a plugin's constructor,
+	 * Magento (at least at 2016-01-01) is unable to properly inject arguments into a plugin's constructor,
 	 * and it leads to the error like: «Missing required argument $amount of Magento\Framework\Pricing\Amount\Base».
 	 */
 	function __construct() {}
