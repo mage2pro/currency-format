@@ -4,7 +4,8 @@ use Dfe\CurrencyFormat\O as CFO;
 use Dfe\CurrencyFormat\Settings;
 use Magento\Directory\Model\Currency;
 use Magento\Framework\Pricing\PriceCurrencyInterface as Sb;
-class PriceCurrencyInterface {
+# 2015-12-26
+final class PriceCurrencyInterface {
 	/**
 	 * 2015-12-26
 	 * Цель плагина — предоставить администратору возможность
@@ -30,13 +31,8 @@ class PriceCurrencyInterface {
 	 * @param \Magento\Framework\Model\AbstractModel|string|null $currency [optional]
 	 * @return array
 	 */
-	function beforeFormat(
-		Sb $sb, $a, $includeContainer = true, $precision = null, $scope = null, $currency = null
-	) {
-		/**
-		 * 2015-12-31
-		 * https://github.com/magento/magento2/blob/2.0.0/app/code/Magento/Directory/Model/PriceCurrency.php#L80
-		 */
+	function beforeFormat(Sb $sb, $a, $includeContainer = true, $precision = null, $scope = null, $currency = null) {
+		# 2015-12-31 https://github.com/magento/magento2/blob/2.0.0/app/code/Magento/Directory/Model/PriceCurrency.php#L80
 		$currencyModel = $sb->getCurrency($scope, $currency); /** @var Currency $currencyModel */
 		$s = Settings::s()->get($currencyModel->getCode(), $scope); /** @var CFO $s */
 		/**
