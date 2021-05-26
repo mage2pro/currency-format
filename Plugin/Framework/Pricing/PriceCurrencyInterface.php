@@ -46,8 +46,7 @@ class PriceCurrencyInterface {
 		 * @see \Dfe\CurrencyFormat\Plugin\Directory\Model\Currency::beforeFormatTxt()
 		 * 2016-02-17
 		 * Раньше тут стояло ещё is_null($precision)
-		 * Убрал, потому что в @see \Magento\Checkout\Helper\Data::formatPrice()
-		 * почему-то явно заданы 2 знака, а не null.
+		 * Убрал, потому что в @see \Magento\Checkout\Helper\Data::formatPrice() почему-то явно заданы 2 знака, а не null.
 		 * https://github.com/magento/magento2/blob/2ea8cdd7/app/code/Magento/Checkout/Helper/Data.php#L108-L116
 		 */
 		if ($s && !$s->showDecimals()) {
