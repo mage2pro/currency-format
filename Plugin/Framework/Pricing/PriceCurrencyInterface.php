@@ -37,11 +37,11 @@ final class PriceCurrencyInterface {
 		$s = Settings::s()->get($currencyModel->getCode(), $scope); /** @var CFO $s */
 		/**
 		 * 2015-12-31
-		 * Здесь мы настраиваем только $precision
+		 * Здесь мы настраиваем только $precision.
 		 * Другие параметры отображения валюты мы настраиваем в другом плагине:
 		 * @see \Dfe\CurrencyFormat\Plugin\Directory\Model\Currency::beforeFormatTxt()
 		 * 2016-02-17
-		 * Раньше тут стояло ещё is_null($precision)
+		 * Раньше тут стояло ещё `is_null($precision)`.
 		 * Убрал, потому что в @see \Magento\Checkout\Helper\Data::formatPrice() почему-то явно заданы 2 знака, а не null.
 		 * https://github.com/magento/magento2/blob/2ea8cdd7/app/code/Magento/Checkout/Helper/Data.php#L108-L116
 		 */
