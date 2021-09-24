@@ -5,9 +5,7 @@ use Magento\Framework\App\ScopeInterface as S;
 /** @method static Settings s() */
 final class Settings extends \Df\Config\Settings {
 	/**
-	 * 2015-12-30
-	 * Форматирование отображения денежных денежных величин:
-	 * «Mage2.PRO» → «Currency» → «Format».
+	 * 2015-12-30 Форматирование отображения денежных денежных величин: «Mage2.PRO» → «Currency» → «Format».
 	 * @param string|null $currencyCode [optional]
 	 * @param null|string|int|S $scope [optional]
 	 * @return A|O|null
