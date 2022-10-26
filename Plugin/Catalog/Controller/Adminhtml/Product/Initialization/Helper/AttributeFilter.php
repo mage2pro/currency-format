@@ -43,7 +43,7 @@ final class AttributeFilter {
 	 * It is not possible to use @see \Zend_Locale_Format::getNumber() directly
 	 * because its validator @uses \Zend_Locale_Format::_checkOptions() does not allow to pass
 	 * some of formatting options we use.
-	 * @used-by beforePrepareProductAttributes()
+	 * @used-by self::beforePrepareProductAttributes()
 	 * @param string $r
 	 * @param array(string => mixed $o)
 	 * @return float

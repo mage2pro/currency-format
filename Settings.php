@@ -19,27 +19,25 @@ final class Settings extends \Df\Config\Settings {
 	 * @override
 	 * @see \Df\Config\Settings::prefix()
 	 * @used-by \Df\Config\Settings::v()
-	 * @return string
 	 */
-	protected function prefix() {return 'dfe_currency/format';}
+	protected function prefix():string {return 'dfe_currency/format';}
 
 	/**
 	 * 2016-08-03
 	 * @used-by \Dfe\CurrencyFormat\Plugin\Sales\Block\Adminhtml\Items\AbstractItems::aroundDisplayPrices()
 	 * @used-by \Dfe\CurrencyFormat\Plugin\Directory\Model\Currency::aroundFormatPrecision()
-	 * @param bool|null $value
+	 * @param bool|null $v
 	 * @return bool|null
 	 */
-	static function ignorePrecision($value = null) {
-		/** @var bool|null $result */
-		if (is_null($value)) {
-			$result = self::$_ignorePrecision;
+	static function ignorePrecision($v = null) {/** @var bool|null $r */
+		if (is_null($v)) {
+			$r = self::$_ignorePrecision;
 		}
 		else {
-			self::$_ignorePrecision = $value;
-			$result = null;
+			self::$_ignorePrecision = $v;
+			$r = null;
 		}
-		return $result;
+		return $r;
 	}
 
 	/**
