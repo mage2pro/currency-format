@@ -18,10 +18,7 @@ final class Settings extends \Df\Config\Settings {
 	 * @param null|string|int|S $scope [optional]
 	 * @return A|O|null
 	 */
-	function get(string $currencyC, $scope = null) {
-		$r = $this->_a(O::class, 'items', $scope); /** @var A $r */
-		return $r->get($currencyC);
-	}
+	function get(string $currencyC, $scope = null) {return $this->_a(O::class, 'items', $scope)->get($currencyC);}
 
 	/**
 	 * @override
