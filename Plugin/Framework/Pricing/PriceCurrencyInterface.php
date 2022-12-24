@@ -12,7 +12,7 @@ final class PriceCurrencyInterface {
 	 * «Mage2.PRO» → «Currency» → «Format».
 	 *
 	 * Помимо этого плагина для решения поставленной задачи нам нужны также плагины:
-	 * @see \Dfe\CurrencyFormat\Plugin\Directory\Model\Currency::beforeFormatTxt()
+	 * @see \Dfe\CurrencyFormat\Plugin\Directory\Model\Currency::aroundFormatTxt()
 	 * @see \Dfe\CurrencyFormat\Plugin\Framework\Locale\Format::aroundGetPriceFormat()
 	 * @see \Dfe\CurrencyFormat\Plugin\Framework\Pricing\Render\Amount::beforeFormatCurrency()
 	 *
@@ -38,7 +38,7 @@ final class PriceCurrencyInterface {
 		 * 2015-12-31
 		 * Здесь мы настраиваем только $precision.
 		 * Другие параметры отображения валюты мы настраиваем в другом плагине:
-		 * @see \Dfe\CurrencyFormat\Plugin\Directory\Model\Currency::beforeFormatTxt()
+		 * @see \Dfe\CurrencyFormat\Plugin\Directory\Model\Currency::aroundFormatTxt()
 		 * 2016-02-17
 		 * Раньше тут стояло ещё `is_null($precision)`.
 		 * Убрал, потому что в @see \Magento\Checkout\Helper\Data::formatPrice() почему-то явно заданы 2 знака, а не null.

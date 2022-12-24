@@ -22,7 +22,7 @@ class Amount extends Sb {
 	 * «Mage2.PRO» → «Currency» → «Format».
 	 *
 	 * Помимо этого плагина для решения поставленной задачи нам нужны также плагины:
-	 * @see \Dfe\CurrencyFormat\Plugin\Directory\Model\Currency::beforeFormatTxt()
+	 * @see \Dfe\CurrencyFormat\Plugin\Directory\Model\Currency::aroundFormatTxt()
 	 * @see \Dfe\CurrencyFormat\Plugin\Framework\Locale\Format::aroundGetPriceFormat()
 	 * @see \Dfe\CurrencyFormat\Plugin\Framework\Pricing\PriceCurrencyInterface::beforeFormat()
 	 *
@@ -71,7 +71,7 @@ class Amount extends Sb {
 		 * 2015-12-31
 		 * Здесь мы настраиваем только $precision
 		 * Другие параметры отображения валюты мы настраиваем в другом плагине:
-		 * @see \Dfe\CurrencyFormat\Plugin\Directory\Model\Currency::beforeFormatTxt()
+		 * @see \Dfe\CurrencyFormat\Plugin\Directory\Model\Currency::aroundFormatTxt()
 		 */
 		/**
 		 * 2016-02-17
