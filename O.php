@@ -106,6 +106,7 @@ final class O extends \Df\Config\ArrayItem {
 	/** @used-by self::options() */
 	private function symbolPosition():string {return $this->v('before');}
 
+	/** @used-by \Dfe\CurrencyFormat\FE::onFormInitialized() */
 	const code = 'code';
 
 	/** @used-by \Dfe\CurrencyFormat\FE::onFormInitialized() */
@@ -120,5 +121,6 @@ final class O extends \Df\Config\ArrayItem {
 	/** @used-by \Dfe\CurrencyFormat\FE::onFormInitialized() */
 	const symbolPosition = 'symbolPosition';
 
+	/** @used-by \Dfe\CurrencyFormat\FE::onFormInitialized() */
 	const thousandsSeparator = 'thousandsSeparator';
 }
