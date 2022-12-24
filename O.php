@@ -1,8 +1,12 @@
 <?php
 namespace Dfe\CurrencyFormat;
+# 2015-12-31
 final class O extends \Df\Config\ArrayItem {
-	/** @return string */
-	function code() {return $this->v();}
+	/**
+	 * 2015-12-31
+	 * @used-by self::id()
+	 */
+	private function code() {return $this->v();}
 
 	/** @return string */
 	function decimalSeparator() {return $this->v('.');}
