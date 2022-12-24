@@ -19,9 +19,8 @@ final class O extends \Df\Config\ArrayItem {
 	 * @override
 	 * @see \Df\Config\ArrayItem::id()
 	 * @used-by \Df\Config\A::get()
-	 * @return string
 	 */
-	function id() {return $this->code();}
+	function id():string {return $this->code();}
 
 	/**
 	 * 2016-08-01
