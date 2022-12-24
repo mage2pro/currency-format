@@ -48,11 +48,11 @@ class Amount extends Sb {
 	 */
 	function beforeFormatCurrency(Sb $sb, float $a, bool $includeContainer = true, $precision = null):array {
 		/**
-		 * 2015-12-31
-		 * Сюда мы попадаем из шаблона https://github.com/magento/magento2/blob/2.0.0/app/code/Magento/Catalog/view/base/templates/product/price/amount/default.phtml
-		 * и оттуда мы узнаём валюту:
-		 * https://github.com/magento/magento2/blob/2.0.0/app/code/Magento/Catalog/view/base/templates/product/price/amount/default.phtml#L30
-		 * <meta itemprop="priceCurrency" content="<?= $block->getDisplayCurrencyCode()?>" />
+		 # 2015-12-31
+		 # Сюда мы попадаем из шаблона https://github.com/magento/magento2/blob/2.0.0/app/code/Magento/Catalog/view/base/templates/product/price/amount/default.phtml
+		 # и оттуда мы узнаём валюту:
+		 # https://github.com/magento/magento2/blob/2.0.0/app/code/Magento/Catalog/view/base/templates/product/price/amount/default.phtml#L30
+		 # 		<meta itemprop="priceCurrency" content="<?= $block->getDisplayCurrencyCode()?>" />
 		 */
 		/** @var CFO $s */
 		$s = Settings::s()->get($sb->getDisplayCurrencyCode(), $sb->_storeManager->getStore());
