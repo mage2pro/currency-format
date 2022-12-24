@@ -27,8 +27,6 @@ class Currency {
 	 * https://mage2.pro/t/1929
 	 * @see \Magento\Directory\Model\Currency::formatPrecision()
 	 * https://github.com/magento/magento2/blob/2.0.0/app/code/Magento/Directory/Model/Currency.php#L267-L294
-	 * @param Sb $sb
-	 * @param \Closure $f
 	 * @param float $price
 	 * @param int $precision
 	 * @param array(string => string|int) $options [optional]
