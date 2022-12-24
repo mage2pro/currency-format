@@ -14,12 +14,13 @@ final class Settings extends \Df\Config\Settings {
 	 * @used-by \Dfe\CurrencyFormat\Plugin\Framework\Locale\Format::aroundGetPriceFormat()
 	 * @used-by \Dfe\CurrencyFormat\Plugin\Framework\Pricing\PriceCurrencyInterface::beforeFormat()
 	 * @used-by \Dfe\CurrencyFormat\Plugin\Framework\Pricing\Render\Amount::beforeFormatCurrency()
+	 * @used-by \Dfe\CurrencyFormat\Plugin\Sales\Model\Order::aroundFormatPrice()
 	 * @param null|string|int|S $scope [optional]
 	 * @return A|O|null
 	 */
-	function get(string $currencyC = '', $scope = null) {
+	function get(string $currencyC, $scope = null) {
 		$r = $this->_a(O::class, 'items', $scope); /** @var A $r */
-		return !$currencyC ? $r : $r->get($currencyC);
+		return $r->get($currencyC);
 	}
 
 	/**
