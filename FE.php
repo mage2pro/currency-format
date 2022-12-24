@@ -39,6 +39,11 @@ class FE extends Fieldset {
 		df_fe_init($this, __CLASS__);
 	}
 
+	/**
+	 * 2015-12-27
+	 * @used-by self::onFormInitialized()
+	 * @used-by \Dfe\CurrencyFormat\O::thousandsSeparator()
+	 */
 	const TS__NONE = 'none';
 
 	/**
