@@ -9,6 +9,7 @@ final class Settings extends \Df\Config\Settings {
 	 * @used-by \Dfe\CurrencyFormat\Observer\DisplayOptionsForming::execute()
 	 * @used-by \Dfe\CurrencyFormat\Plugin\Directory\Model\Currency::aroundFormat()
 	 * @used-by \Dfe\CurrencyFormat\Plugin\Directory\Model\Currency::aroundFormatPrecision()
+	 * @used-by \Dfe\CurrencyFormat\Plugin\Directory\Model\Currency::aroundFormatTxt()
 	 * @param null|string|int|S $scope [optional]
 	 * @return A|O|null
 	 */
