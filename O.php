@@ -1,6 +1,5 @@
 <?php
 namespace Dfe\CurrencyFormat;
-use Dfe\CurrencyFormat\FE;
 final class O extends \Df\Config\ArrayItem {
 	/** @return string */
 	function code() {return $this->v();}
