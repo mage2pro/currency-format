@@ -17,9 +17,8 @@ final class DisplayOptionsForming implements ObserverInterface {
 	 * @override
 	 * @see ObserverInterface::execute()
 	 * @used-by \Magento\Framework\Event\Invoker\InvokerDefault::_callObserverMethod()
-	 * @param O $o
 	 */
-	function execute(O $o) {
+	function execute(O $o):void {
 		/**
 		 * 2018-10-11
 		 * "A conflict with Webkul Marketplace:
