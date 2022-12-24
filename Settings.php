@@ -7,6 +7,7 @@ final class Settings extends \Df\Config\Settings {
 	/**
 	 * 2015-12-30 Форматирование отображения денежных денежных величин: «Mage2.PRO» → «Currency» → «Format».
 	 * @used-by \Dfe\CurrencyFormat\Observer\DisplayOptionsForming::execute()
+	 * @used-by \Dfe\CurrencyFormat\Plugin\Directory\Model\Currency::aroundFormat()
 	 * @param string|null $currencyC [optional]
 	 * @param null|string|int|S $scope [optional]
 	 * @return A|O|null
