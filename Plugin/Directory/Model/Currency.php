@@ -27,15 +27,13 @@ class Currency {
 	 * https://mage2.pro/t/1929
 	 * @see \Magento\Directory\Model\Currency::formatPrecision()
 	 * https://github.com/magento/magento2/blob/2.0.0/app/code/Magento/Directory/Model/Currency.php#L267-L294
-	 * @param float $price
-	 * @param int $precision
 	 * @param array(string => string|int) $options [optional]
 	 * @param bool $container [optional]
 	 * @param bool $brackets [optional]
 	 * @return string
 	 */
 	function aroundFormatPrecision(
-		Sb $sb, \Closure $f, float $price, $precision, $options = [], $container = true, $brackets = false
+		Sb $sb, \Closure $f, float $price, int $precision, $options = [], $container = true, $brackets = false
 	) {
 		if (Settings::ignorePrecision()) {
 			$s = Settings::s()->get($sb->getCode()); /** @var O $s */
