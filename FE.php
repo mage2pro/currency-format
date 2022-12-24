@@ -40,5 +40,11 @@ class FE extends Fieldset {
 	}
 
 	const TS__NONE = 'none';
+
+	/**
+	 * 2015-12-27
+	 * @used-by self::onFormInitialized()
+	 * @used-by \Dfe\CurrencyFormat\O::thousandsSeparator()
+	 */
 	const TS__THIN_SPACE = 'thin space';
 }
