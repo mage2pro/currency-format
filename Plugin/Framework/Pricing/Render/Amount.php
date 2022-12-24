@@ -44,12 +44,11 @@ class Amount extends Sb {
 	 * метод @see \Magento\Framework\Pricing\Render\Amount::formatCurrency()
 	 * подставляет значение по умолчанию,
 	 * и мы не знаем: опустил ли программист параметр или нет.
-	 * @param float $a
 	 * @param bool $includeContainer [optional]
 	 * @param int|null $precision [optional]
 	 * @return array
 	 */
-	function beforeFormatCurrency(Sb $sb, $a, $includeContainer = true, $precision = null) {
+	function beforeFormatCurrency(Sb $sb, float $a, $includeContainer = true, $precision = null) {
 		/**
 		 * 2015-12-31
 		 * Сюда мы попадаем из шаблона https://github.com/magento/magento2/blob/2.0.0/app/code/Magento/Catalog/view/base/templates/product/price/amount/default.phtml
