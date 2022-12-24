@@ -11,6 +11,7 @@ final class Settings extends \Df\Config\Settings {
 	 * @used-by \Dfe\CurrencyFormat\Plugin\Directory\Model\Currency::aroundFormatPrecision()
 	 * @used-by \Dfe\CurrencyFormat\Plugin\Directory\Model\Currency::aroundFormatTxt()
 	 * @used-by \Dfe\CurrencyFormat\Plugin\Framework\Currency::afterToCurrency()
+	 * @used-by \Dfe\CurrencyFormat\Plugin\Framework\Locale\Format::aroundGetPriceFormat()
 	 * @param null|string|int|S $scope [optional]
 	 * @return A|O|null
 	 */
