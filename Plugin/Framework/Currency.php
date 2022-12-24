@@ -10,7 +10,6 @@ class Currency extends Sb {
 	/**
 	 * 2016-08-01
 	 * @see \Magento\Framework\Currency::toCurrency()
-	 * @param Sb $sb
 	 * @param string $r
 	 * @return string
 	 */
