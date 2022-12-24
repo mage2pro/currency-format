@@ -18,7 +18,6 @@ final class PriceCurrencyInterface {
 	 * https://github.com/magento/magento2/blob/2.0.0/lib/internal/Magento/Framework/Pricing/PriceCurrencyInterface.php#L42-L58
 	 * 4) @see \Magento\Directory\Model\PriceCurrency::format()
 	 * https://github.com/magento/magento2/blob/2.0.0/app/code/Magento/Directory/Model/PriceCurrency.php#L70-L82
-	 * @param Sb $sb
 	 * @param float $a
 	 * @param bool $includeContainer [optional]
 	 * @param int|null $precision [optional]
