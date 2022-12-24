@@ -41,11 +41,9 @@ final class AttributeFilter {
 	 * because its validator @uses \Zend_Locale_Format::_checkOptions() does not allow to pass
 	 * some of formatting options we use.
 	 * @used-by self::beforePrepareProductAttributes()
-	 * @param string $r
 	 * @param array(string => mixed $o)
-	 * @return float
 	 */
-	private static function parse($r, array $o) {
+	private static function parse(string $r, array $o):float {
 		$r = str_replace($o['groupSymbol'], '', $r);
 		$dec = $o['decimalSymbol']; /** @var string $dec */
 		if (df_contains($r, $dec)) {
