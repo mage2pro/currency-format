@@ -18,14 +18,13 @@ final class PriceCurrencyInterface {
 	 * https://github.com/magento/magento2/blob/2.0.0/lib/internal/Magento/Framework/Pricing/PriceCurrencyInterface.php#L42-L58
 	 * 4) @see \Magento\Directory\Model\PriceCurrency::format()
 	 * https://github.com/magento/magento2/blob/2.0.0/app/code/Magento/Directory/Model/PriceCurrency.php#L70-L82
-	 * @param float $a
 	 * @param bool $includeContainer [optional]
 	 * @param int|null $precision [optional]
 	 * @param null|string|bool|int|\Magento\Framework\App\ScopeInterface $scope [optional]
 	 * @param \Magento\Framework\Model\AbstractModel|string|null $currency [optional]
 	 * @return array
 	 */
-	function beforeFormat(Sb $sb, $a, $includeContainer = true, $precision = null, $scope = null, $currency = null) {
+	function beforeFormat(Sb $sb, float $a, $includeContainer = true, $precision = null, $scope = null, $currency = null) {
 		# 2015-12-31 https://github.com/magento/magento2/blob/2.0.0/app/code/Magento/Directory/Model/PriceCurrency.php#L80
 		$currencyModel = $sb->getCurrency($scope, $currency); /** @var Currency $currencyModel */
 		$s = Settings::s()->get($currencyModel->getCode(), $scope); /** @var CFO $s */
