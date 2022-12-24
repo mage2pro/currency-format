@@ -35,7 +35,7 @@ class Currency {
 	 * @return string
 	 */
 	function aroundFormatPrecision(
-		Sb $sb, \Closure $f, $price, $precision, $options = [], $container = true, $brackets = false
+		Sb $sb, \Closure $f, float $price, $precision, $options = [], $container = true, $brackets = false
 	) {
 		if (Settings::ignorePrecision()) {
 			$s = Settings::s()->get($sb->getCode()); /** @var O $s */
