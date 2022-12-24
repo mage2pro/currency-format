@@ -2,12 +2,6 @@
 namespace Dfe\CurrencyFormat;
 # 2015-12-31
 final class O extends \Df\Config\ArrayItem {
-	/**
-	 * 2015-12-31
-	 * @used-by self::id()
-	 */
-	private function code() {return $this->v();}
-
 	/** @return string */
 	function decimalSeparator() {return $this->v('.');}
 
@@ -94,6 +88,12 @@ final class O extends \Df\Config\ArrayItem {
 		$r = $this->v(FE::TS__NONE); /** @var string $r */
 		return dfa([FE::TS__NONE => '', FE::TS__THIN_SPACE => DF_THIN_SPACE], $r, $r);
 	}
+
+	/**
+	 * 2015-12-31
+	 * @used-by self::id()
+	 */
+	private function code() {return $this->v();}
 
 	const code = 'code';
 	const decimalSeparator = 'decimalSeparator';
