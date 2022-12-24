@@ -83,6 +83,7 @@ final class O extends \Df\Config\ArrayItem {
 
 	/**
 	 * 2015-12-31
+	 * @used-by self::postProcess()
 	 * @used-by \Dfe\CurrencyFormat\Plugin\Framework\Locale\Format::aroundGetPriceFormat()
 	 */
 	function thousandsSeparator():string {
