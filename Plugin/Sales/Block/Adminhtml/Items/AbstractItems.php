@@ -8,11 +8,10 @@ class AbstractItems {
 	 * https://mage2.pro/t/1929
 	 * @see \Magento\Sales\Block\Adminhtml\Items\AbstractItems::displayPrices()
 	 * https://github.com/magento/magento2/blob/2.1.0/app/code/Magento/Sales/Block/Adminhtml/Items/AbstractItems.php#L276-L288
-	 * @param bool $strong [optional]
 	 * @param string $sep [optional]
 	 * @return string
 	 */
-	function aroundDisplayPrices(Sb $sb, \Closure $f, float $basePrice, float $price, $strong = false, $sep = '<br />') {
+	function aroundDisplayPrices(Sb $sb, \Closure $f, float $basePrice, float $price, bool $strong = false, $sep = '<br />') {
 		/** @var string $r */
 		Settings::ignorePrecision(true);
 		try {$r = $f($basePrice, $price, $strong, $sep);}
