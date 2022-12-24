@@ -18,18 +18,15 @@ class Format extends Sb {
 
 	/**
 	 * 2015-12-26
-	 * Цель плагина — предоставить администратору возможность
+	 * 1) Цель плагина — предоставить администратору возможность
 	 * форматировать отображение денежных денежных величин:
 	 * «Mage2.PRO» → «Currency» → «Format».
-	 *
-	 * Помимо этого плагина для решения поставленной задачи нам нужны также плагины:
+	 * 2) Помимо этого плагина для решения поставленной задачи нам нужны также плагины:
 	 * @see \Dfe\CurrencyFormat\Plugin\Directory\Model\Currency::beforeFormatTxt()
 	 * @see \Dfe\CurrencyFormat\Plugin\Framework\Pricing\PriceCurrencyInterface::beforeFormat()
 	 * @see \Dfe\CurrencyFormat\Plugin\Framework\Pricing\Render\Amount::beforeFormatCurrency()
-	 *
-	 * @see \Magento\Framework\Locale\Format::getPriceFormat()
+	 * 3) @see \Magento\Framework\Locale\Format::getPriceFormat()
 	 * https://github.com/magento/magento2/blob/2.0.0/lib/internal/Magento/Framework/Locale/Format.php#L89-L152
-	 *
 	 * @param Sb $sb
 	 * @param \Closure $f
 	 * @param string $localeCode
