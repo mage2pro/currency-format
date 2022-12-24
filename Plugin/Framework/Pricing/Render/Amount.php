@@ -17,26 +17,20 @@ class Amount extends Sb {
 
 	/**
 	 * 2015-12-26
-	 * Цель плагина — предоставить администратору возможность
-	 * форматировать отображение денежных денежных величин:
+	 * 1) Цель плагина — предоставить администратору возможность форматировать отображение денежных денежных величин:
 	 * «Mage2.PRO» → «Currency» → «Format».
-	 *
-	 * Помимо этого плагина для решения поставленной задачи нам нужны также плагины:
+	 * 2) Помимо этого плагина для решения поставленной задачи нам нужны также плагины:
 	 * @see \Dfe\CurrencyFormat\Plugin\Directory\Model\Currency::aroundFormatTxt()
 	 * @see \Dfe\CurrencyFormat\Plugin\Framework\Locale\Format::aroundGetPriceFormat()
 	 * @see \Dfe\CurrencyFormat\Plugin\Framework\Pricing\PriceCurrencyInterface::beforeFormat()
-	 *
-	 * @see \Magento\Framework\Pricing\Render\Amount::formatCurrency()
+	 * 3) @see \Magento\Framework\Pricing\Render\Amount::formatCurrency()
 	 * https://github.com/magento/magento2/blob/2.0.0/lib/internal/Magento/Framework/Pricing/Render/Amount.php#L214-L228
-	 *
-	 * Обратите внимание:
-	 *
-	 * 1) Мы подключаем плагин именно к классу @see \Magento\Framework\Pricing\Render\Amount,
+	 * 4) Обратите внимание:
+	 * 4.1) Мы подключаем плагин именно к классу @see \Magento\Framework\Pricing\Render\Amount,
 	 * а не к интерфейcу @see \Magento\Framework\Pricing\Render\AmountRenderInterface,
 	 * потому что в интерфейсе метод formatCurrency отсутствует:
 	 * https://github.com/magento/magento2/blob/2.0.0/lib/internal/Magento/Framework/Pricing/Render/AmountRenderInterface.php
-	 *
-	 * 2) Модифицируемый метод @see \Magento\Framework\Pricing\Render\Amount::formatCurrency()
+	 * 4.2) Модифицируемый метод @see \Magento\Framework\Pricing\Render\Amount::formatCurrency()
 	 * делегирует выполнение работы методу
 	 * @see \Magento\Framework\Pricing\PriceCurrencyInterface::format()
 	 * return $this->priceCurrency->format($amount, $includeContainer, $precision);
@@ -50,7 +44,6 @@ class Amount extends Sb {
 	 * метод @see \Magento\Framework\Pricing\Render\Amount::formatCurrency()
 	 * подставляет значение по умолчанию,
 	 * и мы не знаем: опустил ли программист параметр или нет.
-	 *
 	 * @param Sb $sb
 	 * @param float $a
 	 * @param bool $includeContainer [optional]
