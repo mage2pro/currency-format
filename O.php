@@ -2,7 +2,10 @@
 namespace Dfe\CurrencyFormat;
 # 2015-12-31
 final class O extends \Df\Config\ArrayItem {
-	/** @return string */
+	/**
+	 * @used-by self::postProcess()
+	 * @return string
+	 */
 	function decimalSeparator() {return $this->v('.');}
 
 	/** @return bool */
