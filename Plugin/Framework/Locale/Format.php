@@ -27,11 +27,10 @@ class Format extends Sb {
 	 * @see \Dfe\CurrencyFormat\Plugin\Framework\Pricing\Render\Amount::beforeFormatCurrency()
 	 * 3) @see \Magento\Framework\Locale\Format::getPriceFormat()
 	 * https://github.com/magento/magento2/blob/2.0.0/lib/internal/Magento/Framework/Locale/Format.php#L89-L152
-	 * @param string $localeCode
 	 * @param string $currencyCode
 	 * @return array(string => mixed)
 	 */
-	function aroundGetPriceFormat(Sb $sb, \Closure $f, $localeCode = null, $currencyCode = null) {
+	function aroundGetPriceFormat(Sb $sb, \Closure $f, string $localeCode = null, $currencyCode = null) {
 		$r = $f($localeCode, $currencyCode); /** @var array(string => mixed) $r */
 		# 2015-12-31
 		# https://github.com/magento/magento2/blob/2.0.0/lib/internal/Magento/Framework/Locale/Format.php#L101-L105
