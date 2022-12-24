@@ -47,6 +47,7 @@ final class Settings extends \Df\Config\Settings {
 
 	/**
 	 * 2016-08-03
+	 * @used-by self::ignorePrecision()
 	 * @var bool
 	 */
 	private static $_ignorePrecision = false;
