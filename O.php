@@ -73,6 +73,7 @@ final class O extends \Df\Config\ArrayItem {
 	 * https://github.com/zendframework/zf1/blob/release-1.12.16/library/Zend/Locale/Format.php#L329
 	 * @used-by self::options()
 	 * @used-by \Dfe\CurrencyFormat\Plugin\Directory\Model\Currency::aroundFormat()
+	 * @used-by \Dfe\CurrencyFormat\Plugin\Directory\Model\Currency::aroundFormatPrecision()
 	 */
 	function showDecimals():bool {return $this->b(true);}
 
