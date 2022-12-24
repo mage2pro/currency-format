@@ -21,9 +21,10 @@ final class PriceCurrencyInterface {
 	 * @param int|null $precision [optional]
 	 * @param null|string|bool|int|\Magento\Framework\App\ScopeInterface $scope [optional]
 	 * @param \Magento\Framework\Model\AbstractModel|string|null $currency [optional]
-	 * @return array
 	 */
-	function beforeFormat(Sb $sb, float $a, bool $includeContainer = true, $precision = null, $scope = null, $currency = null) {
+	function beforeFormat(
+		Sb $sb, float $a, bool $includeContainer = true, $precision = null, $scope = null, $currency = null
+	):array {
 		# 2015-12-31 https://github.com/magento/magento2/blob/2.0.0/app/code/Magento/Directory/Model/PriceCurrency.php#L80
 		$currencyModel = $sb->getCurrency($scope, $currency); /** @var Currency $currencyModel */
 		$s = Settings::s()->get($currencyModel->getCode(), $scope); /** @var CFO $s */
