@@ -53,9 +53,8 @@ class Currency {
 	 * 3) @see \Magento\Directory\Model\Currency::formatTxt()
 	 * https://github.com/magento/magento2/blob/2.0.0/app/code/Magento/Directory/Model/Currency.php#L301-L314
 	 * @param array(string => string|int) $options [optional]
-	 * @return string
 	 */
-	function aroundFormatTxt(Sb $sb, \Closure $f, float $price, array $options = []) {
+	function aroundFormatTxt(Sb $sb, \Closure $f, float $price, array $options = []):string {
 		$s = Settings::s()->get($sb->getCode());  /** @var O $s */
 		/**
 		 * 2016-08-01
