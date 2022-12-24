@@ -55,7 +55,7 @@ final class O extends \Df\Config\ArrayItem {
 	 * @used-by \Dfe\CurrencyFormat\Plugin\Framework\Currency::afterToCurrency()
 	 * @return string
 	 */
-	function postProcess(string $priceS, string $l) {
+	function postProcess(string $priceS, string $l):string {
 		$symbols = \Zend_Locale_Data::getList(df_locale($l), 'symbols'); /** @var array(string => string) $symbols */
 		/** @var array(string => string) $m */
 		$m = ['decimal' => $this->decimalSeparator(), 'group' => $this->thousandsSeparator()];
