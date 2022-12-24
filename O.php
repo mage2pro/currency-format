@@ -71,6 +71,7 @@ final class O extends \Df\Config\ArrayItem {
 	 *		$value = Zend_Locale_Math::round($value, $options['precision']);
 	 *	}
 	 * https://github.com/zendframework/zf1/blob/release-1.12.16/library/Zend/Locale/Format.php#L329
+	 * @used-by self::options()
 	 */
 	function showDecimals():bool {return $this->b(true);}
 
