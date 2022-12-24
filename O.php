@@ -83,9 +83,8 @@ final class O extends \Df\Config\ArrayItem {
 
 	/**
 	 * 2015-12-31
-	 * @return string
 	 */
-	function thousandsSeparator() {
+	function thousandsSeparator():string {
 		$r = $this->v(FE::TS__NONE); /** @var string $r */
 		return dfa([FE::TS__NONE => '', FE::TS__THIN_SPACE => DF_THIN_SPACE], $r, $r);
 	}
