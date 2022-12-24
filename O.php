@@ -107,7 +107,8 @@ final class O extends \Df\Config\ArrayItem {
 	private function symbolPosition():string {return $this->v('before');}
 
 	const code = 'code';
-	
+
+	/** @used-by \Dfe\CurrencyFormat\FE::onFormInitialized() */
 	const decimalSeparator = 'decimalSeparator';
 
 	/** @used-by \Dfe\CurrencyFormat\FE::onFormInitialized() */
