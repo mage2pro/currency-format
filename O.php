@@ -82,7 +82,7 @@ final class O extends \Df\Config\ArrayItem {
 	function showDecimals():bool {return $this->b(true);}
 
 	/** @return string */
-	function symbolPosition() {return $this->v('before');}
+	function symbolPosition():string {return $this->v('before');}
 
 	/**
 	 * 2015-12-31
