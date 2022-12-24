@@ -23,7 +23,7 @@ final class O extends \Df\Config\ArrayItem {
 	 * @used-by \Dfe\CurrencyFormat\Observer\DisplayOptionsForming::execute()
 	 * @return array(string => string|int|null)
 	 */
-	function options() {return dfc($this, function() {/** @var array(mixed => mixed) $r */
+	function options():array {return dfc($this, function():array {/** @var array(mixed => mixed) $r */
 		$r = [];
 		if (!$this->showDecimals()) {
 			$r['precision'] = 0;
