@@ -77,6 +77,7 @@ final class O extends \Df\Config\ArrayItem {
 	 * @used-by \Dfe\CurrencyFormat\Plugin\Framework\Locale\Format::aroundGetPriceFormat()
 	 * @used-by \Dfe\CurrencyFormat\Plugin\Framework\Pricing\PriceCurrencyInterface::beforeFormat()
 	 * @used-by \Dfe\CurrencyFormat\Plugin\Framework\Pricing\Render\Amount::beforeFormatCurrency()
+	 * @used-by \Dfe\CurrencyFormat\Plugin\Sales\Model\Order::aroundFormatPrice()
 	 */
 	function showDecimals():bool {return $this->b(true);}
 
