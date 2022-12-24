@@ -6,13 +6,13 @@ use Magento\Framework\App\ScopeInterface as S;
 final class Settings extends \Df\Config\Settings {
 	/**
 	 * 2015-12-30 Форматирование отображения денежных денежных величин: «Mage2.PRO» → «Currency» → «Format».
-	 * @param string|null $currencyCode [optional]
+	 * @param string|null $currencyC [optional]
 	 * @param null|string|int|S $scope [optional]
 	 * @return A|O|null
 	 */
-	function get($currencyCode = null, $scope = null) {
+	function get($currencyC = null, $scope = null) {
 		$r = $this->_a(O::class, 'items', $scope); /** @var A $r */
-		return is_null($currencyCode) ? $r : $r->get($currencyCode);
+		return is_null($currencyC) ? $r : $r->get($currencyC);
 	}
 
 	/**
