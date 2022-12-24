@@ -81,9 +81,6 @@ final class O extends \Df\Config\ArrayItem {
 	 */
 	function showDecimals():bool {return $this->b(true);}
 
-	/** @return string */
-	function symbolPosition():string {return $this->v('before');}
-
 	/**
 	 * 2015-12-31
 	 * @return string
@@ -104,6 +101,9 @@ final class O extends \Df\Config\ArrayItem {
 	 * @used-by self::options()
 	 */
 	private function delimitSymbolFromAmount():bool {return $this->b();}
+
+	/** @used-by self::options() */
+	private function symbolPosition():string {return $this->v('before');}
 
 	const code = 'code';
 	const decimalSeparator = 'decimalSeparator';
