@@ -9,7 +9,10 @@ final class O extends \Df\Config\ArrayItem {
 	 */
 	function decimalSeparator():string {return $this->v('.');}
 
-	/** @return bool */
+	/**
+	 * 2015-12-31
+	 * @used-by self::options()
+	 */
 	function delimitSymbolFromAmount():bool {return $this->b();}
 
 	/**
