@@ -114,6 +114,7 @@ final class O extends \Df\Config\ArrayItem {
 	/** @used-by \Dfe\CurrencyFormat\FE::onFormInitialized() */
 	const delimitSymbolFromAmount = 'delimitSymbolFromAmount';
 
+	/** @used-by \Dfe\CurrencyFormat\FE::onFormInitialized() */
 	const showDecimals = 'showDecimals';
 
 	const symbolPosition = 'symbolPosition';
