@@ -52,8 +52,6 @@ class Currency {
 	 * @see \Dfe\CurrencyFormat\Plugin\Framework\Pricing\Render\Amount::beforeFormatCurrency()
 	 * 3) @see \Magento\Directory\Model\Currency::formatTxt()
 	 * https://github.com/magento/magento2/blob/2.0.0/app/code/Magento/Directory/Model/Currency.php#L301-L314
-	 * @param Sb $sb
-	 * @param \Closure $f
 	 * @param float $price
 	 * @param array(string => string|int) $options [optional]
 	 * @return string
