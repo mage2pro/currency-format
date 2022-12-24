@@ -9,15 +9,11 @@ class Currency {
 	 * https://mage2.pro/t/1929
 	 * @see \Magento\Directory\Model\Currency::format()
 	 * https://github.com/magento/magento2/blob/2.0.0/app/code/Magento/Directory/Model/Currency.php#L253-L265
-	 * @param Sb $sb
-	 * @param \Closure $f
-	 * @param float $price
 	 * @param array(string => string|int) $opt [optional]
-	 * @param bool $container [optional]
-	 * @param bool $brackets [optional]
-	 * @return string
 	 */
-	function aroundFormat(Sb $sb, \Closure $f, $price, $opt = [], $container = true, $brackets = false) {
+	function aroundFormat(
+		Sb $sb, \Closure $f, float $price, array $opt = [], bool $container = true, bool $brackets = false
+	):string {
 		$s = Settings::s()->get($sb->getCode());  /** @var O $s */
 		return
 			!$s || $s->showDecimals()

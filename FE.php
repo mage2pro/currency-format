@@ -16,7 +16,7 @@ class FE extends Fieldset {
 	 * @see \Df\Framework\Form\Element\Fieldset::onFormInitialized()
 	 * @used-by \Df\Framework\Plugin\Data\Form\Element\AbstractElement::afterSetForm()
 	 */
-	final function onFormInitialized() {
+	final function onFormInitialized():void {
 		parent::onFormInitialized();
 		$this->addClass('df-currency-format'); # 2016-07-30 This CSS class will be applied to the <fieldset> DOM node.
 		$currencies = df_currencies_options();

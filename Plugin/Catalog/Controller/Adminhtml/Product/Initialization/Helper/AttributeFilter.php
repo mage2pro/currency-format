@@ -11,13 +11,10 @@ final class AttributeFilter {
 	 * then a product's price is incorrectly saved on the product's save»:
 	 * https://github.com/mage2pro/currency-format/issues/2
 	 * @see \Magento\Catalog\Controller\Adminhtml\Product\Initialization\Helper\AttributeFilter::prepareProductAttributes()
-	 * @param Sb $sb
-	 * @param P $p 
 	 * @param array(string => mixed) $data
 	 * @param array(string => mixed) $useDefaults
-	 * @return mixed[]
 	 */
-	function beforePrepareProductAttributes(Sb $sb, P $p, array $data, array $useDefaults) {
+	function beforePrepareProductAttributes(Sb $sb, P $p, array $data, array $useDefaults):array {
 		$params =
 			['locale' => new \Zend_Locale(df_locale())]
 			+ df_locale_f()->getPriceFormat(df_locale(), $p->getStore()->getBaseCurrencyCode())
@@ -26,7 +23,7 @@ final class AttributeFilter {
 			# 2018-08-31
 			# "«Special Price» and «Сost» are set to `0` on a product save":
 			# https://github.com/mage2pro/currency-format/issues/3
-            if ('price' === $a->getFrontendInput() && '' !== ($v = dfa($data, $k))) {  /** @var string $v */
+            if ('price' === $a->getFrontendInput() && !df_es($v = dfa($data, $k))) {  /** @var string $v */
             	# 2018-08-30
 				# «Number normalization: getNumber($input, Array $options)»
 				# https://framework.zend.com/manual/1.12/en/zend.locale.parsing.html#zend.locale.number.normalize
