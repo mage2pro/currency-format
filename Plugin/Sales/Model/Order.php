@@ -9,11 +9,10 @@ class Order {
 	 * https://mage2.pro/t/1916
 	 * @see \Magento\Sales\Model\Order::formatPrice()
 	 * https://github.com/magento/magento2/blob/2db9e0f1/app/code/Magento/Sales/Model/Order.php#L1566-L1576
-	 * @param float $price
 	 * @param bool $addBrackets [optional]
 	 * @return string
 	 */
-	function aroundFormatPrice(Sb $sb, \Closure $f, $price, $addBrackets = false) {return
+	function aroundFormatPrice(Sb $sb, \Closure $f, float $price, $addBrackets = false) {return
 		/** @var CFO $s */!($s = Settings::s()->get($sb->getOrderCurrencyCode())) || $s->showDecimals()
 			? $f($price, $addBrackets)
 			: $sb->formatPricePrecision($price, 0, $addBrackets)
