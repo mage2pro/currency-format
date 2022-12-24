@@ -107,9 +107,15 @@ final class O extends \Df\Config\ArrayItem {
 	private function symbolPosition():string {return $this->v('before');}
 
 	const code = 'code';
+	
 	const decimalSeparator = 'decimalSeparator';
+
+	/** @used-by \Dfe\CurrencyFormat\FE::onFormInitialized() */
 	const delimitSymbolFromAmount = 'delimitSymbolFromAmount';
+
 	const showDecimals = 'showDecimals';
+
 	const symbolPosition = 'symbolPosition';
+
 	const thousandsSeparator = 'thousandsSeparator';
 }
