@@ -8,8 +8,6 @@ class AbstractItems {
 	 * https://mage2.pro/t/1929
 	 * @see \Magento\Sales\Block\Adminhtml\Items\AbstractItems::displayPrices()
 	 * https://github.com/magento/magento2/blob/2.1.0/app/code/Magento/Sales/Block/Adminhtml/Items/AbstractItems.php#L276-L288
-	 * @param Sb $sb
-	 * @param \Closure $f
 	 * @param float $basePrice
 	 * @param float $price
 	 * @param bool $strong [optional]
