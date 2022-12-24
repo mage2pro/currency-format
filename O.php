@@ -54,11 +54,10 @@ final class O extends \Df\Config\ArrayItem {
 	 * It should not be called twice on the same string: decimals and thousands separators are vanished in this case.
 	 * @used-by \Dfe\CurrencyFormat\Plugin\Directory\Model\Currency::aroundFormatTxt()
 	 * @used-by \Dfe\CurrencyFormat\Plugin\Framework\Currency::afterToCurrency()
-	 * @param string $priceS
 	 * @param string|null $l [optional]
 	 * @return string
 	 */
-	function postProcess($priceS, $l = null) {
+	function postProcess(string $priceS, $l = null) {
 		$symbols = \Zend_Locale_Data::getList(df_locale($l), 'symbols'); /** @var array(string => string) $symbols */
 		/** @var array(string => string) $m */
 		$m = ['decimal' => $this->decimalSeparator(), 'group' => $this->thousandsSeparator()];
