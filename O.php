@@ -11,12 +11,6 @@ final class O extends \Df\Config\ArrayItem {
 
 	/**
 	 * 2015-12-31
-	 * @used-by self::options()
-	 */
-	function delimitSymbolFromAmount():bool {return $this->b();}
-
-	/**
-	 * 2015-12-31
 	 * @override
 	 * @see \Df\Config\ArrayItem::id()
 	 * @used-by \Df\Config\A::get()
@@ -101,6 +95,12 @@ final class O extends \Df\Config\ArrayItem {
 	 * @used-by self::id()
 	 */
 	private function code() {return $this->v();}
+
+	/**
+	 * 2015-12-31
+	 * @used-by self::options()
+	 */
+	private function delimitSymbolFromAmount():bool {return $this->b();}
 
 	const code = 'code';
 	const decimalSeparator = 'decimalSeparator';
