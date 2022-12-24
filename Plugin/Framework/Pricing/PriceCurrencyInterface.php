@@ -10,18 +10,14 @@ final class PriceCurrencyInterface {
 	 * 2015-12-26
 	 * 1) Цель плагина — предоставить администратору возможность форматировать отображение денежных денежных величин:
 	 * «Mage2.PRO» → «Currency» → «Format».
-	 *
-	 * Помимо этого плагина для решения поставленной задачи нам нужны также плагины:
+	 * 2) Помимо этого плагина для решения поставленной задачи нам нужны также плагины:
 	 * @see \Dfe\CurrencyFormat\Plugin\Directory\Model\Currency::aroundFormatTxt()
 	 * @see \Dfe\CurrencyFormat\Plugin\Framework\Locale\Format::aroundGetPriceFormat()
 	 * @see \Dfe\CurrencyFormat\Plugin\Framework\Pricing\Render\Amount::beforeFormatCurrency()
-	 *
-	 * @see \Magento\Framework\Pricing\PriceCurrencyInterface::format()
+	 * 3) @see \Magento\Framework\Pricing\PriceCurrencyInterface::format()
 	 * https://github.com/magento/magento2/blob/2.0.0/lib/internal/Magento/Framework/Pricing/PriceCurrencyInterface.php#L42-L58
-	 *
-	 * @see \Magento\Directory\Model\PriceCurrency::format()
+	 * 4) @see \Magento\Directory\Model\PriceCurrency::format()
 	 * https://github.com/magento/magento2/blob/2.0.0/app/code/Magento/Directory/Model/PriceCurrency.php#L70-L82
-	 *
 	 * @param Sb $sb
 	 * @param float $a
 	 * @param bool $includeContainer [optional]
