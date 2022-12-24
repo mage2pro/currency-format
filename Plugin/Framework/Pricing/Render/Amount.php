@@ -44,7 +44,6 @@ class Amount extends Sb {
 	 * метод @see \Magento\Framework\Pricing\Render\Amount::formatCurrency()
 	 * подставляет значение по умолчанию,
 	 * и мы не знаем: опустил ли программист параметр или нет.
-	 * @param Sb $sb
 	 * @param float $a
 	 * @param bool $includeContainer [optional]
 	 * @param int|null $precision [optional]
