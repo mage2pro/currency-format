@@ -4,6 +4,7 @@ namespace Dfe\CurrencyFormat;
 final class O extends \Df\Config\ArrayItem {
 	/**
 	 * @used-by self::postProcess()
+	 * @used-by \Dfe\CurrencyFormat\Plugin\Framework\Locale\Format::aroundGetPriceFormat()
 	 * @return string
 	 */
 	function decimalSeparator() {return $this->v('.');}
