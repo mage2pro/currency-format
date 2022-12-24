@@ -13,6 +13,7 @@ final class Settings extends \Df\Config\Settings {
 	 * @used-by \Dfe\CurrencyFormat\Plugin\Framework\Currency::afterToCurrency()
 	 * @used-by \Dfe\CurrencyFormat\Plugin\Framework\Locale\Format::aroundGetPriceFormat()
 	 * @used-by \Dfe\CurrencyFormat\Plugin\Framework\Pricing\PriceCurrencyInterface::beforeFormat()
+	 * @used-by \Dfe\CurrencyFormat\Plugin\Framework\Pricing\Render\Amount::beforeFormatCurrency()
 	 * @param null|string|int|S $scope [optional]
 	 * @return A|O|null
 	 */
