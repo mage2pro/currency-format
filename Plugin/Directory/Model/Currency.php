@@ -9,10 +9,26 @@ class Currency {
 	 * https://mage2.pro/t/1929
 	 * @see \Magento\Directory\Model\Currency::format()
 	 * https://github.com/magento/magento2/blob/2.0.0/app/code/Magento/Directory/Model/Currency.php#L253-L265
+	 * 2023-07-19
+	 * 1) «TypeError: Dfe\CurrencyFormat\Plugin\Directory\Model\Currency::aroundFormat():
+	 * Argument #3 ($price) must be of type float, null given»: https://github.com/mage2pro/currency-format/issues/11
+	 * 2) Magento 2.4.7-beta1 can pass `null` as $price:
+	 * The call stack:
+	 * 		2.1) @see \Magento\Backend\Block\Dashboard\Totals::_prepareLayout():
+	 * 			$this->addTotal(__('Revenue'), $totals->getRevenue());
+	 * 		$totals->getRevenue() can be `null` there.
+	 * 		https://github.com/magento/magento2/blob/2.4.7-beta1/app/code/Magento/Backend/Block/Dashboard/Totals.php#L108-L108
+	 * 		2.2) @see \Magento\Backend\Block\Dashboard\Bar::addTotal():
+	 * 			$value = $this->format($value);
+	 *		https://github.com/magento/magento2/blob/2.4.7-beta1/app/code/Magento/Backend/Block/Dashboard/Bar.php#L54-L54
+	 * 		2.3) @see \Magento\Backend\Block\Dashboard\Bar::format():
+	 * 			return $this->getCurrency()->format($price);
+	 *		https://github.com/magento/magento2/blob/2.4.7-beta1/app/code/Magento/Backend/Block/Dashboard/Bar.php#L70-L70
+	 * @param float|null $price
 	 * @param array(string => string|int) $opt [optional]
 	 */
 	function aroundFormat(
-		Sb $sb, \Closure $f, float $price, array $opt = [], bool $container = true, bool $brackets = false
+		Sb $sb, \Closure $f, $price, array $opt = [], bool $container = true, bool $brackets = false
 	):string {
 		$s = Settings::s()->get($sb->getCode());  /** @var O $s */
 		return
@@ -27,10 +43,12 @@ class Currency {
 	 * https://mage2.pro/t/1929
 	 * @see \Magento\Directory\Model\Currency::formatPrecision()
 	 * https://github.com/magento/magento2/blob/2.0.0/app/code/Magento/Directory/Model/Currency.php#L267-L294
+	 * 2023-07-19 Magento 2.4.7-beta1 can pass `null` as $price: @see self::aroundFormat()
+	 * @param float|null $price
 	 * @param array(string => string|int) $options [optional]
 	 */
 	function aroundFormatPrecision(
-		Sb $sb, \Closure $f, float $price, int $precision, array $options = [], bool $container = true, bool $brackets = false
+		Sb $sb, \Closure $f, $price, int $precision, array $options = [], bool $container = true, bool $brackets = false
 	):string {
 		if (Settings::ignorePrecision()) {
 			$s = Settings::s()->get($sb->getCode()); /** @var O $s */
@@ -51,9 +69,11 @@ class Currency {
 	 * @see \Dfe\CurrencyFormat\Plugin\Framework\Pricing\Render\Amount::beforeFormatCurrency()
 	 * 3) @see \Magento\Directory\Model\Currency::formatTxt()
 	 * https://github.com/magento/magento2/blob/2.0.0/app/code/Magento/Directory/Model/Currency.php#L301-L314
+	 * 2023-07-19 Magento 2.4.7-beta1 can pass `null` as $price: @see self::aroundFormat()
+	 * @param float|null $price
 	 * @param array(string => string|int) $options [optional]
 	 */
-	function aroundFormatTxt(Sb $sb, \Closure $f, float $price, array $options = []):string {
+	function aroundFormatTxt(Sb $sb, \Closure $f, $price, array $options = []):string {
 		$s = Settings::s()->get($sb->getCode());  /** @var O $s */
 		/**
 		 * 2016-08-01
