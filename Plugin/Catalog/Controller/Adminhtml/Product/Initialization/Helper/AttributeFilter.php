@@ -23,7 +23,16 @@ final class AttributeFilter {
 			# 2018-08-31
 			# "«Special Price» and «Сost» are set to `0` on a product save":
 			# https://github.com/mage2pro/currency-format/issues/3
-            if ('price' === $a->getFrontendInput() && !df_es($v = dfa($data, $k))) {  /** @var string $v */
+            if (
+				'price' === $a->getFrontendInput()
+				/**
+				 * 2023-08-02
+				 * 1) «Dfe\CurrencyFormat\Plugin\Catalog\Controller\Adminhtml\Product\Initialization\Helper\AttributeFilter::parse():
+				 * Argument #1 ($r) must be of type string, null given, called in vendor/mage2pro/currency-format/Plugin/Catalog/Controller/Adminhtml/Product/Initialization/Helper/AttributeFilter.php on line 30»
+				 * 2) «special_price» can be `null`.
+				 */
+				&& !df_nes($v = dfa($data, $k))
+			) {  /** @var string $v */
             	# 2018-08-30
 				# «Number normalization: getNumber($input, Array $options)»
 				# https://framework.zend.com/manual/1.12/en/zend.locale.parsing.html#zend.locale.number.normalize
