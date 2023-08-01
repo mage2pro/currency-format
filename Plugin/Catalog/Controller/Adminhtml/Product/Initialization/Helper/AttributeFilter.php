@@ -28,8 +28,8 @@ final class AttributeFilter {
 				/**
 				 * 2023-08-02
 				 * 1) «Dfe\CurrencyFormat\Plugin\Catalog\Controller\Adminhtml\Product\Initialization\Helper\AttributeFilter::parse():
-				 * Argument #1 ($r) must be of type string, null given, called in vendor/mage2pro/currency-format/Plugin/Catalog/Controller/Adminhtml/Product/Initialization/Helper/AttributeFilter.php on line 30»
-				 * 2) «special_price» can be `null`.
+				 * Argument #1 ($r) must be of type string, null given, called in vendor/mage2pro/currency-format/Plugin/Catalog/Controller/Adminhtml/Product/Initialization/Helper/AttributeFilter.php on line 30»: https://github.com/mage2pro/currency-format/issues/12
+				 * 2) «special_price» can be `null` in Magento 2.4.7-beta1.
 				 */
 				&& !df_nes($v = dfa($data, $k))
 			) {  /** @var string $v */
