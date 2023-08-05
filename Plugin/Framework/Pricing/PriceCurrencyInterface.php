@@ -18,12 +18,19 @@ final class PriceCurrencyInterface {
 	 * https://github.com/magento/magento2/blob/2.0.0/lib/internal/Magento/Framework/Pricing/PriceCurrencyInterface.php#L42-L58
 	 * 4) @see \Magento\Directory\Model\PriceCurrency::format()
 	 * https://github.com/magento/magento2/blob/2.0.0/app/code/Magento/Directory/Model/PriceCurrency.php#L70-L82
+	 * 2023-08-05
+	 * «Dfe\CurrencyFormat\Plugin\Framework\Pricing\PriceCurrencyInterface::beforeFormat():
+	 * Argument #2 ($a) must be of type float, null given»: https://github.com/mage2pro/currency-format/issues/13
+	 * @used-by \Magento\Framework\Pricing\Render\Amount::formatCurrency():
+	 *		return $this->priceCurrency->format($amount, $includeContainer, $precision);
+	 * https://github.com/magento/magento2/blob/2.4.7-beta1/lib/internal/Magento/Framework/Pricing/Render/Amount.php#L214-L228
+	 * @param float|null $a
 	 * @param int|null $precision [optional]
 	 * @param null|string|bool|int|\Magento\Framework\App\ScopeInterface $scope [optional]
 	 * @param \Magento\Framework\Model\AbstractModel|string|null $currency [optional]
 	 */
 	function beforeFormat(
-		Sb $sb, float $a, bool $includeContainer = true, $precision = null, $scope = null, $currency = null
+		Sb $sb, $a, bool $includeContainer = true, $precision = null, $scope = null, $currency = null
 	):array {
 		# 2015-12-31 https://github.com/magento/magento2/blob/2.0.0/app/code/Magento/Directory/Model/PriceCurrency.php#L80
 		$currencyModel = $sb->getCurrency($scope, $currency); /** @var Currency $currencyModel */
