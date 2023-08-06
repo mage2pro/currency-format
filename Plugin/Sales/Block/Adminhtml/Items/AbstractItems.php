@@ -13,7 +13,7 @@ class AbstractItems {
 	function aroundDisplayPrices(
 		Sb $sb, \Closure $f
 		/**
-		 * 2023-08-05
+		 * 2023-08-06
 		 * Magento 2.4.7-beta1 can pass `null` as a money amount:
 		 * @see \Dfe\CurrencyFormat\Plugin\Directory\Model\Currency::aroundFormat()
 		 */
