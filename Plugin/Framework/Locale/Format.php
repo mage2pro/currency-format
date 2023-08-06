@@ -7,7 +7,10 @@ use Magento\Store\Model\Store;
 # 2015-12-13
 # Хитрая идея, которая уже давно пришла мне в голову: наследуясь от модифицируемого класса,
 # мы получаем возможность вызывать методы с областью доступа protected у переменной $sb.
-class Format extends Sb {
+# 2023-08-06
+# "Prevent interceptors generation for the plugins extended from interceptable classes":
+#https://github.com/mage2pro/core/issues/327
+class Format extends Sb implements \Magento\Framework\ObjectManager\NoninterceptableInterface {
 	/**
 	 * 2016-01-01
 	 * An empty constructor allows us to skip the parent's one.
