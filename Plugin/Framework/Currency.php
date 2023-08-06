@@ -3,7 +3,10 @@ namespace Dfe\CurrencyFormat\Plugin\Framework;
 use Dfe\CurrencyFormat\O as CFO;
 use Dfe\CurrencyFormat\Settings;
 use Magento\Framework\Currency as Sb;
-class Currency extends Sb {
+# 2023-08-06
+# "Prevent interceptors generation for the plugins extended from interceptable classes":
+#https://github.com/mage2pro/core/issues/327
+class Currency extends Sb implements \Magento\Framework\ObjectManager\NoninterceptableInterface {
 	/** 2016-08-01 */
 	function __construct() {}
 
