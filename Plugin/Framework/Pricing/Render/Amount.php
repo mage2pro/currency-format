@@ -2,12 +2,15 @@
 namespace Dfe\CurrencyFormat\Plugin\Framework\Pricing\Render;
 use Dfe\CurrencyFormat\O as CFO;
 use Dfe\CurrencyFormat\Settings;
+use Magento\Framework\ObjectManager\NoninterceptableInterface as INonInterceptable;
 use Magento\Framework\Pricing\PriceCurrencyInterface as IPriceCurrency;
 use Magento\Framework\Pricing\Render\Amount as Sb;
 # 2015-12-13
 # Хитрая идея, которая уже давно пришла мне в голову: наследуясь от модифицируемого класса,
 # мы получаем возможность вызывать методы с областью доступа protected у переменной $sb.
-class Amount extends Sb {
+class Amount extends Sb
+	# 2023-08-06 "Make plugins non-interceptable": https://github.com/mage2pro/core/issues/327
+	implements INonInterceptable {
 	/**
 	 * 2016-01-01
 	 * An empty constructor allows us to skip the parent's one.
@@ -46,6 +49,7 @@ class Amount extends Sb {
 	 * подставляет значение по умолчанию,
 	 * и мы не знаем: опустил ли программист параметр или нет.
 	 * @param float|null $a
+	 * @param bool|null $includeContainer
 	 */
 	function beforeFormatCurrency(
 		Sb $sb
@@ -67,7 +71,7 @@ class Amount extends Sb {
 		 * 5) Magento 2.4.7-beta1 can pass `null` as a precision:
 		 * <…>
 		 */
-		,$precision = IPriceCurrency::DEFAULT_PRECISION
+		,int $precision = IPriceCurrency::DEFAULT_PRECISION
 	):array {
 		/**
 		 # 2015-12-31
