@@ -32,7 +32,9 @@ class Currency {
 		 *        https://github.com/magento/magento2/blob/2.4.7-beta1/app/code/Magento/Backend/Block/Dashboard/Bar.php#L70-L70
 		 */
 		,$price
-		,array $opt = [], bool $container = true, bool $brackets = false
+		,array $opt = []
+		,bool $container = true
+		,bool $brackets = false
 	):string {
 		$s = Settings::s()->get($sb->getCode());  /** @var O $s */
 		return

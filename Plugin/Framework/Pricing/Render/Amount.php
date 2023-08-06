@@ -45,17 +45,29 @@ class Amount extends Sb {
 	 * метод @see \Magento\Framework\Pricing\Render\Amount::formatCurrency()
 	 * подставляет значение по умолчанию,
 	 * и мы не знаем: опустил ли программист параметр или нет.
+	 * @param float|null $a
 	 */
 	function beforeFormatCurrency(
-		Sb $sb, float $a, bool $includeContainer = true
+		Sb $sb
+		/**
+		 * 2023-08-06
+		 * Magento 2.4.7-beta1 can pass `null` as a money amount:
+		 * @see \Dfe\CurrencyFormat\Plugin\Directory\Model\Currency::aroundFormat()
+		 */
+		,$a
+		,bool $includeContainer = true
 		/**
 		 * 2023-08-06
 		 * 1) "Declare optional argument values for intercepted methods": https://github.com/mage2pro/core/issues/325
 		 * 2) "Magento does not pass the values of missed optional arguments of intercepted methods to plugins":
 		 * https://mage2.pro/t/6378
 		 * 3) @see \Magento\Framework\Pricing\Render\Amount::formatCurrency()
+		 * 4) «Dfe\CurrencyFormat\Plugin\Framework\Pricing\Render\Amount::beforeFormatCurrency():
+		 * Argument #4 ($precision) must be of type int, null given»: https://github.com/mage2pro/currency-format/issues/15
+		 * 5) Magento 2.4.7-beta1 can pass `null` as a precision:
+		 * <…>
 		 */
-		,int $precision = IPriceCurrency::DEFAULT_PRECISION
+		,$precision = IPriceCurrency::DEFAULT_PRECISION
 	):array {
 		/**
 		 # 2015-12-31
