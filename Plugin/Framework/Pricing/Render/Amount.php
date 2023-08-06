@@ -72,8 +72,6 @@ class Amount extends Sb {
 		 * Здесь мы настраиваем только $precision
 		 * Другие параметры отображения валюты мы настраиваем в другом плагине:
 		 * @see \Dfe\CurrencyFormat\Plugin\Directory\Model\Currency::aroundFormatTxt()
-		 */
-		/**
 		 * 2016-02-17
 		 * Раньше тут стояло ещё is_null($precision)
 		 * Убрал, потому что в @see \Magento\Checkout\Helper\Data::formatPrice() почему-то явно заданы 2 знака, а не null.
