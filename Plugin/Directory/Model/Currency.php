@@ -3,6 +3,7 @@ namespace Dfe\CurrencyFormat\Plugin\Directory\Model;
 use Dfe\CurrencyFormat\O;
 use Dfe\CurrencyFormat\Settings;
 use Magento\Directory\Model\Currency as Sb;
+use Magento\Framework\Pricing\PriceCurrencyInterface as IPriceCurrency;
 class Currency {
 	/**
 	 * 2016-08-03
@@ -44,15 +45,22 @@ class Currency {
 	 * @see \Magento\Directory\Model\Currency::formatPrecision()
 	 * https://github.com/magento/magento2/blob/2.0.0/app/code/Magento/Directory/Model/Currency.php#L267-L294
 	 * 2023-07-19 Magento 2.4.7-beta1 can pass `null` as $price: @see self::aroundFormat()
-	 * 2023-08-06
-	 * «Dfe\CurrencyFormat\Plugin\Directory\Model\Currency::aroundFormatPrecision():
-	 * Argument #4 ($precision) must be of type int, null given»: https://github.com/mage2pro/currency-format/issues/14
 	 * @param int|null $precision
 	 * @param float|null $price
 	 * @param array(string => string|int) $options [optional]
 	 */
 	function aroundFormatPrecision(
-		Sb $sb, \Closure $f, $price, $precision, array $options = [], bool $container = true, bool $brackets = false
+		Sb $sb, \Closure $f, $price
+		/**
+		 * 2023-08-06
+		 * 1) "Declare optional argument values for intercepted methods": https://github.com/mage2pro/core/issues/325
+		 * 2) "Magento does not pass the values of missed optional arguments of intercepted methods to plugins":
+		 * https://mage2.pro/t/6378
+		 * 3) «Dfe\CurrencyFormat\Plugin\Directory\Model\Currency::aroundFormatPrecision():
+		 *  Argument #4 ($precision) must be of type int, null given»: https://github.com/mage2pro/currency-format/issues/14
+		 */
+		,int $precision = IPriceCurrency::DEFAULT_PRECISION
+		,array $options = [], bool $container = true, bool $brackets = false
 	):string {
 		if (Settings::ignorePrecision()) {
 			$s = Settings::s()->get($sb->getCode()); /** @var O $s */

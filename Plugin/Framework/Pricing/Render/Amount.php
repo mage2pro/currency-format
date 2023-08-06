@@ -45,7 +45,6 @@ class Amount extends Sb {
 	 * метод @see \Magento\Framework\Pricing\Render\Amount::formatCurrency()
 	 * подставляет значение по умолчанию,
 	 * и мы не знаем: опустил ли программист параметр или нет.
-	 * @param int|null $precision [optional]
 	 */
 	function beforeFormatCurrency(
 		Sb $sb, float $a, bool $includeContainer = true
@@ -56,7 +55,7 @@ class Amount extends Sb {
 		 * https://mage2.pro/t/6378
 		 * 3) @see \Magento\Framework\Pricing\Render\Amount::formatCurrency()
 		 */
-		,$precision = IPriceCurrency::DEFAULT_PRECISION
+		,int $precision = IPriceCurrency::DEFAULT_PRECISION
 	):array {
 		/**
 		 # 2015-12-31
