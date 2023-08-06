@@ -6,8 +6,7 @@ use Magento\Directory\Model\Currency as Sb;
 use Magento\Framework\Pricing\PriceCurrencyInterface as IPriceCurrency;
 class Currency {
 	/**
-	 * 2016-08-03
-	 * https://mage2.pro/t/1929
+	 * 2016-08-03 https://mage2.pro/t/1929
 	 * @see \Magento\Directory\Model\Currency::format()
 	 * https://github.com/magento/magento2/blob/2.0.0/app/code/Magento/Directory/Model/Currency.php#L253-L265
 	 * @param float|null $price
