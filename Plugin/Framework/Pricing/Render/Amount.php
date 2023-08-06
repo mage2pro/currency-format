@@ -49,10 +49,13 @@ class Amount extends Sb {
 	 */
 	function beforeFormatCurrency(
 		Sb $sb, float $a, bool $includeContainer = true
-		# 2023-08-06
-		# 1) "Declare optional argument values for intercepted methods": https://github.com/mage2pro/core/issues/325
-		# 2) "Magento does not pass the values of missed optional arguments of intercepted methods to plugins":
-		# https://mage2.pro/t/6378
+		/**
+		 * 2023-08-06
+		 * 1) "Declare optional argument values for intercepted methods": https://github.com/mage2pro/core/issues/325
+		 * 2) "Magento does not pass the values of missed optional arguments of intercepted methods to plugins":
+		 * https://mage2.pro/t/6378
+		 * 3) @see \Magento\Framework\Pricing\Render\Amount::formatCurrency()
+		 */
 		,$precision = IPriceCurrency::DEFAULT_PRECISION
 	):array {
 		/**
