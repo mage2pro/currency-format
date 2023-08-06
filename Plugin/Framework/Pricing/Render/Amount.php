@@ -2,6 +2,7 @@
 namespace Dfe\CurrencyFormat\Plugin\Framework\Pricing\Render;
 use Dfe\CurrencyFormat\O as CFO;
 use Dfe\CurrencyFormat\Settings;
+use Magento\Framework\Pricing\PriceCurrencyInterface as IPriceCurrency;
 use Magento\Framework\Pricing\Render\Amount as Sb;
 # 2015-12-13
 # Хитрая идея, которая уже давно пришла мне в голову: наследуясь от модифицируемого класса,
@@ -46,7 +47,14 @@ class Amount extends Sb {
 	 * и мы не знаем: опустил ли программист параметр или нет.
 	 * @param int|null $precision [optional]
 	 */
-	function beforeFormatCurrency(Sb $sb, float $a, bool $includeContainer = true, $precision = null):array {
+	function beforeFormatCurrency(
+		Sb $sb, float $a, bool $includeContainer = true
+		# 2023-08-06
+		# 1) "Declare optional argument values for intercepted methods": https://github.com/mage2pro/core/issues/325
+		# 2) "Magento does not pass the values of missed optional arguments of intercepted methods to plugins":
+		# https://mage2.pro/t/6378
+		,$precision = IPriceCurrency::DEFAULT_PRECISION
+	):array {
 		/**
 		 # 2015-12-31
 		 # Сюда мы попадаем из шаблона https://github.com/magento/magento2/blob/2.0.0/app/code/Magento/Catalog/view/base/templates/product/price/amount/default.phtml
